@@ -15,9 +15,9 @@ class Rezerwacje{
     }
 
 
-    function Cena(){
-        $cena = 0.00
-        $cena += $this->cenaPodstawowaBiletu * $this->normalne;
+    function cena(){
+        $cena = 0.00;
+        $cena += $this->cenaPodstawowaBiletu * $this->iloscNormalnych;
         $cena += $this->cenaPodstawowaBiletu * 0.7 * $this->iloscUczenSenior;
         $cena += $this->cenaPodstawowaBiletu * 0.5 * $this->iloscStudent;
         return round($cena, 2);

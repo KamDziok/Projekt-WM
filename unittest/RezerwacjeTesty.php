@@ -3,10 +3,10 @@
 class RezerwacjeTest extends PHPUnit_Framwork_TestCase {
 
     function testCena(){
-        $dane = [ [20,2,1,0], [20,0,0,2], [25,1,1,2] ]
+        $dane = [ [20,2,1,0], [20,0,0,2], [25,1,1,2] ];
 
-        for($i = 0; i < count($dane); $i++){
-            $result = new Rezerwacje($dane[0], $dane[1], $dane[2], $dane[3])
+        for($i = 0; $i < count($dane); $i++){
+            $result = new Rezerwacje($dane[0], $dane[1], $dane[2], $dane[3]);
 
             $expected = 0.00;
             $cenaBiletu = $dane[0];
@@ -16,7 +16,7 @@ class RezerwacjeTest extends PHPUnit_Framwork_TestCase {
 
             $expected = round( ($normalne + $uczenSenior + $student), 2);
 
-            $this->assertEquals($expected, $result)
+            $this->assertEquals($expected, $result);
         }
     }
 
