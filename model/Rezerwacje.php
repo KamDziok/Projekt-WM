@@ -1,26 +1,27 @@
 <?php
-
-class Rezerwacje{
-
-    var $cenaPodstawowaBiletu;
-    var $iloscNormalnych;
+require_once 'Bilet.php';
+require_once 'Sala.php';
+class Rezerwacje extends Repertuar{
+    var $imie;
+    var $nazwisko;
+    var $miejsca;
     var $iloscUczenSenior;
     var $iloscStudent;
 
-    function __construct($cenaPodstawowaBiletu, $iloscNormalnych, $iloscUczenSenior, $iloscStudent){
-        $this->cenaPodstawowaBiletu = $cenaPodstawowaBiletu;
-        $this->iloscNormalnych = $iloscNormalnych;
+    function __construct($imie, $nazwisko, $miejsca, $iloscUczenSenior, $iloscStudent){
+        $this->imie = $imie;
+        $this->nazwisko = $nazwisko;
+        $this->miejsca = $miejsca;
         $this->iloscUczenSenior = $iloscUczenSenior;
         $this->iloscStudent = $iloscStudent;
     }
 
-
-    function cena(){
+    function obliczCene(){
         $cena = 0.00;
-        $cena += $this->cenaPodstawowaBiletu * $this->iloscNormalnych;
-        $cena += $this->cenaPodstawowaBiletu * 0.7 * $this->iloscUczenSenior;
-        $cena += $this->cenaPodstawowaBiletu * 0.5 * $this->iloscStudent;
-        return round($cena, 2);
+        $cena += Bilet->cenyBiletow * count($this->miejsca);
+        $cena += Bilet->cenyBiletow / Bilet->ulgaSzkolna * $this->iloscUczenSenior;
+        $cena += Bilet->cenyBiletow / Bilet->ulgaStudencka * $this->iloscStudent;
+        return $cena;
     }
-
 }
+?>
