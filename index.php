@@ -1,5 +1,5 @@
 <?php
-
+    require_once 'vendor/autoload.php';
     include_once 'model/Rezerwacje.php';
 
     $rez = new Rezerwacje(20, 1, 2, 1);

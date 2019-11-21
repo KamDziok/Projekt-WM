@@ -1,12 +1,19 @@
 <?php
+declare(strict_types=1);
 
-class RezerwacjeTest extends PHPUnit_Framwork_TestCase {
+include_once 'model/Rezerwacje.php';
+//require_once 'PHPUnit/Autoload.php';
 
-    function testCena(){
-        $dane = [ [20,2,1,0], [20,0,0,2], [25,1,1,2] ];
+use PHPUnit\Framework\TestCase;
 
+final class RezerwacjeTest extends TestCase {
+
+    public function testCena(){
+        //$dane = [ [20,2,1,0], [20,0,0,2], [25,1,1,2] ];
+        $dane = [20,2,1,0];
         for($i = 0; $i < count($dane); $i++){
-            $result = new Rezerwacje($dane[0], $dane[1], $dane[2], $dane[3]);
+            $rez = new Rezerwacje($dane[0], $dane[1], $dane[2], $dane[3]);
+            $result = $rez->cena();
 
             $expected = 0.00;
             $cenaBiletu = $dane[0];
@@ -18,6 +25,7 @@ class RezerwacjeTest extends PHPUnit_Framwork_TestCase {
 
             $this->assertEquals($expected, $result);
         }
+        
     }
 
 }
