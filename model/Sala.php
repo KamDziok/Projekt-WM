@@ -2,7 +2,7 @@
 class Sala{
     var $miejsca;
 
-    function __construct($miejsca){
+    public function __construct($miejsca){
         $this->miejsca = $miejsca;
     }
 

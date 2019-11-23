@@ -1,5 +1,5 @@
 <?php
-class Film{
+class Film extends KolekcjaFilm{
     var $tytul;
     var $reżyser;
     var $opis;
