@@ -5,7 +5,7 @@ class Repertuar{
     var $godzina;
     var $sala;
 
-    function __construct($film, $data, $godzina, $sala){
+    public function __construct($film, $data, $godzina, $sala){
         $this->film = $film;
         $this->data = $data;
         $this->godzina = $godzina;

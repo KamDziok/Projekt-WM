@@ -4,7 +4,7 @@ class Film{
     var $reżyser;
     var $opis;
 
-    function __construct($tytul, $reżyser, $opis){
+    public function __construct($tytul, $reżyser, $opis){
         $this->tytul = $tytul;
         $this->reżyser = $reżyser;
         $this->opis = $opis;

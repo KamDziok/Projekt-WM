@@ -4,7 +4,7 @@ class Bilet{
     var $ulgaSzkolna;
     var $ulgaStudencka;
 
-    function __construct($cenyBiletow, $ulgaSzkolna, $ulgaStudencka){
+    public function __construct($cenyBiletow, $ulgaSzkolna, $ulgaStudencka){
         $this->cenyBiletow = $cenyBiletow;
         $this->ulgaSzkolna = $ulgaSzkolna;
         $this->ulgaStudencka = $ulgaStudencka;
