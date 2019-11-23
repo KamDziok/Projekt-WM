@@ -1,7 +1,9 @@
 <?php
 require_once 'Bilet.php';
 require_once 'Sala.php';
-class Rezerwacje extends Repertuar{
+require_once 'Repertuar.php';
+class Rezerwacje{
+    var $Repertuar;
     var $imie;
     var $nazwisko;
     var $miejsca;
