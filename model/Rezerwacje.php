@@ -2,7 +2,7 @@
 require_once 'Bilet.php';
 require_once 'Sala.php';
 require_once 'Repertuar.php';
-class Rezerwacje{
+class Rezerwacje extends KolekcjaRezerwacje{
     var $Repertuar;
     var $imie;
     var $nazwisko;
@@ -20,8 +20,6 @@ class Rezerwacje{
 
     public function __destruct(){
         echo "obiekt został usunięty";
-    }
-
     }
 
     function obliczCene(){

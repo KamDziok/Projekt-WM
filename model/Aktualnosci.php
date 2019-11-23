@@ -1,5 +1,5 @@
 <?php
-class Aktualności{
+class Aktualności extends KolekcjaAktualnosci{
     var $wiadomości;
 
     public function __construct($wiadomości){
