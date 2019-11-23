@@ -1,7 +1,9 @@
 <?php
 class Repertuar extends KolekcjaRepertuar{
     var $film;
-    var $data;
+    var $rok;
+    var $miasiac;
+    var $dzien;
     var $godzina;
     var $sala;
 
