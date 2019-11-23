@@ -11,5 +11,9 @@ class Repertuar{
         $this->godzina = $godzina;
         $this->sala = $sala;
     }
+
+    public function __destruct(){
+        echo "obiekt został usunięty";
+    }
 }
 ?>

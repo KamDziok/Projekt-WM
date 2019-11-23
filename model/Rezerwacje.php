@@ -10,12 +10,18 @@ class Rezerwacje{
     var $iloscUczenSenior;
     var $iloscStudent;
 
-    function __construct($imie, $nazwisko, $miejsca, $iloscUczenSenior, $iloscStudent){
+    public function __construct($imie, $nazwisko, $miejsca, $iloscUczenSenior, $iloscStudent){
         $this->imie = $imie;
         $this->nazwisko = $nazwisko;
         $this->miejsca = $miejsca;
         $this->iloscUczenSenior = $iloscUczenSenior;
         $this->iloscStudent = $iloscStudent;
+    }
+
+    public function __destruct(){
+        echo "obiekt został usunięty";
+    }
+
     }
 
     function obliczCene(){

@@ -10,6 +10,10 @@ class Bilet{
         $this->ulgaStudencka = $ulgaStudencka;
     }
 
+    public function __destruct(){
+        echo "obiekt został usunięty";
+    }
+
     function zmianaCen($cenyBiletow){
         return new Bilet($cenyBiletow, $this->ulgaSzkolna, $this->ulgaStudencka);
     }

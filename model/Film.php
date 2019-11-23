@@ -9,5 +9,9 @@ class Film{
         $this->reżyser = $reżyser;
         $this->opis = $opis;
     }
+
+    public function __destruct(){
+        echo "obiekt został usunięty";
+    }
 }
 ?>
