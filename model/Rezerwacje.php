@@ -27,11 +27,11 @@ class Rezerwacje extends Walidacja{
         echo "obiekt został usunięty";
     }
 
-    function obliczCene(){
+    function obliczCene($dzien, $bilet){
         $cena = 0.00;
-        $cena += Bilet->cenyBiletow * count($this->miejsca);
-        $cena += Bilet->cenyBiletow / Bilet->ulgaSzkolna * $this->iloscUczenSenior;
-        $cena += Bilet->cenyBiletow / Bilet->ulgaStudencka * $this->iloscStudent;
+        $cena += $bilet->cenyBiletow[$dzien] * ($this->miejsca-$this->iloscUczenSenior-$this->iloscStudent);
+        $cena += $bilet->cenyBiletow[$dzien] / $bilet->ulgaSzkolna * $this->iloscUczenSenior;
+        $cena += $bilet->cenyBiletow[$dzien] / $bilet->ulgaStudencka * $this->iloscStudent;
         return $cena;
     }
 }
