@@ -1,27 +1,15 @@
 <?php
 class Repertuar extends Walidacja{
     var $film;
-    var $rok;
-    var $miesiac;
-    var $dzien;
-    var $godzina;
-    var $minuta;
+    var $data;
     var $sala;
 
-    public function __construct($film, $rok, $miesiac, $dzien, $godzina, $minuta, $sala){
+    public function __construct($film, $godzina, $minuta, $miesiac, $dzien, $rok, $sala){
         Walidacja::walidacjaString($film);
-        Walidacja::walidacjaInt($rok);
-        Walidacja::walidacjaInt($miesiac);
-        Walidacja::walidacjaInt($dzien);
-        Walidacja::walidacjaInt($godzina);
-        Walidacja::walidacjaInt($minuta);
+        Walidacja::walidacjaData($godzina, $minuta, $miesiac, $dzien, $rok);
         Walidacja::walidacjaInt($sala);
         $this->film = $film;
-        $this->rok = $rok;
-        $this->miesiac = $miesiac;
-        $this->dzien = $dzien;
-        $this->godzina = $godzina;
-        $this->minuta = $minuta;
+        $this->data = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
         $this->sala = $sala;
     }
 
