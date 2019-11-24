@@ -60,9 +60,7 @@ abstract class Walidacja{
     }
     protected function walidacjaData($data){
         if( !(
-            checkdate($date('n',$data)) && 
-            checkdate($date('d',$data)) &&
-            checkdate($date('Y',$data)) &&
+            checkdate($date('n',$data), $date('d',$data), $date('Y',$data)) &&
             ($date('H',$data) < 24) &&
             ($date('i',$data) < 60)
             )
