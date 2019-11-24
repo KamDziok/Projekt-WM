@@ -12,9 +12,10 @@ class KolekcjaRepertuar  extends Repertuar{
     function usun($repertuar){
         $n = 0;
         while($this->TablicaRepertuar.count >= $n){
-            if($this->TablicaRepertuar[n] == $repertuar){
-                $this->TablicaRepertuar[n].delete;
+            if($this->TablicaRepertuar[$n] == $repertuar){
+                $this->TablicaRepertuar[$n].delete;
                 break;
+                $n++;
             }
         }
     }
