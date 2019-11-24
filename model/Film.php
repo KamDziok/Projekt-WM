@@ -5,9 +5,9 @@ class Film extends Walidacja{
     var $opis;
 
     public function __construct($tytul, $reżyser, $opis){
-        walidacjaString($tytul);
-        walidacjaString($reżyser);
-        walidacjaString($opis);
+        Walidacja::walidacjaString($tytul);
+        Walidacja::walidacjaString($reżyser);
+        Walidacja::walidacjaString($opis);
         $this->tytul = $tytul;
         $this->reżyser = $reżyser;
         $this->opis = $opis;
