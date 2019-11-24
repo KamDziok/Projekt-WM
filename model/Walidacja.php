@@ -58,11 +58,11 @@ abstract class Walidacja{
             $n++;
         }
     }
-    protected function walidacjaData($data){
+    protected function walidacjaData($dzien, $miesiac, $rok, $godz, $min){
         if( !(
-            checkdate($date('n',$data), $date('d',$data), $date('Y',$data)) &&
-            ($date('H',$data) < 24) &&
-            ($date('i',$data) < 60)
+            checkdate($dzien, $miesiac, $rok) &&
+            ($godz < 24) &&
+            ($min < 60)
             )
         ){
             throw new Exception('argument nie jest data');
