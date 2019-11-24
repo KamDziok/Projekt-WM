@@ -1,5 +1,5 @@
 <?php
-class KolekcjaRepertuar{
+class KolekcjaRepertuar  extends Repertuar{
     var $TablicaRepertuar;
     public function __construct(){
         $this->TablicaRepertuar = array();
@@ -12,9 +12,10 @@ class KolekcjaRepertuar{
     function usun($repertuar){
         $n = 0;
         while($this->TablicaRepertuar.count >= $n){
-            if($this->TablicaRepertuar[n] == $repertuar){
-                $this->TablicaRepertuar[n].delete;
+            if($this->TablicaRepertuar[$n] == $repertuar){
+                $this->TablicaRepertuar[$n].delete;
                 break;
+                $n++;
             }
         }
     }

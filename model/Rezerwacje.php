@@ -2,7 +2,7 @@
 require_once 'Bilet.php';
 require_once 'Sala.php';
 require_once 'Repertuar.php';
-class Rezerwacje extends KolekcjaRezerwacje{
+class Rezerwacje extends Walidacja{
     var $Repertuar;
     var $imie;
     var $nazwisko;
@@ -11,6 +11,11 @@ class Rezerwacje extends KolekcjaRezerwacje{
     var $iloscStudent;
 
     public function __construct($imie, $nazwisko, $miejsca, $iloscUczenSenior, $iloscStudent){
+        walidacjaString($imie);
+        walidacjaString($nazwisko);
+        walidacjaInt($miejsca);
+        walidacjaInt($iloscUczenSenior);
+        walidacjaInt($iloscStudent);
         $this->imie = $imie;
         $this->nazwisko = $nazwisko;
         $this->miejsca = $miejsca;

@@ -1,5 +1,5 @@
 <?php
-class KolekcjaFilm{
+class KolekcjaFilm extends Film{
     var $TablicaFilm;
     public function __construct(){
         $this->TablicaFilm = array();
