@@ -16,7 +16,7 @@ class Bilet extends Walidacja{
     }
 
     public function __destruct(){
-        echo "obiekt został usunięty";
+        echo " obiekt Bilet został usunięty.";
     }
 
     function zmianaCen($cenyBiletow){

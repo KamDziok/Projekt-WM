@@ -11,12 +11,13 @@ class Rezerwacje extends Walidacja{
     var $iloscUczenSenior;
     var $iloscStudent;
 
-    public function __construct($imie, $nazwisko, $miejsca, $iloscUczenSenior, $iloscStudent){
+    public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $iloscUczenSenior, $iloscStudent){
         Walidacja::walidacjaString($imie);
         Walidacja::walidacjaString($nazwisko);
         Walidacja::walidacjaTablicyInt($miejsca);
         Walidacja::walidacjaInt($iloscUczenSenior);
         Walidacja::walidacjaInt($iloscStudent);
+        $this->Repertuar = $Repertuar;
         $this->imie = $imie;
         $this->nazwisko = $nazwisko;
         $this->miejsca = $miejsca;
@@ -25,7 +26,7 @@ class Rezerwacje extends Walidacja{
     }
 
     public function __destruct(){
-        echo "obiekt został usunięty";
+        echo " obiekt Rezerwacje został usunięty.";
     }
 
     function obliczCene($dzien, $bilet){

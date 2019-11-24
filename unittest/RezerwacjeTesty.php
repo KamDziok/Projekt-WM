@@ -1,6 +1,6 @@
 <?php
-
 include_once 'model/Rezerwacje.php';
+include_once 'model/Repertuar.php';
 include_once 'model/Bilet.php';
 include_once 'model/Walidacja.php';
 
@@ -16,16 +16,17 @@ class RezerwacjeTest extends TestCase {
         $ulgaU = 0.3;
         $bilet = new Bilet($ceny, $ulgaU, $ulgaS);
         $miejsca = [20,21,22];
-        $dane = ["Łukasz","Kwaśny",$miejsca,1,1];
+        $repertuar = new Repertuar("bla",00,3,11,25,2019,2);
+        $dane = [$repertuar,"Łukasz","Kwaśny",$miejsca,1,1];
         for($i = 0; $i < count($dane); $i++){
-            $rez = new Rezerwacje($dane[0], $dane[1], $dane[2], $dane[3],$dane[4]);
-            $result = $rez->obliczCene(5,$bilet);
+            $rez = new Rezerwacje($dane[0], $dane[1], $dane[2], $dane[3],$dane[4],$dane[5]);
+            $result = $rez->obliczCene(date("N",$rez->Repertuar->data),$bilet);
 
             $expected = 0.00;
-            $cenaBiletu = $bilet->cenyBiletow[5];
-            $normalne = $cenaBiletu * (count($dane[2])-$dane[3]-$dane[4]);
-            $uczenSenior = $cenaBiletu / $bilet->ulgaSzkolna * $dane[3];
-            $student = $cenaBiletu / $bilet->ulgaStudencka * $dane[4];
+            $cenaBiletu = $bilet->cenyBiletow[date("N",$rez->Repertuar->data)];
+            $normalne = $cenaBiletu * (count($dane[3])-$dane[4]-$dane[5]);
+            $uczenSenior = $cenaBiletu / $bilet->ulgaSzkolna * $dane[4];
+            $student = $cenaBiletu / $bilet->ulgaStudencka * $dane[5];
 
             $expected = round( ($normalne + $uczenSenior + $student), 2);
 
