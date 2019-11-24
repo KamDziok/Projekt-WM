@@ -1,7 +1,7 @@
 <?php
 abstract class Walidacja{
 
-    function walidacjaString($argument){
+    protected function walidacjaString($argument){
         if(!is_string($argument)){
             throw new Exception('argument nie jest typu String');
         }
@@ -10,7 +10,7 @@ abstract class Walidacja{
         }
     }
 
-    function walidacjaInt($argument){
+    protected function walidacjaInt($argument){
         if(!is_int($argument)){
             throw new Exception('argument nie jest typu int');
         }
@@ -22,7 +22,7 @@ abstract class Walidacja{
         }
     }
     
-    function walidacjaFloat($argument){
+    protected function walidacjaFloat($argument){
         if(!is_float($argument)){
             throw new Exception('argument nie jest typu float');
         }
@@ -34,7 +34,7 @@ abstract class Walidacja{
         }
     }
 
-    function walidacjaTablicyFloat($argument){
+    protected function walidacjaTablicyFloat($argument){
         $n = 0;
         while(count($argument) > $n){
             if(!is_float($argument[$n])){
@@ -46,7 +46,7 @@ abstract class Walidacja{
             $n++;
         }
     }
-    function walidacjaTablicyInt($argument){
+    protected function walidacjaTablicyInt($argument){
         $n = 0;
         while(count($argument) > $n){
             if(!is_int($argument[$n])){
