@@ -58,5 +58,17 @@ abstract class Walidacja{
             $n++;
         }
     }
+    protected function walidacjaData($data){
+        if( !(
+            checkdate($date('n',$data)) && 
+            checkdate($date('d',$data)) &&
+            checkdate($date('Y',$data)) &&
+            ($date('H',$data) < 24) &&
+            ($date('i',$data) < 60)
+            )
+        ){
+            throw new Exception('argument nie jest data');
+        }
+    }
 }
 ?>
