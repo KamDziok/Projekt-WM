@@ -9,13 +9,13 @@ class Repertuar extends Walidacja{
     var $sala;
 
     public function __construct($film, $rok, $miesiac, $dzien, $godzina, $minuta, $sala){
-        walidacjaString($film);
-        walidacjaInt($rok);
-        walidacjaInt($miesiac);
-        walidacjaInt($dzien);
-        walidacjaInt($godzina);
-        walidacjaInt($minuta);
-        walidacjaInt($sala);
+        Walidacja::walidacjaString($film);
+        Walidacja::walidacjaInt($rok);
+        Walidacja::walidacjaInt($miesiac);
+        Walidacja::walidacjaInt($dzien);
+        Walidacja::walidacjaInt($godzina);
+        Walidacja::walidacjaInt($minuta);
+        Walidacja::walidacjaInt($sala);
         $this->film = $film;
         $this->rok = $rok;
         $this->miesiac = $miesiac;

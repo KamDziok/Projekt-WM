@@ -4,7 +4,7 @@ class Aktualnosci extends Walidacja{
     var $wiadomości;
 
     public function __construct($wiadomości){
-        walidacjaString($wiadomości);
+        Walidacja::walidacjaString($wiadomości);
         $this->wiadomości = $wiadomości;
     }
 

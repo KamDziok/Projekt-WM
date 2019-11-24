@@ -3,7 +3,7 @@ class Sala extends Walidacja{
     var $miejsca;
 
     public function __construct($miejsca){
-        walidacjaTablicyInt($miejsca);
+        Walidacja::walidacjaTablicyInt($miejsca);
         $this->miejsca = $miejsca;
     }
 
