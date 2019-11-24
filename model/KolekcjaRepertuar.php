@@ -1,5 +1,5 @@
 <?php
-class KolekcjaRepertuar{
+class KolekcjaRepertuar  extends Repertuar{
     var $TablicaRepertuar;
     public function __construct(){
         $this->TablicaRepertuar = array();

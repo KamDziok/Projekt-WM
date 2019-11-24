@@ -1,5 +1,5 @@
 <?php
-class Repertuar extends KolekcjaRepertuar{
+class Repertuar{
     var $film;
     var $rok;
     var $miasiac;

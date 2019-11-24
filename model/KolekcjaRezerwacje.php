@@ -1,5 +1,5 @@
 <?php
-class KolekcjaRezerwacje{
+class KolekcjaRezerwacje extends Rezerwacje{
     var $TablicaRezerwacje;
     public function __construct(){
         $this->TablicaRezerwacje = array();
