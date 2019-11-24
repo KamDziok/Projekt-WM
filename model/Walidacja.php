@@ -58,5 +58,15 @@ abstract class Walidacja{
             $n++;
         }
     }
+    protected function walidacjaData($dzien, $miesiac, $rok, $godz, $min){
+        if( !(
+            checkdate($dzien, $miesiac, $rok) &&
+            ($godz < 24) &&
+            ($min < 60)
+            )
+        ){
+            throw new Exception('argument nie jest data');
+        }
+    }
 }
 ?>
