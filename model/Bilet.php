@@ -7,36 +7,36 @@ class Bilet extends Walidacja{
     var $ulgaStudencka;
 
     public function __construct($cenyBiletow, $ulgaSzkolna, $ulgaStudencka){
-        Walidacja::walidacjaTablicyFloat($cenyBiletow);
-        Walidacja::walidacjaFloat($ulgaSzkolna);
-        Walidacja::walidacjaFloat($ulgaStudencka);
+        Walidacja::walidacjaTablicaBilety($cenyBiletow);
+        Walidacja::walidacjaUlga($ulgaSzkolna);
+        Walidacja::walidacjaUlga($ulgaStudencka);
         $this->cenyBiletow = $cenyBiletow;
         $this->ulgaSzkolna = $ulgaSzkolna;
         $this->ulgaStudencka = $ulgaStudencka;
     }
 
     public function __destruct(){
-        echo " obiekt Bilet został usunięty.";
+        
     }
 
     function zmianaCen($cenyBiletow){
-        Walidacja::walidacjaTablicy($cenyBiletow);
+        Walidacja::walidacjaTablicaBilety($cenyBiletow);
         return new Bilet($cenyBiletow, $this->ulgaSzkolna, $this->ulgaStudencka);
     }
 
     function zmianaUlgi($ulgaSzkolna, $ulgaStudencka){
-        Walidacja::walidacjaFloat($ulgaSzkolna);
-        Walidacja::walidacjaFloat($ulgaStudencka);
+        Walidacja::walidacjaUlga($ulgaSzkolna);
+        Walidacja::walidacjaUlga($ulgaStudencka);
         return new Bilet($this->cenyBiletow, $ulgaSzkolna, $ulgaStudencka);
     }
 
     function zmianaUlgiSzkolnej($ulgaSzkolna){
-        Walidacja::walidacjaFloat($ulgaSzkolna);
+        Walidacja::walidacjaUlga($ulgaSzkolna);
         return new Bilet($this->cenyBiletow, $ulgaSzkolna, $this->ulgaStudencka);
     }
 
     function zmianaUlgiStudenckiej($ulgaStudencka){
-        Walidacja::walidacjaFloat($ulgaStudencka);
+        Walidacja::walidacjaUlga($ulgaStudencka);
         return new Bilet($this->cenyBiletow, $this->ulgaSzkolna, $ulgaStudencka);
     }
 }

@@ -8,7 +8,7 @@ class Sala extends Walidacja{
     }
 
     public function __destruct(){
-        echo "obiekt został usunięty";
+        
     }
 }
 ?>

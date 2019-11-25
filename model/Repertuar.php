@@ -14,7 +14,7 @@ class Repertuar extends Walidacja{
     }
 
     public function __destruct(){
-        echo " obiekt Repertuar został usunięty.";
+        
     }
 }
 ?>
