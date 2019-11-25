@@ -20,6 +20,6 @@ class AktualnosciTest extends TestCase {
     public function testAktualnosci(){
         $wiadomosci="Wiadomości ze świata filmów:/nTest/Test";
         $aktualnosci = new Aktualnosci($wiadomosci);
-        $this->assertIsString('string',$wiadomosci);
+        $this->assertIsString($wiadomosci);
     }
 }
