@@ -56,11 +56,16 @@ abstract class Walidacja{
 
     protected function walidacjaTablicyInt($argument){
         $n = 0;
+        try{
+            count($argument);
+        }catch(Exception $e){
+            throw new Exception('argument nie jest typu array');
+        }
         while(count($argument) > $n){
             if(!is_int($argument[$n])){
-                throw new Exception('argument nie jest typu float');
+                throw new Exception('argument nie jest typu int');
             }
-            elseif ($argument < 0){
+            elseif ($argument[$n] < 0){
                 throw new Exception('argument jest mniejszy od 0');
             }
             $n++;
