@@ -5,6 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 class BiletTesty extends TestCase{
 
+    //Konstruktor
     //cenaBiletu
 
     public function testBilet_cena_biletu_ujemna(){
@@ -188,5 +189,73 @@ class BiletTesty extends TestCase{
         }
     }
 
-    
+    //zmianaUlgiSzkolnej
+
+    public function testBilet_zmianaUlgiSzkolnej(){
+        $bilet = new Bilet([20.0, 21.1, 22.0, 21.0, 22.5, 25.0, 25.0], 0.3, 0.5);
+        $bilet = $bilet->zmianaUlgiSzkolnej(0.37);
+        $this->assertInstanceOf(Bilet::class,$bilet);
+    }
+
+    public function testBilet_zmianaUlgiSzkolnej_string(){
+        try{
+        $bilet = new Bilet([20.0, 21.1, 22.0, 21.0, 22.5, 25.0, 25.0], 0.3, 0.5);
+        $bilet = $bilet->zmianaUlgiSzkolnej('0.37');
+        }catch(Exception $e){
+            $this->assertEquals('argument nie jest typu float', $e->getMessage());
+        }
+    }
+
+    public function testBilet_zmianaUlgiSzkolnej_int(){
+        try{
+        $bilet = new Bilet([20.0, 21.1, 22.0, 21.0, 22.5, 25.0, 25.0], 0.3, 0.5);
+        $bilet = $bilet->zmianaUlgiSzkolnej(3.1);
+        }catch(Exception $e){
+            $this->assertEquals('argument jest wiekszy od 1', $e->getMessage());
+        }
+    }
+
+    public function testBilet_zmianaUlgiSzkolnej_ujemna(){
+        try{
+        $bilet = new Bilet([20.0, 21.1, 22.0, 21.0, 22.5, 25.0, 25.0], 0.3, 0.5);
+        $bilet = $bilet->zmianaUlgiSzkolnej(-3.1);
+        }catch(Exception $e){
+            $this->assertEquals('argument jest mniejszy od 0', $e->getMessage());
+        }
+    }
+
+    //zmianaUlgiStudenckiej
+
+    public function testBilet_zmianaUlgiStudenckiej(){
+        $bilet = new Bilet([20.0, 21.1, 22.0, 21.0, 22.5, 25.0, 25.0], 0.3, 0.5);
+        $bilet = $bilet->zmianaUlgiSzkolnej(0.51);
+        $this->assertInstanceOf(Bilet::class,$bilet);
+    }
+
+    public function testBilet_zmianaUlgiStudenckiej_string(){
+        try{
+        $bilet = new Bilet([20.0, 21.1, 22.0, 21.0, 22.5, 25.0, 25.0], 0.3, 0.5);
+        $bilet = $bilet->zmianaUlgiSzkolnej('0.51');
+        }catch(Exception $e){
+            $this->assertEquals('argument nie jest typu float', $e->getMessage());
+        }
+    }
+
+    public function testBilet_zmianaUlgiStudenckiej_int(){
+        try{
+        $bilet = new Bilet([20.0, 21.1, 22.0, 21.0, 22.5, 25.0, 25.0], 0.3, 0.5);
+        $bilet = $bilet->zmianaUlgiSzkolnej(3.1);
+        }catch(Exception $e){
+            $this->assertEquals('argument jest wiekszy od 1', $e->getMessage());
+        }
+    }
+
+    public function testBilet_zmianaUlgiStudenckiej_ujemna(){
+        try{
+        $bilet = new Bilet([20.0, 21.1, 22.0, 21.0, 22.5, 25.0, 25.0], 0.3, 0.5);
+        $bilet = $bilet->zmianaUlgiSzkolnej(-3.1);
+        }catch(Exception $e){
+            $this->assertEquals('argument jest mniejszy od 0', $e->getMessage());
+        }
+    }
 }
