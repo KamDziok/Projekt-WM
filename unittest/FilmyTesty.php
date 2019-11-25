@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 class FilmyTest extends TestCase {
     public function testFilmu(){
         $tytul="jacekPlacek";
-        $rezyser="a ktoœ";
+        $rezyser="a ktos";
         $opis=" traratatata";
         $film = new Film($tytul, $rezyser, $opis);
  

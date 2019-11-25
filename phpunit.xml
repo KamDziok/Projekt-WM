@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  
--->
 <phpunit
         backupGlobals="false"
         backupStaticAttributes="false"
@@ -15,6 +13,11 @@
     <testsuites>
         <testsuite name="projekt-WM">
             <file phpVersion="7.3.0">unittest/RezerwacjeTesty.php</file>
+            <!--
+            <file phpVersion="7.3.0">unittest/FilmyTesty.php</file>
+            <file phpVersion="7.3.0">unittest/RepertuarTesty.php</file>
+            -->
+            <file phpVersion="7.3.0">unittest/BiletTesty.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

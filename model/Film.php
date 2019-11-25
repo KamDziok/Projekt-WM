@@ -14,7 +14,7 @@ class Film extends Walidacja{
     }
 
     public function __destruct(){
-        echo "obiekt został usunięty";
+        
     }
 }
 ?>

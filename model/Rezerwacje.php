@@ -26,7 +26,7 @@ class Rezerwacje extends Walidacja{
     }
 
     public function __destruct(){
-        echo " obiekt Rezerwacje został usunięty.";
+        
     }
 
     function obliczCene($dzien, $bilet){
