@@ -1,11 +1,11 @@
 <?php
 require_once 'Walidacja.php';
 class Aktualnosci extends Walidacja{
-    var $wiadomości;
+    var $wiadomosci;
 
-    public function __construct($wiadomości){
-        Walidacja::walidacjaString($wiadomości);
-        $this->wiadomości = $wiadomości;
+    public function __construct($wiadomosci){
+        Walidacja::walidacjaString($wiadomosci);
+        $this->wiadomosci = $wiadomosci;
     }
 
     public function __destruct(){
