@@ -15,6 +15,7 @@
     <testsuites>
         <testsuite name="projekt-WM">
             <file phpVersion="7.3.0">unittest/RezerwacjeTesty.php</file>
+            <file phpVersion="7.3.0">unittest/RepertuarTesty.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
