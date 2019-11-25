@@ -9,24 +9,31 @@ use PHPUnit\Framework\TestCase;
 class RezerwacjeTest extends TestCase {
 
     public function testCena(){
-        //to przyklad, jest do poprawy
-        //$dane = [ [20,2,1,0], [20,0,0,2], [25,1,1,2] ];
+        // tworzenie obiektu klasy Bilet
         $ceny = [20.0,18.0,20.0,20.0,22.0,25.0,25.0];
         $ulgaS = 0.5;
         $ulgaU = 0.3;
         $bilet = new Bilet($ceny, $ulgaU, $ulgaS);
-        $miejsca = [20,21,22];
+
+        //tworzenie obiektu klasy Repertuar
         $repertuar = new Repertuar("bla",00,3,11,25,2019,2);
-        $dane = [$repertuar,"Łukasz","Kwaśny",$miejsca,1,1];
+
+        //dane do testu klasy Rezerwacje
+        $miejsca = [20,21,22];
+        $dane = [[$repertuar,"Łukasz","Kwaśny",$miejsca,1,1],
+                [$repertuar,"Kamil","Dziok",$miejsca,3,0],
+                [$repertuar,"Krzysiek","Banaś",$miejsca,0,0],
+                [$repertuar,"Damian","Gaworowski",$miejsca,0,2],
+                [$repertuar,"Hubert","Jakobsze",$miejsca,0,3]];
         for($i = 0; $i < count($dane); $i++){
-            $rez = new Rezerwacje($dane[0], $dane[1], $dane[2], $dane[3],$dane[4],$dane[5]);
+            $rez = new Rezerwacje($dane[$i][0], $dane[$i][1], $dane[$i][2], $dane[$i][3],$dane[$i][4],$dane[$i][5]);
             $result = $rez->obliczCene(date("N",$rez->Repertuar->data),$bilet);
 
             $expected = 0.00;
             $cenaBiletu = $bilet->cenyBiletow[date("N",$rez->Repertuar->data)];
-            $normalne = $cenaBiletu * (count($dane[3])-$dane[4]-$dane[5]);
-            $uczenSenior = $cenaBiletu / $bilet->ulgaSzkolna * $dane[4];
-            $student = $cenaBiletu / $bilet->ulgaStudencka * $dane[5];
+            $normalne = $cenaBiletu * (count($dane[$i][3])-$dane[$i][4]-$dane[$i][5]);
+            $uczenSenior = $cenaBiletu / $bilet->ulgaSzkolna * $dane[$i][4];
+            $student = $cenaBiletu / $bilet->ulgaStudencka * $dane[$i][5];
 
             $expected = round( ($normalne + $uczenSenior + $student), 2);
 

@@ -18,7 +18,7 @@ abstract class Walidacja{
             throw new Exception('argument nie jest typu int');
         }
         elseif ($argument < 0){
-            throw new Exception('argument jest mniejszy od 1');
+            throw new Exception('argument jest mniejszy od 0');
         }
 
     }
