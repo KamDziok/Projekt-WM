@@ -2,36 +2,38 @@
 abstract class Walidacja{
 
     protected function walidacjaString($argument){
-        if(!is_string($argument)){
-            throw new Exception('argument nie jest typu String');
-        }
-        elseif(is_null($argument)){
+        if(is_null($argument)){
             throw new Exception('argument nie został podany');
+        }
+        elseif(!is_string($argument)){
+            throw new Exception('argument nie jest typu String');
         }
     }
 
     protected function walidacjaInt($argument){
-        if(!is_int($argument)){
+        if(is_null($argument)){
+            throw new Exception('argument nie został podany');
+        }
+        elseif(!is_int($argument)){
             throw new Exception('argument nie jest typu int');
         }
         elseif ($argument < 0){
             throw new Exception('argument jest mniejszy od 1');
         }
-        elseif(is_null($argument)){
-            throw new Exception('argument nie został podany');
-        }
+
     }
     
     protected function walidacjaFloat($argument){
-        if(!is_float($argument)){
+        if(is_null($argument)){
+            throw new Exception('argument nie został podany');
+        }
+        elseif(!is_float($argument)){
             throw new Exception('argument nie jest typu float');
         }
         elseif ($argument < 0){
             throw new Exception('argument jest mniejszy od 0');
         }
-        elseif(is_null($argument)){
-            throw new Exception('argument nie został podany');
-        }
+        
     }
 
     protected function walidacjaTablicyFloat($argument){
