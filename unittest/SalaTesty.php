@@ -27,6 +27,4 @@ class SalaTesty extends TestCase {
         
         }
     }
-    
-
 }
