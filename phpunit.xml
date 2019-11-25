@@ -17,6 +17,7 @@
             <file phpVersion="7.3.0">unittest/RezerwacjeTesty.php</file>
             <file phpVersion="7.3.0">unittest/RepertuarTesty.php</file>
             <file phpVersion="7.3.0">unittest/AktualnosciTesty.php</file>
+            <file phpVersion="7.3.0">unittest/SalaTesty.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
