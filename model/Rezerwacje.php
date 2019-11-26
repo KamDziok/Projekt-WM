@@ -17,6 +17,7 @@ class Rezerwacje extends Walidacja{
         Walidacja::walidacjaTablicyInt($miejsca);
         Walidacja::walidacjaInt($iloscUczenSenior);
         Walidacja::walidacjaInt($iloscStudent);
+        Walidacja::walidacjaUlgi($miejsca, $iloscUczenSenior, $iloscStudent);
         $this->Repertuar = $Repertuar;
         $this->imie = $imie;
         $this->nazwisko = $nazwisko;

@@ -101,5 +101,11 @@ abstract class Walidacja{
             throw new Exception('tablica nie ma 7 elemwntow');
         }
     }
+
+    protected function walidacjaUlgi($miejsca, $u1, $u2){
+        if(count($miejsca) < $u1 + $u2){
+            throw new Exception('niewłaściwa liczba biletów ulgowych');
+        }
+    }
 }
 ?>
