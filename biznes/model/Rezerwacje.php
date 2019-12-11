@@ -4,25 +4,25 @@ include_once 'Sala.php';
 include_once 'Repertuar.php';
 include_once 'Walidacja.php';
 class Rezerwacje extends Walidacja{
-    var $Repertuar;
+    var $repertuar;
     var $imie;
     var $nazwisko;
     var $miejsca;
-    var $iloscUczenSenior;
+    var $iloscUczen;
     var $iloscStudent;
 
-    public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $iloscUczenSenior, $iloscStudent){
+    public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent){
         Walidacja::walidacjaString($imie);
         Walidacja::walidacjaString($nazwisko);
         Walidacja::walidacjaTablicyInt($miejsca);
-        Walidacja::walidacjaInt($iloscUczenSenior);
+        Walidacja::walidacjaInt($iloscUczen);
         Walidacja::walidacjaInt($iloscStudent);
-        Walidacja::walidacjaUlgi($miejsca, $iloscUczenSenior, $iloscStudent);
+        Walidacja::walidacjaUlgi($miejsca, $iloscUczen, $iloscStudent);
         $this->Repertuar = $Repertuar;
         $this->imie = $imie;
         $this->nazwisko = $nazwisko;
         $this->miejsca = $miejsca;
-        $this->iloscUczenSenior = $iloscUczenSenior;
+        $this->iloscUczen = $iloscUczen;
         $this->iloscStudent = $iloscStudent;
     }
 
@@ -32,8 +32,8 @@ class Rezerwacje extends Walidacja{
 
     function obliczCene($dzien, $bilet){
         $cena = 0.00;
-        $cena += $bilet->cenyBiletow[$dzien] * (count($this->miejsca)-$this->iloscUczenSenior-$this->iloscStudent);
-        $cena += $bilet->cenyBiletow[$dzien] / $bilet->ulgaSzkolna * $this->iloscUczenSenior;
+        $cena += $bilet->cenyBiletow[$dzien] * (count($this->miejsca)-$this->iloscUczen-$this->iloscStudent);
+        $cena += $bilet->cenyBiletow[$dzien] / $bilet->ulgaSzkolna * $this->iloscUczen;
         $cena += $bilet->cenyBiletow[$dzien] / $bilet->ulgaStudencka * $this->iloscStudent;
         return round($cena,2);
     }
