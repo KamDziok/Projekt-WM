@@ -10,6 +10,23 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $rezult = curl_exec($ch);
 curl_close($ch);
-file_put_contents('user.json', $rezult);
 
-echo json_encode(file_get_contents('user.json'));
+$arr_data = json_decode($rezult, true);
+$arr = $arr_data['data'];
+//$array_data = array();
+//$array = array();
+//foreach($arr_JSON)
+$json = json_encode($arr_data);
+//var_dump($json);
+file_put_contents('user.json', $json);
+
+// $fp = fopen('user.json', 'w');
+// fwrite($fp, $json);
+// fclose($fp);
+
+$strJsonFileContents = file_get_contents("user.json");
+echo $strJsonFileContents;
+//var_dump(json_decode($strJsonFileContents));
+
+//echo json_encode(file_get_contents('user.json'));
+//echo file_get_contents('user.json');

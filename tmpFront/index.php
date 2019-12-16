@@ -30,8 +30,9 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $rezult = curl_exec($ch);
 curl_close($ch);
-$array_data = json_decode($rezult);
+$array_data = json_decode($rezult, true);
 //var_dump($array_data);
 print_r($array_data);
 echo "<br/>";
-echo $array_data[11];
+// var_dump($array_data);
+// echo "<br/>";
