@@ -10,6 +10,7 @@ class Rezerwacje extends Walidacja{
     var $miejsca;
     var $iloscUczenSenior;
     var $iloscStudent;
+    var $cena;
 
     public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $iloscUczenSenior, $iloscStudent){
         Walidacja::walidacjaString($imie);
@@ -24,13 +25,18 @@ class Rezerwacje extends Walidacja{
         $this->miejsca = $miejsca;
         $this->iloscUczenSenior = $iloscUczenSenior;
         $this->iloscStudent = $iloscStudent;
+        $this->cena = obliczCene(date("N",$Repertuar->data), Bilet::$cenyBiletow);
     }
 
     public function __destruct(){
         
     }
 
-    function obliczCene($dzien, $bilet){
+    public function wybierzMiejsca(){
+
+    }
+
+    public function obliczCene($dzien, $bilet){
         $cena = 0.00;
         $cena += $bilet->cenyBiletow[$dzien] * (count($this->miejsca)-$this->iloscUczenSenior-$this->iloscStudent);
         $cena += $bilet->cenyBiletow[$dzien] / $bilet->ulgaSzkolna * $this->iloscUczenSenior;
