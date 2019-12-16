@@ -22,4 +22,50 @@
 
             return $stmt;
         }
+
+        public function readSingle(){
+            $query = 'SELECT id, login, password FROM ' . $this->table . ' WHERE id = ?';
+
+            $stmt = $this->conn->prepare($query);
+
+            //dodanie parametru
+            $stmt->BindParam(1, $this->id);
+
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $this->id = $row['id'];
+            $this->login = $row['login'];
+            $this->password = $row['password'];
+        }
+
+        public function create(){
+            $query = 'INSERT INTO ' . $this->table .'
+            SET 
+                id = :id,
+                login = :login,
+                password = :password;
+            ';
+
+            $stmt = $this->conn->prepare($query);
+
+            //czyszczenie danych
+            $this->id = htmlspecialchars(strip_tags($this->id));
+            $this->login = htmlspecialchars(strip_tags($this->login));
+            $this->password = htmlspecialchars(strip_tags($this->password));
+
+            $stmt->bindParam(':id', $this->id);
+            $stmt->bindParam(':login', $this->login);
+            $stmt->bindParam(':password', $this->password);
+
+            if($stmt->execute()){
+                return true;
+            }
+
+            //wypisz blad
+            printf('Error: %s.\n', $stmt->error);
+
+            return false;
+        }
     }

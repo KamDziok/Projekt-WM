@@ -17,7 +17,7 @@
     $result = $user->read();
 
     //pobierz wiersz zapytania
-    $num = $result-rowCount();
+    $num = $result->rowCount();
 
     //sprawdz czy uzytkownicy istnieja
     if($num > 0){
