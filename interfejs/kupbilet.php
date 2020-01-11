@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-type" content="../text/html; charset=iso-8859-2" />
 <meta http-equiv="Reply-to" content="sidd@d4u.biz" />
-<meta http-equiv="Content-Language" content="pl" />
+<meta http-equiv="Content-Language" content="PL" />
+<meta charset="utf-8">
 <meta name="Author" content="Sidd" />
 <link rel="stylesheet" href="../stylesheet.css" type="text/css" /></head>
 <body leftmargin="0" rightmargin="0" topmargin="0" bottommargin="0"  marginwidth="0" marginheight="0">
@@ -26,52 +27,53 @@
 					<tr><td valign="top" style="width:100px; height:100%; background-image:url(../images/s_tlo.jpg);">
 						
                     <table>
-                    <a style="color:red; font-size: xx-large" aligen="center">   Wybrany film  </a>
+                    <i style="color:red; font-size: xx-large" aligen="center">   Wybrany film  </i>
                    <td>
-<a style="font-size: medium " aligen="center"> Poniedzialek , godzina  </a>
+<i style="font-size: medium " aligen="center"> Poniedzialek , godzina  </i>
 </td>
 <td>
-<a style="font-size: medium " aligen="center"> sala nr 2  </a>
+<i style="font-size: medium " aligen="center"> sala nr 2  </i>
 
 
 <form action="...">
+
 	
-<input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
+<input type="checkbox" name="nazwa" value="wartość">1a
+    <input type="checkbox" name="nazwa" value="wartość">2a
+    <input type="checkbox" name="nazwa" value="wartość">3a
+    <input type="checkbox" name="nazwa" value="wartość">4a
+    <input type="checkbox" name="nazwa" value="wartość">5a
+    <input type="checkbox" name="nazwa" value="wartość">6a
+    <input type="checkbox" name="nazwa" value="wartość">7a
+    <input type="checkbox" name="nazwa" value="wartość">8a
     <br>
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
+    <input type="checkbox" name="nazwa" value="wartość">1b
+    <input type="checkbox" name="nazwa" value="wartość">2b
+    <input type="checkbox" name="nazwa" value="wartość">3b
+    <input type="checkbox" name="nazwa" value="wartość">4b
+    <input type="checkbox" name="nazwa" value="wartość">5b
+    <input type="checkbox" name="nazwa" value="wartość">6b
+    <input type="checkbox" name="nazwa" value="wartość">7b
+    <input type="checkbox" name="nazwa" value="wartość">8b
     <br>
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
+    <input type="checkbox" name="nazwa" value="wartość"> 1c
+    <input type="checkbox" name="nazwa" value="wartość">2c
+    <input type="checkbox" name="nazwa" value="wartość">3c
+    <input type="checkbox" name="nazwa" value="wartość"> 4c
+    <input type="checkbox" name="nazwa" value="wartość">5c
+    <input type="checkbox" name="nazwa" value="wartość"> 6c
+    <input type="checkbox" name="nazwa" value="wartość">7c 
+    <input type="checkbox" name="nazwa" value="wartość"> 8c
     <br>
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
+    <input type="checkbox" name="nazwa" value="wartość">1d
+    <input type="checkbox" name="nazwa" value="wartość">2d
+    <input type="checkbox" name="nazwa" value="wartość">3d
+    <input type="checkbox" name="nazwa" value="wartość">4d
+    <input type="checkbox" name="nazwa" value="wartość">5d
+    <input type="checkbox" name="nazwa" value="wartość">6d
+    <input type="checkbox" name="nazwa" value="wartość">7d
+    <input type="checkbox" name="nazwa" value="wartość">8d
     <br>
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
-    <input type="checkbox" name="nazwa" value="wartość">Tu
    
 </form>
 
@@ -94,7 +96,7 @@
 
 
                     </table>
-                     <i>opis tego filmu tatasta stastatatst  tasttastsata astast ast at astsa tast</i>
+                     <i>Nadszedł czas, by ponownie rozprawić się z zombie. Tym razem spotkamy się w okolicach Białego Domu. Od czasu powstania pierwszego filmu, na świecie pojawiło się mnóstwo nowych zombie, a te, które przetrwały – ewoluowały. I choć z zombie walczyć niełatwo, czasem najtrudniej stawić czoła… rodzinie, zwłaszcza tak złośliwej i nieprzebierającej w środkach rodzinie. opis dystrybutora </i>
                      <input style="background:url(images/se23.jpg); width:100px; color:red;" type="button" value="Kup Bilet" onClick="location.href='kup.php';" />
 				
 

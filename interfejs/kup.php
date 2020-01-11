@@ -26,9 +26,9 @@
 					<tr><td valign="top" style="width:100px; height:100%; background-image:url(../images/s_tlo.jpg);">
 						
                     <table>
-                    <a style="color:red; font-size: xx-large" aligen="center">   Wybrany film  </a>
+                    <i style="color:red; font-size: xx-large" aligen="center">   Wybrany film  </i>
                    <td>
-<a style="font-size: medium " aligen="center"> dzien , godzina [poieranie z bazy dancyh]  </a>
+<i style="font-size: medium " aligen="center"> dzien , godzina [poieranie z bazy dancyh]  </i>
 </td>
 <td>
 <a style="font-size: medium " aligen="center"> sala nr 2  </a>
@@ -41,6 +41,16 @@
 
 
 <form action="*">
+<input type="radio" name="radio" value="wartość" />bilet normany 20 zł
+<input type="radio" name="radio" value="wartość" />bilet ulgowy 10 zł
+<input type="radio" name="radio" value="wartość" />bilet studencki 15 zł
+<input type="radio" name="radio" value="wartość" />bilet seniora 13 zł
+<br>
+<input type="radio" name="radio" value="wartość" />bilet normany 20 zł
+<input type="radio" name="radio" value="wartość" />bilet ulgowy 10 zł
+<input type="radio" name="radio" value="wartość" />bilet studencki 15 zł
+<input type="radio" name="radio" value="wartość" />bilet seniora 13 zł
+<br>
 <input type="radio" name="radio" value="wartość" />bilet normany 20 zł
 <input type="radio" name="radio" value="wartość" />bilet ulgowy 10 zł
 <input type="radio" name="radio" value="wartość" />bilet studencki 15 zł

@@ -2,11 +2,6 @@
 <head>
 <link rel="stylesheet" href="../stylesheet.css" type="text/css" /></head>
 <body>
-<?php
-session_start();
-mysql_connect("localhost","admin","haslo");
-mysql_select_db("baza");
-?>
 <table align="center" >
 
 <td cellpadding="0" cellspacing="0"   style="background:url(../images/pusta.jpg); width: 403px; height:607px" >

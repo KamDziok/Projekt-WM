@@ -29,10 +29,10 @@
 					
 					
 <tr><td  class="srodek" cellpadding="0" cellspacing="0"  align="center" style=" height:100%; font-size: large"  colspan="2" > Plan seansow na dni na [pobranie daty z bazy]</td><td></td></tr>
-<tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Poniedzialek</td><td float: left; valign="top">pobranie z bazy po koleji godziny, sali, tytuł, olinkowanie odnoscnika plus olinkowanie do kup bilet np{ 17.00, Shrek, sala2} </td></tr>
-<tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > wtorek</td><td> </td> </tr>
-<tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Sroda</td><td> </td> </tr>
-<tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Czwartek</td> <td></td> </tr>
+<tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Poniedzialek</td><td float: left; valign="top">[17.00],zombieland2, [14.00],Shrek, [12.30],Shrek </td></tr>
+<tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > wtorek</td><td float: left; valign="top">[17.00],zombieland2, [14.00],Shrek, [12.30],Shrek </td></tr>
+<tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Sroda</td><td float: left; valign="top">[17.00],zombieland2, [14.00],Shrek, [12.30],Shrek </td></tr>
+<tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Czwartek</td><td float: left; valign="top">[17.00],zombieland2, [14.00],Shrek, [12.30],Shrek </td></tr>
 <tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Piatek</td><td> </td> </tr>
 <tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Sobota</td><td> </td> </tr>
 <tr><td style="background:url(../images/ml2.jpg); width:80px; height:26px; color:blue; font-size: 25px" class="srodek" > Niedziela</td> <td></td> </tr>
