@@ -27,6 +27,6 @@
     }else{
         echo json_encode(array('message' => 'User Not Created'));
     }
-    }catch(Exeption $e){
+    }catch(Exception $e){
         echo $e->getMessage;
     }
