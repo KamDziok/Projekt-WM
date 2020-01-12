@@ -1,0 +1,59 @@
+body{
+background:black;
+margin:0px;
+font-family:verdana,arial;
+}
+tr,td{
+font-size:10px;
+color:#D7D7D7;
+}
+.menu_top{
+padding-left:23px;
+padding-top:4px;
+font-weight:bold;
+color:#A0A0A0;
+}
+a{
+color:white;
+text-decoration:underline;
+}
+a:hover{
+color:silver;
+text-decoration:none;
+}
+.menu{
+padding-top:4px;
+padding-left:10px;
+padding-right:7px;
+}
+.menu a{
+color:#8F8F8F;
+text-decoration:none;
+}
+.menu a:hover{
+color:#ffffff;
+text-decoration:none;
+}
+.formularz {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 200px;
+    font-weight: bold
+}
+.menup_top{
+padding-left:27px;
+padding-top:4px;
+font-weight:bold;
+color:#A0A0A0;
+}
+.srodek_top{
+padding-left:33px;
+padding-top:4px;
+font-weight:bold;
+color:#A0A0A0;
+}
+.srodek{
+padding:12px;
+
+}
+img{border:0px;}
