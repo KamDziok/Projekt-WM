@@ -1,7 +1,7 @@
 <?php
 class Film extends Walidacja{
     var $tytul;
-    var $rerzyser;
+    var $rezyser;
     var $opis;
 
     public function __construct($tytul, $rerzyser, $opis){

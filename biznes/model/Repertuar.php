@@ -16,5 +16,18 @@ class Repertuar extends Walidacja{
     public function __destruct(){
         
     }
+
+    function getName(){
+        return $this->film;
+    }
+
+    function getDate(){
+        return $this->data;
+    }
+
+    function getSala(){
+        return $this->Sala;
+    }
+
 }
 ?>

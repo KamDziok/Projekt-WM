@@ -1,5 +1,5 @@
 <?php
-class Sala extends Walidacja{
+class Sala{
     var $miejsca;
 
     public function __construct($miejsca){
@@ -9,6 +9,10 @@ class Sala extends Walidacja{
 
     public function __destruct(){
         
+    }
+
+    function getMiejsca(){
+        return $this->miejsca;
     }
 }
 ?>

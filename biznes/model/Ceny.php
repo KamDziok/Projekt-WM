@@ -1,7 +1,7 @@
 <?php
 include_once 'Walidacja.php';
 
-class Bilet extends Walidacja{
+class Ceny{
     var $cenyBiletow;
     var $ulgaSzkolna;
     var $ulgaStudencka;
@@ -19,25 +19,37 @@ class Bilet extends Walidacja{
         
     }
 
+    public function getCeny(){
+        return $this->cenyBiletow;
+    }
+
+    public function getSzkolne(){
+        return $this->ulgaSzkolna;
+    }
+
+    public function getStudenckie(){
+        return $this->ulgaStudencka;
+    }
+
     function zmianaCen($cenyBiletow){
         Walidacja::walidacjaTablicaBilety($cenyBiletow);
-        return new Bilet($cenyBiletow, $this->ulgaSzkolna, $this->ulgaStudencka);
+        return new Ceny($cenyBiletow, $this->ulgaSzkolna, $this->ulgaStudencka);
     }
 
     function zmianaUlgi($ulgaSzkolna, $ulgaStudencka){
         Walidacja::walidacjaUlga($ulgaSzkolna);
         Walidacja::walidacjaUlga($ulgaStudencka);
-        return new Bilet($this->cenyBiletow, $ulgaSzkolna, $ulgaStudencka);
+        return new Ceny($this->cenyBiletow, $ulgaSzkolna, $ulgaStudencka);
     }
 
     function zmianaUlgiSzkolnej($ulgaSzkolna){
         Walidacja::walidacjaUlga($ulgaSzkolna);
-        return new Bilet($this->cenyBiletow, $ulgaSzkolna, $this->ulgaStudencka);
+        return new Ceny($this->cenyBiletow, $ulgaSzkolna, $this->ulgaStudencka);
     }
 
     function zmianaUlgiStudenckiej($ulgaStudencka){
         Walidacja::walidacjaUlga($ulgaStudencka);
-        return new Bilet($this->cenyBiletow, $this->ulgaSzkolna, $ulgaStudencka);
+        return new Ceny($this->cenyBiletow, $this->ulgaSzkolna, $ulgaStudencka);
     }
 }
 ?>
