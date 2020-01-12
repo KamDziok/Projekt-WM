@@ -24,11 +24,8 @@ class GenerujBilet extends FPDF{
         $this->film = $film;
     }
     
-    
-
-
     function header(){
-       #$this->Image('img_z_logiem_kina.png' ,10,6);
+        // $this->Image('img_z_logiem_kina.png' ,10,6);
         $this->SetFont('Arial','B',14);
         $this->Cell(276,5,'BILET KINOWY',0,0,'C');
         $this->Ln();
@@ -65,9 +62,4 @@ class GenerujBilet extends FPDF{
         $this->Ln();
     }
 }
-$pdf = new GenerujBilet();
-$pdf->AliasNbPages();
-$pdf->AddPage('L','A4',0);
-$pdf->headerTable();
-$pdf->mainTable();
-$pdf->Output();
+?>

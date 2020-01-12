@@ -1,23 +1,20 @@
 <?php
-class KolekcjaRepertuar  extends Repertuar{
-    var $TablicaRepertuar;
-    public function __construct(){
-        $this->TablicaRepertuar = array();
-    }
+// class KolekcjaRepertuar{
+//     var $TablicaRepertuar;
 
-    function dodaj($repertuar){
-        $this->TablicaRepertuar[] = $repertuar;
-    }
+//     public function __construct(){
+//         $this->TablicaRepertuar = array();
+//     }
 
-    function usun($repertuar){
-        $n = 0;
-        while($this->TablicaRepertuar.count >= $n){
-            if($this->TablicaRepertuar[$n] == $repertuar){
-                $this->TablicaRepertuar[$n].delete;
-                break;
-                $n++;
-            }
-        }
-    }
-}
+//     function dodaj($repertuar){
+//         $this->TablicaRepertuar[] = $repertuar;
+//     }
+
+//     function usun($film, $data, $sala){
+//         foreach($this->TablicaRepertuar as $repertuar => $value){
+//             if($value.getName().equalTo($film) && $value.getData().equalTo($data) && $value.getSala() == $sala)
+//                 $value.delete();
+//         }
+//     }
+// }
 ?>
