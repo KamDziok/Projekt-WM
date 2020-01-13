@@ -1,5 +1,6 @@
 <?php
 // include_once 'Ceny.php';
+include_once 'Walidacja.php';
 class Rezerwacje{
     var $Repertuar;
     var $imie;
