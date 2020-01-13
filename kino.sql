@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Sty 2020, 15:42
+-- Czas generowania: 13 Sty 2020, 23:41
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `kino` DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci;
 USE `kino`;
+
 -- --------------------------------------------------------
 
 --
@@ -68,12 +69,23 @@ CREATE TABLE `film` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `miejsca`
+--
+
+CREATE TABLE `miejsca` (
+  `id` int(11) NOT NULL,
+  `id_sali` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `repertuar`
 --
 
 CREATE TABLE `repertuar` (
   `id_repertuaru` int(11) NOT NULL,
-  `id_filmu` int(11) NOT NULL,
+  `filmu` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
   `id_sali` int(11) NOT NULL,
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
@@ -86,11 +98,22 @@ CREATE TABLE `repertuar` (
 
 CREATE TABLE `rezerwacja` (
   `id_rezerwacji` int(11) NOT NULL,
+  `bilet` tinyint(1) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `miejsca` varchar(255) COLLATE utf8_polish_ci NOT NULL,
   `ilosc_uczen_senior` int(11) NOT NULL,
   `ilosc_student` int(11) NOT NULL,
   `id_repertuaru` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `rezerwacje_miejsca`
+--
+
+CREATE TABLE `rezerwacje_miejsca` (
+  `id_rezerwacji` int(11) NOT NULL,
+  `id_miejsca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -143,6 +166,13 @@ ALTER TABLE `film`
   ADD PRIMARY KEY (`id_filmu`);
 
 --
+-- Indeksy dla tabeli `miejsca`
+--
+ALTER TABLE `miejsca`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_sali` (`id_sali`);
+
+--
 -- Indeksy dla tabeli `repertuar`
 --
 ALTER TABLE `repertuar`
@@ -155,6 +185,13 @@ ALTER TABLE `rezerwacja`
   ADD PRIMARY KEY (`id_rezerwacji`);
 
 --
+-- Indeksy dla tabeli `rezerwacje_miejsca`
+--
+ALTER TABLE `rezerwacje_miejsca`
+  ADD KEY `id_rezerwacji` (`id_rezerwacji`),
+  ADD KEY `id_miejsca` (`id_miejsca`);
+
+--
 -- Indeksy dla tabeli `sala`
 --
 ALTER TABLE `sala`
@@ -165,6 +202,33 @@ ALTER TABLE `sala`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT dla tabeli `miejsca`
+--
+ALTER TABLE `miejsca`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `miejsca`
+--
+ALTER TABLE `miejsca`
+  ADD CONSTRAINT `miejsca_ibfk_1` FOREIGN KEY (`id_sali`) REFERENCES `sala` (`numer_sali`);
+
+--
+-- Ograniczenia dla tabeli `rezerwacje_miejsca`
+--
+ALTER TABLE `rezerwacje_miejsca`
+  ADD CONSTRAINT `rezerwacje_miejsca_ibfk_1` FOREIGN KEY (`id_rezerwacji`) REFERENCES `rezerwacja` (`id_rezerwacji`),
+  ADD CONSTRAINT `rezerwacje_miejsca_ibfk_2` FOREIGN KEY (`id_miejsca`) REFERENCES `miejsca` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

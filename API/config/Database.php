@@ -3,7 +3,7 @@
 class Database{
     //parametry bazy danych
     private $host='localhost:3306';
-    private $db_name = 'testapi';
+    private $db_name = 'kino';
     private $username = 'root';
     private $password = '';
     private $conn;
