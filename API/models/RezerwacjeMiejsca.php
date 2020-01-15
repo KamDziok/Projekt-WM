@@ -38,6 +38,12 @@
             $this->id_rezerwacjiFKRezMie = $row['id_miejsca'];
         }
 
+        public function deleteRezerwacjeMiejscaById(){
+            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            
+            $stmt = $this->conn->prepare($query);
+        }
+
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'
             SET 

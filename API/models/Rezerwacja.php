@@ -47,7 +47,12 @@
             $this-> iloscStudent = $row['ilosc_student'];
             $this-> id_repertuaruFKRez = $row['id_repertuaru'];
         }
-
+        
+        public function deleteRezerwacjaById(){
+            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            
+            $stmt = $this->conn->prepare($query);
+        }
         
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'

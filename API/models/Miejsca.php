@@ -40,6 +40,12 @@
             $this->id_saliFKMie = $row['id_sali'];
         }
 
+        public function deleteMiejscaById(){
+            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            
+            $stmt = $this->conn->prepare($query);
+        }
+
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'
             SET 

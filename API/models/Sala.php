@@ -26,12 +26,12 @@
         }
 
         public function getSalaById(){
-            $query = 'SELECT numer_sali , liczba_miejsc FROM ' . $this->table . ' WHERE id = ?';
+            $query = 'SELECT numer_sali , liczba_miejsc FROM ' . $this->table . ' WHERE numer_sali = ?';
 
             $stmt = $this->conn->prepare($query);
 
             //dodanie parametru
-            $stmt->BindParam(1, $this->id);
+            $stmt->BindParam(1, $this->id_sali);
 
             $stmt->execute();
 
@@ -39,6 +39,12 @@
 
             $this->id_sali = $row['numer_sali'];
             $this->liczba_miejsc = $row['liczba_miejsc'];
+        }
+
+        public function deleteSalaById(){
+            'DELETE FROM ' . $this->table . ' WHERE numer_sali = ?';
+            
+            $stmt = $this->conn->prepare($query);
         }
 
         public function create(){

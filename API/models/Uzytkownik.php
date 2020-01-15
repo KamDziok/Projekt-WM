@@ -46,6 +46,12 @@
             $this->password = $row['haslo'];
         }
 
+        public function deleteUserById(){
+            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            
+            $stmt = $this->conn->prepare($query);
+        }
+
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'
             SET 

@@ -43,6 +43,12 @@
             $this->id_saliFKRep = $row['id_sali'];
             $this->data = $row['data'];
         }
+
+        public function deleteRepertuarById(){
+            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            
+            $stmt = $this->conn->prepare($query);
+        }
       
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'
