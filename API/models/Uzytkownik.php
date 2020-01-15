@@ -30,20 +30,23 @@
         }
 
         public function getUzytkownicyById(){
-            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table . ' WHERE id = ?';
+            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, imie, nazwisko FROM ' . $this->table . ' WHERE user_id = ?';
 
             $stmt = $this->conn->prepare($query);
 
             //dodanie parametru
-            $stmt->BindParam(1, $this->id);
+            $stmt->BindParam(1, $this->id_uzytkownika);
 
             $stmt->execute();
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $this->id = $row['id'];
-            $this->login = $row['login'];
-            $this->password = $row['password'];
+            $this->id = $row['user_id'];
+            $this->login = $row['nick'];
+            $this->$admin = $row['uprawnienia_administracyjne'];
+            $this->$email = $row['mail'];
+            $this->$imie = $row['imie'];
+            $this->$nazwisko = $row['nazwisko'];
         }
 
         public function create(){
@@ -83,6 +86,33 @@
             //wypisz blad
             printf('Error: %s.\n', $stmt->error);
 
+            return false;
+        }
+
+        public function chechUzytkownikExist(){
+            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table . ' WHERE nick = ? AND haslo = ?';
+
+            $stmt = $this->conn->prepare($query);
+
+            //dodanie parametru
+            $stmt->BindParam(1, $this->login);
+            $stmt->BindParam(2, $this->password);
+
+            $stmt->execute();
+            
+            if($stmt->rowCount() == 1){
+
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $this->id_uzytkownika = $row['user_id'];
+                $this->admin = $row['uprawnienia_administracyjne'];
+                $this->login = $row['nick'];
+                $this->email = $row['mail'];
+                $this->imie = $row['imie'];
+                $this->nazwisko = $row['nazwisko'];
+                
+                return true;
+            }
             return false;
         }
     }

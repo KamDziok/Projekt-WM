@@ -7,6 +7,6 @@ class Repertuar{
     public $id_saliFKRep;
     public $data;
 
-    public function __construct({
+    public function __construct(){
     }
 }

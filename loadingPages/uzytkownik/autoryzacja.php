@@ -2,7 +2,9 @@
 
 $dateUser;
 $dateNow = new DateTime();
-$dateAccept = new DateInterval('T3M');
+$dateAdd = new DateInterval('PT30M');
+
+$dateTMP = new DateInterval('PT20M');
 
 include_once "../model/Uzytkownik.php";
 
@@ -18,10 +20,18 @@ try{
     $user->id = $data->id;
 
     $dateNow = new DateTime();
-    $dateAccept = $dateNow->add($dateAccept);
+    $dateAccept = new DateTime();
+    $dateTmp = new DateTime();
+    $dateTmp->add($dateTMP);
+    $dateAccept->add($dateAdd);
 
 }catch(Exception $e){
     echo json_encode(array('message' => $e->getMessage));
 }
 
 echo $dateNow->format('Y-m-d H:i:s') . " --- " . $dateAccept->format('Y-m-d H:i:s');
+if( $dateTmp < $dateAccept){
+    echo "dobrze";
+}else{
+    echo "zle";
+}
