@@ -39,9 +39,9 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             
             $this->id_repertuaru = $row['id_repertuaru'];
-            $this->$film = $row['filmu'];
-            $this->$id_saliFKRep = $row['id_sali'];
-            $this->$data = $row['data'];
+            $this->film = $row['filmu'];
+            $this->id_saliFKRep = $row['id_sali'];
+            $this->data = $row['data'];
         }
       
         public function create(){

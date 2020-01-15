@@ -30,14 +30,14 @@
             $stmt = $this->conn->prepare($query);
 
             //dodanie parametru
-            $stmt->BindParam(1, $this->id);
+            $stmt->BindParam(1, $this->id_miejsca);
 
             $stmt->execute();
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $this->id_miejsca = $row['id'];
-            $this->$id_saliFKMie = $row['id_sali'];
+            $this->id_saliFKMie = $row['id_sali'];
         }
 
         public function create(){
