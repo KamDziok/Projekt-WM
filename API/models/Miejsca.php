@@ -44,7 +44,7 @@
             $query = 'INSERT INTO ' . $this->table .'
             SET 
                 id = :id_miejsca,
-                id_sali = :id_saliFKMie
+                id_sali = :id_saliFKMie;
             ';
 
             $stmt = $this->conn->prepare($query);

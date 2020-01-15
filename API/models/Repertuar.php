@@ -50,7 +50,7 @@
                 id_repertuaru = :id_repertuaru,
                 filmu = :film,
                 if_saliFKRep = :id_sali,
-                data = :data
+                data = :data;
             ';
 
             $stmt = $this->conn->prepare($query);

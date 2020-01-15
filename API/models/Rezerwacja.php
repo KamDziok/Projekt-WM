@@ -18,7 +18,7 @@
 
         //funkcje z SQL...
 
-        public function getUzytkownicyAll(){
+        public function getRezerwacjaAll(){
             $query = 'SELECT id_rezerwacji, bilet, user_id, ilosc_uczen_senior, ilosc_student, id_repertuaru FROM ' . $this->table;
 
             $stmt = $this->conn->prepare($query);
@@ -28,7 +28,7 @@
             return $stmt;
         }
 
-        public function getUzytkownicyById(){
+        public function getRezerwacjaById(){
             $query = 'SELECT id_rezerwacji, bilet, user_id, ilosc_uczen_senior, ilosc_student, id_repertuaru FROM ' . $this->table . ' WHERE id = ?';
 
             $stmt = $this->conn->prepare($query);
@@ -57,7 +57,7 @@
             user_id = :id_uzytkownikaFKRez,
             ilosc_uczen_senior = :iloscUczen,
             ilosc_student = :iloscStudent,
-            id_repertuaru = :id_repertuaruFKRez
+            id_repertuaru = :id_repertuaruFKRez;
             ';
 
             $stmt = $this->conn->prepare($query);
