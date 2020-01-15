@@ -1,93 +1,106 @@
 <?php
 // include_once 'Ceny.php';
+
+use ___PHPSTORM_HELPERS\object;
+
 include_once 'Walidacja.php';
 class Rezerwacje{
     var $Repertuar;
     var $imie;
     var $nazwisko;
     var $miejsca;
-    var $iloscUczen;
-    var $iloscStudent;
 
-    public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $idRepertuar){
-        Walidacja::walidacjaString($imie);
+    public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $idRepertuar, $idUzytkownika){   //obiekt jest tworzony przed 
+        Walidacja::walidacjaString($imie);                                                              //podaniem rodzaju biletu
         Walidacja::walidacjaString($nazwisko);
         Walidacja::walidacjaTablicyInt($miejsca);
-        Walidacja::walidacjaInt($iloscUczen);
-        Walidacja::walidacjaInt($iloscStudent);
-        Walidacja::walidacjaUlgi($miejsca, $iloscUczen, $iloscStudent);
+        Walidacja::walidacjaUlgi($miejsca, 0, 0);
         $this->Repertuar = $Repertuar;
         $this->imie = $imie;
         $this->nazwisko = $nazwisko;
         $this->miejsca = $miejsca;
-        $this->iloscUczen = $iloscUczen;
-        $this->iloscStudent = $iloscStudent;
-        $this->rezerwuj($idRepertuar, $miejsca);
+        $this->rezerwuj($idRepertuar, $miejsca, $idUzytkownika);
     }
 
     public function __destruct(){
         
     }
 
+    function getRepertuar(){
+        return $this->Repertuar;
+    }
+
     function getImie(){
         return $this->imie;
     }
+
     function getNazwisko(){
         return $this->nazwisko;
     }
+
     function getMiejca(){
         return $this->miejsca;
     }
-    function getSzkolny(){
-        return $this->iloscUczen;
-    }
-    function getStudencki(){
-        return $this->iloscStudent;
-    }
 
-    function setUlgi($iloscUczen, $iloscStudent){
-        $this->iloscUczen = $iloscUczen;
-        $this->iloscStudent = $iloscStudent;
-    }
-
-    function rezerwuj($idRepertuar, $miejsca){
-        $plik = fopen("miejsca.json", 'r');
+    function rezerwuj($idRepertuar, $miejsca, $idUzytkownika){  //funkcja jesli ma dostep do pliku i podane miejsca nie są zajete 
+        $plik = fopen("miejsca.json", 'r');     //zapisuje dane do pliku z stanem 0 czyli wstepnie zajete
         $rezerwacje = json_decode(fread($plik, filesize($plik)));
         fclose($plik);
-        if(flock($plik, LOCK_EX)){
-            $plik = fopen("miejsca.json", 'a');
-            $miejsca[] = 0;
-            foreach($rezerwacje as $r => $dane){
-                if($dane[0] == $idRepertuar)
-                    for($i = 0; $i < sizeof($miejsca) - 1; $i++){
-                        for($j = 0; $j < sizeof($dane, 1) - 3; $j++){
-                            if($miejsca[$i] == $dane[2][$j]){
-                                return -1;
+        $k = 0;
+        while($k > 2){
+            if(flock($plik, LOCK_EX)){
+                $plik = fopen("miejsca.json", 'a');
+                $miejsca[] = 0;
+                foreach($rezerwacje as $r => $dane){
+                    if($dane[0] == $idRepertuar)
+                        for($i = 0; $i < sizeof($miejsca) - 1; $i++){
+                            for($j = 0; $j < sizeof($dane, 1) - 3; $j++){
+                                if($miejsca[$i] == $dane[2][$j]){
+                                    $k = 3;
+                                }
                             }
                         }
-                    }
+                }
+                $rekord = json_encode(array($idRepertuar, $miejsca));
+                if($r != 0) $rekord = "," . $rekord;
+                fwrite($plik - 1, $rekord);
+                fclose($plik);
+                flock($plik, LOCK_UN);
+
+                $dane[] = $idRepertuar;
+                $dane[] = $idUzytkownika;
+                $dane[] = $r;   //bedzie potrzebne do wywolania funkcji potwierdz
+                $dane[] = $miejsca;
+                
+                //$dane do wyslania
+                //wyslanie potwierdzenia do frontu o powodzeniu zapisu i przejscie do podsumowania
+                //jesli front nie bierze danych o zajetych miejscach z tego pliku do wylanie danych do tego miejsca z kad je bierze
+
+            }else{
+                sleep(1);
             }
-            $rekord = json_encode(array($idRepertuar, $miejsca));
-            if($r != 0) $rekord = "," . $rekord;
-            fwrite($plik - 1, $rekord);
-            fclose($plik);
-            flock($plik, LOCK_UN);
-            return $r;
-        }else return -1;
+            $k ++;
+        }
+
+        $dane[] = "niepowodzenie";  //czy coś
+
+        //wyslanie informacji o niepowodzeniu i pozostanie na ostatniej stronie (wybieranie miejsc)
+        //wazne aby dane sie zaktualizowaly bo moze juz ktos zaja jakies miejsca
+
     }
 
-    function obliczCene($dzien){
-        $cena = 0.00;
-        $bilet = Ceny::getCeny();
-        $ulgaSzkolna = Ceny::getSzkolne();
-        $ulgaStudencka = Ceny::getStudenckie();
+    function obliczCene($dzien){    //funkcja podaje cene rezerwacji przy podsumowaniu
+        $cena = 0.00;               //wymagana zmiana
+        $bilet = Ceny::getCeny();   //???
+        $ulgaSzkolna = Ceny::getSzkolne();  //???
+        $ulgaStudencka = Ceny::getStudenckie(); ///???
         $cena += $bilet[$dzien] * (count($this->miejsca)-$this->iloscUczen-$this->iloscStudent);
         $cena += $bilet[$dzien] / $ulgaSzkolna * $this->iloscUczen;
         $cena += $bilet[$dzien] / $ulgaStudencka * $this->iloscStudent;
         return round($cena,2);
     }
 
-    function potwierdz($id){
+    function potwierdz($id){    //funkcja zmienia stan z 0 na 1 czyli zarezerwowane
         if($id < 0) return false;
         $plik = fopen("miejsca.json", 'r');
         $rezerwacje = json_decode(fread($plik, filesize($plik)));
@@ -102,14 +115,21 @@ class Rezerwacje{
             fclose($plik);
             flock($plik, LOCK_UN);
 
-            // tu powinno byc wyslanie do bazy
+            $dane[] = "powodzenie";
 
-            return true;
-        }else return false;
+            //wysyla potwierdzenie udanej transakcji. Przekierowywuje do strony glownej?
+
+        }else{
+            $dane[] = "niepowodzenie";
+            $dane[] = $id;  //bedzie potrzebne do wywolania funkcji potwierdz kolejny raz
+
+            //wysyla powiadomienie o nieudanej probie uzytkownik moze sprobowac jeszcze raz
+
+         }
     }
 
-    function anuluj($id){
-        if($id < 0) return false;
+    function anuluj($id, $idRezarwacji){           //funkcja nadaje idRepertuaru na -1 co skutkuje
+        if($id < 0) return false;   //nie braniem tego rekordu pod uwage w przyszlosci
         $plik = fopen("miejsca.json", 'r');
         $rezerwacje = json_decode(fread($plik, filesize($plik)));
         fclose($plik);
@@ -122,8 +142,18 @@ class Rezerwacje{
             fwrite($plik, $rekord);
             fclose($plik);
             flock($plik, LOCK_UN);
-            return true;
-        }else return false;
+            
+            $dane[] = $idRezarwacji;    //chyba wiecej nie trzeba
+            
+            //wysyla informacje o anulowaniu i usuwa z bazy dane tej rezerwacji
+
+        }else{
+            $dane[] = "niepowodzenie";
+            $dane[] = $id;  //bedzie potrzebne do wywolania funkcji anuluj kolejny raz
+
+            //wysyla powiadomienie o nieudanej probie uzytkownik moze sprobowac jeszcze raz
+
+         }
     }
 }
 ?>

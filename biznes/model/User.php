@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Walidacja.php';
-class User extends Walidacja{
+class User{
     var $id;
     var $imie;
     var $nazwisko;
@@ -28,7 +28,7 @@ class User extends Walidacja{
 
     public function setAdmin($admin){
         Walidacja::walidacjaInt($admin);
-        $this->amin = $admin;
+        $this->admin = $admin;
     }
 
     public function getAdmin(){
@@ -47,7 +47,7 @@ class User extends Walidacja{
         return $this->id;
     }
 
-    public function FunctionName(Type $var = null)
+    public function FunctionName($var = null)
     {
         # code...
     }
