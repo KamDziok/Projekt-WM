@@ -1,5 +1,5 @@
 <?php
-class Repertuar extends Walidacja{
+class Repertuar{
     var $film;
     var $data;
     var $sala;
