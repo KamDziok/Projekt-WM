@@ -30,26 +30,34 @@
         }
 
         public function getUzytkownicyById(){
-            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table . ' WHERE id = ?';
+            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, imie, nazwisko FROM ' . $this->table . ' WHERE user_id = ?';
 
             $stmt = $this->conn->prepare($query);
 
             //dodanie parametru
-            $stmt->BindParam(1, $this->id);
+            $stmt->BindParam(1, $this->id_uzytkownika);
 
             $stmt->execute();
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $this->id = $row['id'];
-            $this->login = $row['login'];
-            $this->password = $row['password'];
+            $this->id = $row['user_id'];
+            $this->login = $row['nick'];
+            $this->$admin = $row['uprawnienia_administracyjne'];
+            $this->$email = $row['mail'];
+            $this->$imie = $row['imie'];
+            $this->$nazwisko = $row['nazwisko'];
+        }
+
+        public function deleteUserById(){
+            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            
+            $stmt = $this->conn->prepare($query);
         }
 
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'
             SET 
-                user_id = :id,
                 nick = :login,
                 haslo = :password,
                 uprawnienia_administracyjne = :admin,
@@ -61,7 +69,7 @@
             $stmt = $this->conn->prepare($query);
 
             //czyszczenie danych
-            $this->id = htmlspecialchars(strip_tags($this->id));
+            // $this->id = htmlspecialchars(strip_tags($this->id));
             $this->login = htmlspecialchars(strip_tags($this->login));
             $this->password = htmlspecialchars(strip_tags($this->password));
             $this->admin = htmlspecialchars(strip_tags($this->admin));
@@ -69,7 +77,7 @@
             $this->imie = htmlspecialchars(strip_tags($this->imie));
             $this->nazwisko = htmlspecialchars(strip_tags($this->nazwisko));
 
-            $stmt->bindParam(':id', $this->id);
+            // $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':login', $this->login);
             $stmt->bindParam(':password', $this->password);
             $stmt->bindParam(':admin', $this->admin);
@@ -84,6 +92,33 @@
             //wypisz blad
             printf('Error: %s.\n', $stmt->error);
 
+            return false;
+        }
+
+        public function chechUzytkownikExist(){
+            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table . ' WHERE nick = ? AND haslo = ?';
+
+            $stmt = $this->conn->prepare($query);
+
+            //dodanie parametru
+            $stmt->BindParam(1, $this->login);
+            $stmt->BindParam(2, $this->password);
+
+            $stmt->execute();
+            
+            if($stmt->rowCount() == 1){
+
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $this->id_uzytkownika = $row['user_id'];
+                $this->admin = $row['uprawnienia_administracyjne'];
+                $this->login = $row['nick'];
+                $this->email = $row['mail'];
+                $this->imie = $row['imie'];
+                $this->nazwisko = $row['nazwisko'];
+                
+                return true;
+            }
             return false;
         }
     }

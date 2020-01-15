@@ -35,9 +35,15 @@
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $this->id = $row['id'];
-            $this->login = $row['login'];
-            $this->password = $row['password'];
+            $this->id = $row['user_id'];
+            $this->login = $row['nick'];
+            $this->password = $row['haslo'];
+        }
+
+        public function deleteUserById(){
+            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            
+            $stmt = $this->conn->prepare($query);
         }
 
         public function create(){
