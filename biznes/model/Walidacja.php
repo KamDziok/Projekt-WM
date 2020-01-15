@@ -1,7 +1,7 @@
 <?php
 abstract class Walidacja{
 
-    protected function walidacjaString($argument){
+    public function walidacjaString($argument){
         if(is_null($argument)){
             throw new Exception('argument nie został podany');
         }
@@ -10,7 +10,7 @@ abstract class Walidacja{
         }
     }
 
-    protected function walidacjaInt($argument){
+    public function walidacjaInt($argument){
         if(is_null($argument)){
             throw new Exception('argument nie został podany');
         }
@@ -23,7 +23,7 @@ abstract class Walidacja{
 
     }
     
-    protected function walidacjaFloat($argument){
+    public function walidacjaFloat($argument){
         if(is_null($argument)){
             throw new Exception('argument nie został podany');
         }
@@ -36,7 +36,7 @@ abstract class Walidacja{
         
     }
 
-    protected function walidacjaTablicyFloat($argument){
+    public function walidacjaTablicyFloat($argument){
         $n = 0;
         try{
             count($argument);
@@ -54,7 +54,7 @@ abstract class Walidacja{
         }
     }
 
-    protected function walidacjaTablicyInt($argument){
+    public function walidacjaTablicyInt($argument){
         $n = 0;
         try{
             count($argument);
@@ -72,7 +72,7 @@ abstract class Walidacja{
         }
     }
 
-    protected function walidacjaData($godzina, $minuta, $miesiac, $dzien, $rok){
+    public function walidacjaData($godzina, $minuta, $miesiac, $dzien, $rok){
         if( !(
             checkdate($miesiac, $dzien, $rok) &&
             ($godzina < 24) &&
@@ -83,7 +83,7 @@ abstract class Walidacja{
         }
     }
 
-    protected function walidacjaUlga($argument){
+    public function walidacjaUlga($argument){
         if(!is_float($argument)){
             throw new Exception('argument nie jest typu float');
         }
@@ -95,14 +95,14 @@ abstract class Walidacja{
         }
     }
 
-    protected function walidacjaTablicaBilety($argument){
+    public function walidacjaTablicaBilety($argument){
         $this->walidacjaTablicyFloat($argument);
         if(count($argument) != 7){
             throw new Exception('tablica nie ma 7 elemwntow');
         }
     }
 
-    protected function walidacjaUlgi($miejsca, $u1, $u2){
+    public function walidacjaUlgi($miejsca, $u1, $u2){
         if(count($miejsca) < $u1 + $u2){
             throw new Exception('niewłaściwa liczba biletów ulgowych');
         }
