@@ -101,7 +101,6 @@ class Rezerwacje{
     }
 
     function potwierdz($id){    //funkcja zmienia stan z 0 na 1 czyli zarezerwowane
-        if($id < 0) return false;
         $plik = fopen("miejsca.json", 'r');
         $rezerwacje = json_decode(fread($plik, filesize($plik)));
         fclose($plik);
