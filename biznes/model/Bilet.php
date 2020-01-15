@@ -3,8 +3,8 @@ include_once 'GenerujBilet.php';
 class Bilet extends Rezerwacje{
     var $bilet;
 
-    public function __construct($repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent,$idRepertuar){    //konstruktor uzywany jesli kupujemy 
-        parent::__construct($repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $idRepertuar);       //bilet u pani w "okienku"
+    public function __construct($repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $idRepertuar, $idUzytkownika){    //konstruktor uzywany jesli kupujemy 
+        parent::__construct($repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $idRepertuar, $idUzytkownika);       //bilet u pani w "okienku"
         $sala = $repertuar->getSala();
         $film = $repertuar->getFilm();
         $this->bilet = new GenerujBilet($imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $sala, $film);
