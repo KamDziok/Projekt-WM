@@ -26,8 +26,8 @@ try{
     if($user->chechUzytkownikExist()){
 
         $user->password = "";
-        echo json_encode(array("loginW" => true));
-        echo json_encode($user);
+        echo json_encode(array("loginW" => true, $user));
+        // echo json_encode($user);
     }else{
         echo json_encode(array('loginW' => false));
     }

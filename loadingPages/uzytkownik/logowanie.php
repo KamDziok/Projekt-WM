@@ -20,7 +20,7 @@ $dataFormUser = json_decode(file_get_contents('php://input'));
 $ch->setPostURL($url, $dataFormUser);
 $rezult = $ch->exec();
 
-$json = json_decode($result, true);
+$json = json_decode($rezult, true);
 $login = $json->loginW;
 
 header('Access-Control-Allow-Origin: *');
@@ -30,7 +30,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
 if($login){
     try{
-        if(file_exists()){
+        if(!file_exists("uzytkownicy.json")){
             $file = fopen("uzytkownicy.json","w");
             $file->close();
         }   
