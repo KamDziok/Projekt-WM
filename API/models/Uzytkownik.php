@@ -49,7 +49,6 @@
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'
             SET 
-                user_id = :id,
                 nick = :login,
                 haslo = :password,
                 uprawnienia_administracyjne = :admin,
@@ -61,7 +60,7 @@
             $stmt = $this->conn->prepare($query);
 
             //czyszczenie danych
-            $this->id = htmlspecialchars(strip_tags($this->id));
+            // $this->id = htmlspecialchars(strip_tags($this->id));
             $this->login = htmlspecialchars(strip_tags($this->login));
             $this->password = htmlspecialchars(strip_tags($this->password));
             $this->admin = htmlspecialchars(strip_tags($this->admin));
@@ -69,7 +68,7 @@
             $this->imie = htmlspecialchars(strip_tags($this->imie));
             $this->nazwisko = htmlspecialchars(strip_tags($this->nazwisko));
 
-            $stmt->bindParam(':id', $this->id);
+            // $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':login', $this->login);
             $stmt->bindParam(':password', $this->password);
             $stmt->bindParam(':admin', $this->admin);
