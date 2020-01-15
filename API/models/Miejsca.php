@@ -3,7 +3,7 @@
 class Miejsca{
     //baza
     private $conn;
-    private $table = 'sala';
+    private $table = 'miejsca';
 
     public $id_miejsca;
     public $id_saliFKMie;
