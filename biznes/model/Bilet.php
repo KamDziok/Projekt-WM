@@ -29,7 +29,7 @@ class Bilet extends Rezerwacje{
 
     }
 
-    function drukujBilet($imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $sala, $film){ //funkcja otfiera pdf w nowym oknie
+    static function drukujBilet($imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $sala, $film){ //funkcja otfiera pdf w nowym oknie
         $this->bilet = new GenerujBilet($imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $sala, $film);
         $this->bilet->AliasNbPages();
         $this->bilet->AddPage('L','A4',0);

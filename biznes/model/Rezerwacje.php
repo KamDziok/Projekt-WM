@@ -1,7 +1,7 @@
 <?php
-// include_once 'Ceny.php';
+// include_once 'Walidacja.php';
 
-use ___PHPSTORM_HELPERS\object;
+// use ___PHPSTORM_HELPERS\object;
 
 include_once 'Walidacja.php';
 class Rezerwacje{
@@ -42,9 +42,9 @@ class Rezerwacje{
         return $this->miejsca;
     }
 
-    function rezerwuj($idRepertuar, $miejsca, $idUzytkownika){  //funkcja jesli ma dostep do pliku i podane miejsca nie są zajete 
-        $plik = fopen("miejsca.json", 'r');     //zapisuje dane do pliku z stanem 0 czyli wstepnie zajete
-        $rezerwacje = json_decode(fread($plik, filesize($plik)));
+    static function rezerwuj($idRepertuar, $miejsca, $idUzytkownika){   //funkcja jesli ma dostep do pliku i podane miejsca nie są zajete 
+        $plik = fopen("miejsca.json", 'r');                             //zapisuje dane do pliku z stanem 0 czyli wstepnie zajete
+        $rezerwacje = json_decode(fread($plik, filesize("miejsca.json")));
         fclose($plik);
         $k = 0;
         while($k > 2){
@@ -63,7 +63,7 @@ class Rezerwacje{
                 }
                 $rekord = json_encode(array($idRepertuar, $miejsca));
                 if($r != 0) $rekord = "," . $rekord;
-                fwrite($plik - 1, $rekord);
+                fwrite($plik, $rekord);
                 fclose($plik);
                 flock($plik, LOCK_UN);
 
