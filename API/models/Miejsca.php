@@ -44,7 +44,7 @@
             $query = 'INSERT INTO ' . $this->table .'
             SET 
                 id = :id_miejsca,
-                id_sali = :id_saliFKMie,
+                id_sali = :id_saliFKMie
             ';
 
             $stmt = $this->conn->prepare($query);
@@ -54,7 +54,7 @@
             $this->id_sali = htmlspecialchars(strip_tags($this->id_sali));
 
             $stmt->bindParam(':id', $this->id);
-            $stmt->bindParam(':id_sali', $this->id_saliFKMie);
+            $stmt->bindParam(':id_sali', $this->id_sali);
 
             if($stmt->execute()){
                 return true;
