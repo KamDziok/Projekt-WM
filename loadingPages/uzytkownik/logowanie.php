@@ -28,7 +28,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 if($login){
     try{
         $test = true;
-        $rowInArray = array("id" => $json[0]['id_uzytkownika'], "date" => new DateTime());
+        $rowInArray = array("id" => $json[0]['id_uzytkownika'], "date" => new DateTime(), "admin" => $json[0]["admin"]);
         if(!file_exists("uzytkownicy.json")){
             $file = fopen("uzytkownicy.json","w");
             fclose($file);

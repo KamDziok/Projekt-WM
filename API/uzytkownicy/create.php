@@ -21,7 +21,7 @@
         // $user->id = $data->id;
         $user->login = $data->login;
         $user->password = $data->password;
-        $user->admin = $data->admin;
+        $user->admin = 0;
         $user->email = $data->email;
         $user->imie = $data->imie;
         $user->nazwisko = $data->nazwisko;
