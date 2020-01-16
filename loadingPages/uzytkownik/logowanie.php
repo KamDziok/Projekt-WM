@@ -9,12 +9,6 @@ $url = 'http://localhost:8080/WM/projekt/Projekt-WM/API/uzytkownicy/logowanie.ph
 
 $user = new Uzytkownik();
 
-//naglowek
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
-
 $dataFormUser = json_decode(file_get_contents('php://input'));
 $dataToAppi = json_encode($dataFormUser);
 
@@ -25,6 +19,7 @@ $json = json_decode($rezult, true);
 
 $login = $json['loginW'];
 
+//naglowek
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
@@ -41,12 +36,11 @@ if($login){
         }else{
             $arr_data = file_get_contents("uzytkownicy.json");
             $arr_data = json_decode($arr_data, true);
-            var_dump($arr_data);
+
             for($i = 0; $i < count($arr_data); $i++){
-                echo $arr_data[$i]["id"] . " --- " . $json[0]['id_uzytkownika'] . " --- " . count($arr_data);
                 // if($arr_data[$i]["id"] === $json[0]['id_uzytkownika']){
                 if(strcmp($arr_data[$i]["id"], $json[0]['id_uzytkownika']) == 0){
-                    $arr_data[$i]['date'] == new DateTime();
+                    $arr_data[$i]['date'] = new DateTime();
                     $test = false;
                     break;
                 }
@@ -57,9 +51,8 @@ if($login){
             array_push($arr_data, $rowInArray);
         }
 
-        var_dump($arr_data);
         $putArray = json_encode($arr_data, true);
-        var_dump($putArray);
+
         file_put_contents("uzytkownicy.json", $putArray);
 
         echo json_encode($json[0], true);
