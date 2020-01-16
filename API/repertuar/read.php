@@ -30,7 +30,7 @@
 
             $rep_item = array(
                 'id_repertuaru' => $id_repertuaru,
-                'filmu' => $filmu,
+                'id_filmu' => $id_filmu,
                 'id_sali' => $id_sali,
                 'data' => $data,
             );
