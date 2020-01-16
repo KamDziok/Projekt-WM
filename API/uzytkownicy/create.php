@@ -33,5 +33,5 @@
             echo json_encode(array('message' => 'User Not Created'));
         }
         }catch(Exception $e){
-            echo $e->getMessage;
+            echo $e->getMessage();
         }
