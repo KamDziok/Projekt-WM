@@ -32,8 +32,8 @@
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
     if(!$Rezerwacja->rezerwuj($idRepertuar, $miejsca, $idUzytkownika)){
 
-            //wyslanie informacji o niepowodzeniu i o prosbie odswiezenia strony(miejsca zajete)
-            $wyslij[] = false;
+        //wyslanie informacji o niepowodzeniu i o prosbie odswiezenia strony(miejsca zajete)
+        $wyslij[] = false;
 
     }else{
         $Ceny = new Ceny();
@@ -44,4 +44,5 @@
 
     //wyslanie ceny do frontu
     $ch->setPostURL($url, $wyslij);
+    $ch->exec();
 ?>

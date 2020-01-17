@@ -1,5 +1,5 @@
 <?php
-require "fpdf.php";
+require "./../fpdf.php";
 include_once 'Bilet.php';
 include_once 'Sala.php';
 include_once 'Repertuar.php';

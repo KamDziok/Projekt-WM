@@ -36,4 +36,5 @@
 
     //wyslanie ceny do frontu
     $ch->setPostURL($url, $wyslij);
+    $ch->exec();
 ?>
