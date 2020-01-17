@@ -3,7 +3,7 @@
     include_once './../curl.php';
 
     $ch = new ClientURL();
-    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/rezerwacja.php';
+    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/Rezerwacja.php';
 
     //odebranie danych
     header('Access-Control-Allow-Origin: *');
