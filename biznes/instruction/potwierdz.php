@@ -13,22 +13,22 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
     $listonosz = json_decode(file_get_contents('php://input'), TRUE);
 
-    $data = $listonosz[0];
-    $godzina = $listonosz[1];
-    $minuta = $listonosz[2];
-    $miesiac = $listonosz[3];
-    $dzien = $listonosz[4];
-    $rok = $listonosz[5];
-    $sala = $listonosz[6];
-    $imie = $listonosz[7];
-    $nazwisko = $listonosz[8];
-    $miejsca = $listonosz[9];
-    $iloscUczen = $listonosz[10];
-    $iloscStudent = $listonosz[11];
-    $idRepertuar = $listonosz[12];
-    $idUzytkownika = $listonosz[13];
-    $id = $listonosz[14];
-    $admin = $listonosz[15];
+    $data = $listonosz['data'];
+    $godzina = $listonosz['godz'];
+    $minuta = $listonosz['min'];
+    $miesiac = $listonosz['miesiac'];
+    $dzien = $listonosz['dzien'];
+    $rok = $listonosz['rok'];
+    $sala = $listonosz['idSali'];
+    $imie = $listonosz['imie'];
+    $nazwisko = $listonosz['nazwisko'];
+    $miejsca = $listonosz['miejsca'];
+    $iloscUczen = $listonosz['iloscUczen'];
+    $iloscStudent = $listonosz['iloscStudent'];
+    $idRepertuar = $listonosz['idRepertuaru'];
+    $idUzytkownika = $listonosz['idUzytkownika'];
+    $id = $listonosz['indexMiejscaTab'];
+    $admin = $listonosz['admin'];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
     $Repertuar = new Repertuar($film, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
