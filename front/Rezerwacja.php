@@ -45,10 +45,7 @@
                         <label> Imię i nazwisko
                             <span>*</span>
                         </label>
-						
-	
-	
-</form>
+					
                         <input type="text" id="Username" required>
                     </div>
                     <div class="agileits-right">
@@ -57,17 +54,17 @@
                         </label>
                         <input type="number" id="Numseats" required min="1">
                     </div>
-					<select name="Bilet">
-	<option>Bilet Zwykły 20 zł</option>
-	<option>Bilet Ulgowy 16 zł<option>
-	<option>Bilet Seniorski 17 zł<option>
-</select>
                 </div>
-				
+				<div>
+                    <label>Bilety ulgowe studenckie</label>
+                    <input onclick="student()" type="number" id="student">
+                    <label>Bilety ulgowe szkolne</label>
+                    <input onclick="szkolny()" type="number" id="szkolny">
+                </div>
                 <button onclick="takeData()">Wybierz</button>
             </div>
             <!-- //input fields -->
-          >
+          
             <ul class="seat_w3ls">
                 <li class="smallBox greenBox">Wybrane siedzenia</li>
 
@@ -551,6 +548,16 @@
     <!-- //js -->
     <!-- script for seat selection -->
     <script>
+
+        $("#student").click(function(){
+            this.css("max", $("#Numseats").val() - $("#skolny").val()); //to nie dziala (nie wiem jak ustawic parametr max)
+        });
+
+        $("inpit#szkolny").click(function(){
+            this.css("max", $("#Numseats").val() - $("#student").val());
+        });
+        
+
         function onLoaderFunc() {
             $(".seatStructure *").prop("disabled", true);
             $(".displayerBoxes *").prop("disabled", true);

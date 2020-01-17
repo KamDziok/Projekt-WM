@@ -27,7 +27,7 @@ class Bilet extends Rezerwacje{
         $this->bilet->AddPage('L','A4',0);
         $this->bilet->headerTable();
         $this->bilet->mainTable();
-        // $this->bilet->Output(); //do konsultacji
+        $this->bilet->Output();
         return $this->bilet;
     }
 }
