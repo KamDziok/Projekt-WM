@@ -24,6 +24,7 @@ try{
     $rezerwacja->iloscUczen = $data['iloscUczen'];
     $rezerwacja->iloscStudent = $data['iloscStudent'];
     $rezerwacja->id_repertuaruFKRez = $data['idRepertuaru'];
+    $rezerwacja->bilet = $data['bilet'];
 
     if($rezerwacja->create()){
         $youCenRun = TRUE;

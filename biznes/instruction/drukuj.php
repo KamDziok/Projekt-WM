@@ -32,9 +32,10 @@
     $Bilet = new Bilet($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
     $doDruku = $Bilet->drukujBilet();
 
-    $wyslij[] = $doDruku;
+    echo json_encode(array($doDruku));
+    // $wyslij[] = $doDruku;
 
     //wyslanie ceny do frontu
-    $ch->setPostURL($url, $wyslij);
-    $ch->exec();
+    // $ch->setPostURL($url, $wyslij);
+    // $ch->exec();
 ?>
