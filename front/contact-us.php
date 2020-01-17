@@ -37,7 +37,7 @@
 				<div class="row-2">
 					<ul>
 						<li><a href="index.php">Kino</a></li>
-						<li><a href="about-us.php">Stwórz konto</a></li>
+						<li><a href="register.php">Stwórz konto</a></li>
 						<li><a href="logowanie.php" >Zaloguj</a></li>
 						<li><a href="contact-us.php"class="active">Kontakt</a></li>
 						

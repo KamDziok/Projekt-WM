@@ -36,10 +36,10 @@
 				</div>
 				<div class="row-2">
 					<ul>
-						<li><a href="index.html">Kino</a></li>
-						<li><a href="about-us.html"class="active">Stwórz konto</a></li>
-						<li><a href="articles.html" >Zaloguj</a></li>
-						<li><a href="contact-us.html">Kontakt</a></li>
+						<li><a href="index.php">Kino</a></li>
+						<li><a href="register.php"class="active">Stwórz konto</a></li>
+						<li><a href="logowanie.php" >Zaloguj</a></li>
+						<li><a href="contact-us.php">Kontakt</a></li>
 						<li class="last"><a href="sitemap.html">S</a></li>
 					</ul>
 				</div>
