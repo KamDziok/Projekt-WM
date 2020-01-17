@@ -44,9 +44,15 @@
     if($admin == 1) $wyslij['bilet'] = 0;
     else $wyslij['bilet'] = 1;
     $wyslij['miejsca'] = $miejsca;
+
+    $Ceny = new Ceny();
+    $wyslij['cena'] = $Rezerwacja->obliczCene($Ceny, date('N', $dzienTygodnia));
+
     $ch->setPostURL($urlBaza, json_encode($wyslij));
     $result = $ch->exec();
+
     $odpAPI = json_decode($result, TRUE);
+
     if($odpAPI['Rezerwacja']){
         echo json_encode(array("odp" => TRUE));
     }else{
