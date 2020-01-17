@@ -3,6 +3,7 @@
     include_once './../curl.php';
     include_once './../model/Repertuar.php';
     include_once './../model/Rezerwacje.php';
+    include_once './../model/Ceny.php';
 
     $ch = new ClientURL();
     $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/podsumowanie.php';
@@ -54,7 +55,7 @@
     $odpAPI = json_decode($result, TRUE);
 
     if($odpAPI['Rezerwacja']){
-        echo json_encode(array("odp" => TRUE));
+        echo json_encode(array("odp" => TRUE, "idRezerwacji" => $odpAPI['idRezerwacji']));
     }else{
         echo json_encode(array("odp" => FALSE));
     }

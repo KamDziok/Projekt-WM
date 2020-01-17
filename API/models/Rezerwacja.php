@@ -50,7 +50,7 @@
         }
         
         public function deleteRezerwacjaById(){
-            $query = 'DELETE FROM ' . $this->table . ' WHERE id = ' . $this->id_rezerwacji;
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id_rezerwacji = ' . $this->id_rezerwacji;
             
             try{
                 if($this->conn->query($query) == TRUE){
