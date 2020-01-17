@@ -36,23 +36,37 @@
 
             //dodanie parametru
             $stmt->BindParam(1, $this->id_uzytkownika);
+            try{
+                $stmt->execute();
 
-            $stmt->execute();
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            $this->id = $row['user_id'];
-            $this->login = $row['nick'];
-            $this->$admin = $row['uprawnienia_administracyjne'];
-            $this->$email = $row['mail'];
-            $this->$imie = $row['imie'];
-            $this->$nazwisko = $row['nazwisko'];
+                $this->id_uzytkownika = $row['user_id'];
+                $this->login = $row['nick'];
+                $this->admin = $row['uprawnienia_administracyjne'];
+                $this->email = $row['mail'];
+                $this->imie = $row['imie'];
+                $this->nazwisko = $row['nazwisko'];
+                return TRUE;
+            }catch(Exception $e){
+                return FALSE;
+            }
         }
 
         public function deleteUserById(){
-            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            $query = 'DELETE FROM ' . $this->table . ' WHERE user_id = ' . $this->id_uzytkownika;
             
-            $stmt = $this->conn->prepare($query);
+            // $stmt = $this->conn->prepare($query);
+
+            try{
+                if($this->conn->query($query) === TRUE){
+                    return TRUE;
+                }else{
+                    return FALSE;
+                }
+            }catch(Exception $e){
+                return FALSE;
+            }            
         }
 
         public function create(){
@@ -106,16 +120,7 @@
 
             $stmt->execute();
             
-            if($stmt->rowCount() == 1){
-
-                // $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                // $this->id_uzytkownika = $row['user_id'];
-                // $this->admin = $row['uprawnienia_administracyjne'];
-                // $this->login = $row['nick'];
-                // $this->email = $row['mail'];
-                // $this->imie = $row['imie'];
-                // $this->nazwisko = $row['nazwisko'];
+            if($stmt->rowCount() > 0){
                 
                 return true;
             }

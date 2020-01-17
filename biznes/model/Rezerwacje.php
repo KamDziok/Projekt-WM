@@ -1,5 +1,5 @@
 <?php
-
+include_once 'Walidacja.php';
 class Rezerwacje{
     var $Repertuar;
     var $imie;
@@ -42,7 +42,7 @@ class Rezerwacje{
     }
 
     static function rezerwuj($idRepertuar, $miejsca){   //funkcja jesli ma dostep do pliku i podane miejsca nie są zajete 
-        $rezerwacje = json_decode(file_get_contents("miejsca.json"));   //zapisuje dane do pliku z stanem 0 czyli wstepnie zajete
+        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);   //zapisuje dane do pliku z stanem 0 czyli wstepnie zajete
         $miejsca[] = 0;
         $k = 1;
         foreach($rezerwacje as $r => $dane){
