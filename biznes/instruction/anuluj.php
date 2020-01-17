@@ -3,10 +3,10 @@
     include_once './../curl.php';
     include_once './../model/Repertuar.php';
     include_once './../model/Rezerwacje.php';
-    include_once './../model/Ceny.php';
 
     $ch = new ClientURL();
     $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/rezerwacje/miejsca.php';
+    $urlBaza = 'http://localhost:8080/WM/projekt/Projekt-WM/API/rezerwacje/create.php'; 
 
     //odebranie danych
     header('Access-Control-Allow-Origin: *');
@@ -27,26 +27,21 @@
     $miejsca = $listonosz['miejsca'];
     $iloscUczen = $listonosz['iloscUczen'];
     $iloscStudent = $listonosz['iloscStudent'];
-    $idRepertuar = $listonosz['idRepertuaru'];
-    $idUzytkownika = $listonosz['idUzytkownika'];
+    $idRezerwacji = $listonosz['idRezerwacji'];
+    $id = $listonosz['indexMiejscaTab'];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
     $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
 
-    if($Rezerwacja->rezerwuj($idRepertuar, $miejsca) < 0){
-        //wyslanie informacji o niepowodzeniu i o prosbie odswiezenia strony(miejsca zajete)
-        $wyslij['rezerwacja'] = false;
-    }else{
-        $json = json_decode(file_get_contents("miejsca.json"), TRUE);
-        $ch->setPostURL($url, json_encode($json));
-        $ch->exec();
+    $Rezerwacja->anuluj($id);
+    $json = json_decode(file_get_contents("miejsca.json"), TRUE);
+    $ch->setPostURL($url, json_encode($json));
+    $ch->exec();
 
-        $Ceny = new Ceny();
-        $wyslij['rezerwacja'] = true;
-        $wyslij['cena'] = $Rezerwacja->obliczCene($Ceny, date('N', $dzienTygodnia));
-        $wyslij['indexTabeliMiejsca'] = $miejsca;
-    }
+    //wyslanie do bazy info o usuniecie rekordy
+    $ch->setPostURL($url, json_encode(array("idRezerwacji" => $idRezerwacji)));
+    $ch->exec();
 
-    echo json_encode($wyslij);
+    echo json_encode(array("odp" => TRUE));
 ?>

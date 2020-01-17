@@ -3,7 +3,6 @@
     include_once './../curl.php';
     include_once './../model/Repertuar.php';
     include_once './../model/Rezerwacje.php';
-    include_once './../model/Ceny.php';
 
     $ch = new ClientURL();
     $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/podsumowanie.php';
@@ -49,19 +48,8 @@
     $result = $ch->exec();
     $odpAPI = json_decode($result, TRUE);
     if($odpAPI['Rezerwacja']){
-        //wyslanie ceny do frontu
-        // $odp = true;
-        // $ch->setPostURL($url, $odp);
-        // $ch->exec();
         echo json_encode(array("odp" => TRUE));
     }else{
-        // $odp = false;
-        // $ch->setPostURL($url, $odp);
-        // $ch->exec();
         echo json_encode(array("odp" => FALSE));
     }
-    
-    //wyslanie do bazy rezerwacji (idUzytkownika, idRepertuaru, iloscStudent, iloscUczen, bilet = 0, miejsca)
-
-
 ?>
