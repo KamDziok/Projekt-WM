@@ -6,7 +6,7 @@
 
         //wlasciwosci repertuaru
         public $id_repertuaru;
-        public $film;
+        public $id_filmu;
         public $id_saliFKRep;
         public $data;
 
@@ -17,7 +17,7 @@
         //funkcje z SQL...
 
         public function getRepertuarAll(){
-            $query = 'SELECT id_repertuaru, filmu, id_sali, data FROM ' . $this->table;
+            $query = 'SELECT id_repertuaru, id_filmu, id_sali, data FROM ' . $this->table;
 
             $stmt = $this->conn->prepare($query);
 
@@ -27,7 +27,7 @@
         }
 
         public function getRepertuarById(){
-            $query = 'SELECT id_repertuaru, filmu, id_sali, data FROM ' . $this->table . ' WHERE id = ?';
+            $query = 'SELECT id_repertuaru, id_filmu, id_sali, data FROM ' . $this->table . ' WHERE id = ?';
 
             $stmt = $this->conn->prepare($query);
 
@@ -39,7 +39,7 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             
             $this->id_repertuaru = $row['id_repertuaru'];
-            $this->film = $row['filmu'];
+            $this->id_filmu = $row['id_filmu'];
             $this->id_saliFKRep = $row['id_sali'];
             $this->data = $row['data'];
         }
@@ -54,8 +54,8 @@
             $query = 'INSERT INTO ' . $this->table .'
             SET 
                 id_repertuaru = :id_repertuaru,
-                filmu = :film,
-                if_saliFKRep = :id_sali,
+                id_filmu = :id_filmu,
+                id_sali = :id_sali,
                 data = :data;
             ';
 
@@ -63,12 +63,12 @@
 
             //czyszczenie danych
             $this->id_repertuaru = htmlspecialchars(strip_tags($this->id_repertuaru));
-            $this->filmu = htmlspecialchars(strip_tags($this->filmu));
-            $this->id_sali = htmlspecialchars(strip_tags($this->id_sali));
+            $this->id_filmu = htmlspecialchars(strip_tags($this->id_filmu));
+            $this->id_saliFKRep = htmlspecialchars(strip_tags($this->id_saliFKRep));
             $this->data = htmlspecialchars(strip_tags($this->data));
 
             $stmt->bindParam(':id_repertuaru', $this->id_repertuaru);
-            $stmt->bindParam(':filmu', $this->filmu);
+            $stmt->bindParam(':id_filmu', $this->id_filmu);
             $stmt->bindParam(':id_sali', $this->id_sali);
             $stmt->bindParam(':data', $this->data);
 
