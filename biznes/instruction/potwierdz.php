@@ -3,7 +3,8 @@
     include_once './../curl.php';
 
     $ch = new ClientURL();
-    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/Rezerwacja.php';
+    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/podsumowanie.php';
+    $urlBaza = 'http://localhost:8080/WM/projekt/Projekt-WM/API/';  // dokonczyc sciezke
 
     //odebranie danych
     header('Access-Control-Allow-Origin: *');
@@ -24,25 +25,36 @@
     $miejsca = $listonosz[9];
     $iloscUczen = $listonosz[10];
     $iloscStudent = $listonosz[11];
-    $idRepertuar = $listonosz[11];
-    $idUzytkownika = $listonosz[11];
+    $idRepertuar = $listonosz[12];
+    $idUzytkownika = $listonosz[13];
+    $id = $listonosz[14];
+    $admin = $listonosz[15];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
-    $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
+    $Repertuar = new Repertuar($film, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
-    if(!$Rezerwacja->rezerwuj($idRepertuar, $miejsca, $idUzytkownika)){
+    $Rezerwacja->potwierdz($id);
 
-        //wyslanie informacji o niepowodzeniu i o prosbie odswiezenia strony(miejsca zajete)
-        $wyslij[] = false;
-
+    $wyslij[] = $idUzytkownika;
+    $wyslij[] = $idRepertuar;
+    $wyslij[] = $iloscUczen;
+    $wyslij[] = $iloscStudent;
+    if($admin == 1) $wyslij[] = 0;
+    else $wyslij[] = 1;
+    $wyslij[] = $miejsca;
+    $ch->setPostURL($urlBaza, $wyslij);
+    if($ch->exec()){
+        //wyslanie ceny do frontu
+        $odp = true;
+        $ch->setPostURL($url, $odp);
+        $ch->exec();
     }else{
-        $Ceny = new Ceny();
-        $wyslij[] = true;
-        $wyslij[] = $Rezerwacja->obliczCene($Ceny, $dzienTygodnia);
-        $wyslij[] = $miejsca;
+        $odp = false;
+        $ch->setPostURL($url, $odp);
+        $ch->exec()
     }
+    
+    //wyslanie do bazy rezerwacji (idUzytkownika, idRepertuaru, iloscStudent, iloscUczen, bilet = 0, miejsca)
 
-    //wyslanie ceny do frontu
-    $ch->setPostURL($url, $wyslij);
-    $ch->exec();
+
 ?>

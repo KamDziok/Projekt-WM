@@ -21,21 +21,14 @@ class Bilet extends Rezerwacje{
         
     }
 
-    function zmienStatus(){ //funkcja wysyła "sygnał" zeby zmienic stan pola bilet w tabeli rezerwacje na true
-        
-        $dane[] = $this->bilet; //mozliwe ze nie trzeba az tylu danych
-
-        //wysłanie danych na podstawie, których można odnalezć rekord w bazie i zmienic bilet na true
-
-    }
-
-    function drukujBilet($imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $sala, $film){ //funkcja otfiera pdf w nowym oknie
-        $this->bilet = new GenerujBilet($imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent, $sala, $film);
+    function drukujBilet(){ //funkcja otfiera pdf w nowym oknie
+        $this->bilet = new GenerujBilet($this->imie, $this->nazwisko, $this->miejsca, $this->iloscUczen, $this->iloscStudent, $this->sala, $this->film);
         $this->bilet->AliasNbPages();
         $this->bilet->AddPage('L','A4',0);
         $this->bilet->headerTable();
         $this->bilet->mainTable();
-        $this->bilet->Output(); //do konsultacji
+        // $this->bilet->Output(); //do konsultacji
+        return $this->bilet;
     }
 }
 ?>

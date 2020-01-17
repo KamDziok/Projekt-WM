@@ -64,8 +64,8 @@ class Rezerwacje{
             $rezerwacje = json_encode($rezerwacje);
             file_put_contents("miejsca.json", $rezerwacje);
 
-            return true;
-        }else return $wyslij[] = "niepowodzenie";
+            return $r;
+        }else return -1;
     }
 
     function obliczCene($cenyBiletow, $dzien){    //funkcja podaje cene rezerwacji przy podsumowaniu
@@ -87,10 +87,8 @@ class Rezerwacje{
         $rezerwacje = json_encode($rezerwacje);
         file_put_contents("miejsca.json", $rezerwacje);
 
-            $wyslij[] = "powodzenie";
-
             //wysyla potwierdzenie udanej transakcji. Przekierowywuje do strony glownej? 
-            return $wyslij;
+            return true;
     }
 
     function anuluj($id, $idRezarwacji){                                //funkcja nadaje idRepertuaru na -1 co skutkuje 
