@@ -48,9 +48,17 @@
         }
 
         public function deleteSalaById(){
-            'DELETE FROM ' . $this->table . ' WHERE numer_sali = ?';
+            $query = 'DELETE FROM ' . $this->table . ' WHERE numer_sali = ' . $this->id_sali;
             
-            $stmt = $this->conn->prepare($query);
+            try{
+                if($this->conn->query($query) === TRUE){
+                    return TRUE;
+                }else{
+                    return FALSE;
+                }
+            }catch(Exception $e){
+                return FALSE;
+            }   
         }
 
         public function create(){
