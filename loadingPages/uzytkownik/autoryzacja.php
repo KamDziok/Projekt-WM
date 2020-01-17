@@ -1,10 +1,8 @@
 <?php
 
 $dateUser;
+$dataOld;
 $dateNow = new DateTime();
-$dateAdd = new DateInterval('PT30M');
-
-$dateTMP = new DateInterval('PT20M');
 
 include_once "../model/Uzytkownik.php";
 
@@ -17,21 +15,34 @@ $user = new Uzytkownik();
 try{
     $data = json_decode(file_get_contents('php://input'));
 
-    $user->id = $data->id;
+    $user->id_uzytkownika = $data->id;
 
-    $dateNow = new DateTime();
-    $dateAccept = new DateTime();
-    $dateTmp = new DateTime();
-    $dateTmp->add($dateTMP);
-    $dateAccept->add($dateAdd);
+    $index = 0;
+    $arr_data = file_get_contents("uzytkownicy.json");
+    $arr_data = json_decode($arr_data, true);
+    for($i = 0; $i < count($arr_data); $i++){
+        if($arr_data[$i]["id"] == $user->id_uzytkownika){
+
+            $dateOld = new DateTime($arr_data[$i]["date"]["date"]);
+            $index = $i;
+            break;
+        }
+    }
+    $dateAdd = new DateInterval('PT30M');
+    $dateOld->add($dateAdd);
+    
+    if($dateNow < $dateOld){
+        $arr_data[$index]["date"] = $dateNow;
+
+        $putArray = json_encode($arr_data, true);
+        file_put_contents("uzytkownicy.json", $putArray);
+
+        echo json_encode(array("autozyzacja" => TRUE));
+    }else{
+        echo json_encode(array("autozyzacja" => FALSE));
+    }
+
 
 }catch(Exception $e){
     echo json_encode(array('message' => $e->getMessage));
-}
-
-echo $dateNow->format('Y-m-d H:i:s') . " --- " . $dateAccept->format('Y-m-d H:i:s');
-if( $dateTmp < $dateAccept){
-    echo "dobrze";
-}else{
-    echo "zle";
 }

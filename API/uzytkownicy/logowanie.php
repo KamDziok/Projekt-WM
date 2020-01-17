@@ -17,7 +17,7 @@ $db = $database->connect();
 $user = new Uzytkownik($db);
 
 try{
-    $data = json_decode(file_get_contents('php://input'));
+    $data = json_decode(file_get_contents('php://input', true));
 
     $user->login = $data->login;
     $user->password = $data->password;
