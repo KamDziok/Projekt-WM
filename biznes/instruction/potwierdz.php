@@ -1,6 +1,9 @@
 <?php
 
     include_once './../curl.php';
+    include_once './../model/Repertuar.php';
+    include_once './../model/Rezerwacje.php';
+    include_once './../model/Ceny.php';
 
     $ch = new ClientURL();
     $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/podsumowanie.php';
@@ -42,7 +45,7 @@
     if($admin == 1) $wyslij['bilet'] = 0;
     else $wyslij['bilet'] = 1;
     $wyslij['miejsca'] = $miejsca;
-    $ch->setPostURL($urlBaza, $wyslij);
+    $ch->setPostURL($urlBaza, json_encode($wyslij));
     $result = $ch->exec();
     $odpAPI = json_decode($result, TRUE);
     if($odpAPI['Rezerwacja']){

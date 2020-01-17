@@ -6,7 +6,7 @@
     include_once './../model/Ceny.php';
 
     $ch = new ClientURL();
-    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/Rezerwacja.php';
+    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/rezerwacje/miejsca.php';//uzupełnij
 
     //odebranie danych
     header('Access-Control-Allow-Origin: *');
@@ -34,11 +34,16 @@
     $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
 
-    if($Rezerwacja->rezerwuj($idRepertuar, $miejsca, $idUzytkownika) < 0){
+    if($Rezerwacja->rezerwuj($idRepertuar, $miejsca) < 0){
         //wyslanie informacji o niepowodzeniu i o prosbie odswiezenia strony(miejsca zajete)
         $wyslij['rezerwacja'] = false;
 
     }else{
+
+        $json = json_decode(file_get_contents("miejsca.json"), TRUE);
+        $ch->setPostURL($url, json_encode($json));
+        $ch->exec();
+
         $Ceny = new Ceny();
         $wyslij['rezerwacja'] = true;
         $wyslij['cena'] = $Rezerwacja->obliczCene($Ceny, date('N', $dzienTygodnia));
