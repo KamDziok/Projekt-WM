@@ -16,13 +16,12 @@
     $repertuar = new Repertuar($db);
 
     try{
-        $data = json_decode(file_get_contents('php://input'));
+        $data = json_decode(file_get_contents('php://input'), true);
     
-        $repertuar->film = $data->film;
-        $repertuar->id_saliFKRep = $data->id_saliFKRep;
-        $repertuar->data = $data->data;
+        $repertuar->id_filmu = $data['film'];
+        $repertuar->id_saliFKRep = $data['id_sali'];
+        $repertuar->data = $data['data']['date'];
 
-    var_dump($data) ;
         //utworz repertuar
         if($repertuar->create()){
             echo json_encode(array('message' => 'Repertuar Created'));
