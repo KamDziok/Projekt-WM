@@ -22,13 +22,14 @@
 <![endif]-->
 </head>
 <body id="page3">
+
 <div class="tail-top">
 	<div class="tail-bottom">
 		<div id="main">
 <!-- HEADER -->
 			<div id="header">
 				<div class="row-1">
-					<div class="fleft"><a href="index.php">Kino<span>URZ</span></a></div>
+					<div class="fleft"><a href="index.php">KinoURZ</a></div>
 					<ul>
 						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
@@ -36,31 +37,55 @@
 				</div>
 				<div class="row-2">
 					<ul>
-						<li><a href="index.php">Kino</a></li>
-						<li><a href="about-us.php">Stwórz Konto</a></li>
-						<li><a href="register.php" class="active">Zaloguj</a></li>
+						<li><a href="index.php" >Kino</a></li>
+						<li><a href="register.php">Zarejestruj</a></li>
+						<li><a href="logowanie.php" class="active">zaloguj</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
-						<li class="last"><a href="sitemap.html">S</a></li>
+						
 					</ul>
 				</div>
 			</div>
 <!-- CONTENT -->
-			<form class="login-form">
-  <p class="login-text">
+<!-- CONTENT -->
+
+<div id="content">
+				<div id="slogan">
+					<div class="image png"></div>
+					<div class="inside">
+			
+					
+					<p class="login-text">
     <span class="fa-stack fa-lg">
       <i class="fa fa-circle fa-stack-2x"></i>
       <i class="fa fa-lock fa-stack-1x"></i>
     </span>
   </p>
-  <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
-  <input type="password" class="login-password" required="true" placeholder="Password" />
+						
+					
+					
+					<form >
+
+  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
+  <input type="password" class="login-password" required="true" placeholder="Hasło" />
   <input type="submit" name="Login" value="Login" class="login-submit" />
 </form>
-<a href="#" class="login-forgot-pass">forgot password?</a>
-<div class="underlay-photo"></div>
-<div class="underlay-black"></div> 
+
+</div></div></div><div>
+				
+				
+
+
 <!-- FOOTER -->
-			
+<div id="footer2">
+				<div class="left">
+					<div class="right">
+						<div class="inside">Copyright - Grupa laboratoryjna nr 2, projektowa nr 1<br>
+							Krzysztof Banaś, Kamil Dziok, Damian Gaworowski, Hubert Jakobsze, Łukasz Kwaśny
+							
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

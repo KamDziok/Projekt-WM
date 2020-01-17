@@ -101,6 +101,12 @@ details,
 figcaption,
 figure,
 footer,
+stopka{
+    clear: both;
+    position: fixed;
+    bottom: 0;
+
+}
 header,
 hgroup,
 menu,
