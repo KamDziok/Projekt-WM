@@ -34,7 +34,7 @@
     $admin = $listonosz['admin'];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
-    $Repertuar = new Repertuar($film, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
+    $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
     $Rezerwacja->potwierdz($id);
 
