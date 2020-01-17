@@ -27,7 +27,10 @@
         $user->nazwisko = $data->nazwisko;
     
         //utworz uzytkownika
-        if($user->create()){
+        if($user->chechUzytkownikExist()){
+            echo json_encode(array('message' => 'User Exist'));
+        }
+        elseif($user->create()){
             echo json_encode(array('message' => 'User Created'));
         }else{
             echo json_encode(array('message' => 'User Not Created'));
