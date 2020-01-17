@@ -13,7 +13,7 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
     $listonosz = json_decode(file_get_contents('php://input'));
 
-    $data = $listonosz[0];
+    $film = $listonosz[0];
     $godzina = $listonosz[1];
     $minuta = $listonosz[2];
     $miesiac = $listonosz[3];

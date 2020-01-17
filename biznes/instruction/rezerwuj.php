@@ -12,7 +12,7 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
     $listonosz = json_decode(file_get_contents('php://input'));
 
-    $data = $listonosz[0];
+    $film = $listonosz[0];
     $godzina = $listonosz[1];
     $minuta = $listonosz[2];
     $miesiac = $listonosz[3];
@@ -28,7 +28,7 @@
     $idUzytkownika = $listonosz[11];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
-    $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
+    $Repertuar = new Repertuar($film, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
     if($Rezerwacja->rezerwuj($idRepertuar, $miejsca, $idUzytkownika)){
 
