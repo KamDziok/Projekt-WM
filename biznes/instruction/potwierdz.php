@@ -3,7 +3,8 @@
     include_once './../curl.php';
 
     $ch = new ClientURL();
-    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/Rezerwacja.php';
+    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/podsumowanie.php';
+    $urlBaza = 'http://localhost:8080/WM/projekt/Projekt-WM/API/';  // dokonczyc sciezke
 
     //odebranie danych
     header('Access-Control-Allow-Origin: *');
@@ -27,21 +28,23 @@
     $idRepertuar = $listonosz[11];
     $idUzytkownika = $listonosz[11];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
+    $id = $listonosz[12];
 
-    $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
+    $Repertuar = new Repertuar($film, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
-    if(!$Rezerwacja->rezerwuj($idRepertuar, $miejsca, $idUzytkownika)){
+    $Rezerwacja->potwierdz($id);
 
-            //wyslanie informacji o niepowodzeniu i o prosbie odswiezenia strony(miejsca zajete)
-            $wyslij[] = false;
-
-    }else{
-        $Ceny = new Ceny();
-        $wyslij[] = true;
-        $wyslij[] = $Rezerwacja->obliczCene($Ceny, $dzienTygodnia);
-        $wyslij[] = $miejsca;
-    }
+    $wyslij[] = $idUzytkownika;
+    $wyslij[] = $idRepertuar;
+    $wyslij[] = $iloscUczen;
+    $wyslij[] = $iloscStudent;
+    $wyslij[] = 0;
+    $wyslij[] = $miejsca;
+    $ch->setPostURL($urlBaza, $wyslij);
+    
+    //wyslanie do bazy rezerwacji (idUzytkownika, idRepertuaru, iloscStudent, iloscUczen, bilet = 0, miejsca)
 
     //wyslanie ceny do frontu
-    $ch->setPostURL($url, $wyslij);
+    $odp = true;
+    $ch->setPostURL($url, $odp);
 ?>

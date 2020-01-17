@@ -3,7 +3,7 @@
     include_once './../curl.php';
 
     $ch = new ClientURL();
-    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/Rezerwacja.php';
+    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/potwierdzenie.php';
 
     //odebranie danych
     header('Access-Control-Allow-Origin: *');
@@ -29,18 +29,10 @@
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
     $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
-    $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
-    if(!$Rezerwacja->rezerwuj($idRepertuar, $miejsca, $idUzytkownika)){
+    $Bilet = new Bilet($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
+    $doDruku = $Bilet->drukujBilet();
 
-            //wyslanie informacji o niepowodzeniu i o prosbie odswiezenia strony(miejsca zajete)
-            $wyslij[] = false;
-
-    }else{
-        $Ceny = new Ceny();
-        $wyslij[] = true;
-        $wyslij[] = $Rezerwacja->obliczCene($Ceny, $dzienTygodnia);
-        $wyslij[] = $miejsca;
-    }
+    $wyslij[] = $doDruku;
 
     //wyslanie ceny do frontu
     $ch->setPostURL($url, $wyslij);
