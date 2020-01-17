@@ -47,8 +47,8 @@
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'
             SET 
-            id_rezerwacji = :id_miejscaFHRezMie,
-            id_miejsca = :id_rezerwacjiFKRezMie;
+            id_rezerwacji = :id_rezerwacjiFKRezMie,
+            id_miejsca = :id_miejscaFHRezMie;
             ';
 
             $stmt = $this->conn->prepare($query);
