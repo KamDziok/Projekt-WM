@@ -25,10 +25,11 @@
     $miejsca = $listonosz[9];
     $iloscUczen = $listonosz[10];
     $iloscStudent = $listonosz[11];
-    $idRepertuar = $listonosz[11];
-    $idUzytkownika = $listonosz[11];
+    $idRepertuar = $listonosz[12];
+    $idUzytkownika = $listonosz[13];
+    $id = $listonosz[14];
+    $admin = $listonosz[15];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
-    $id = $listonosz[12];
 
     $Repertuar = new Repertuar($film, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
@@ -38,13 +39,22 @@
     $wyslij[] = $idRepertuar;
     $wyslij[] = $iloscUczen;
     $wyslij[] = $iloscStudent;
-    $wyslij[] = 0;
+    if($admin == 1) $wyslij[] = 0;
+    else $wyslij[] = 1;
     $wyslij[] = $miejsca;
     $ch->setPostURL($urlBaza, $wyslij);
+    if($ch->exec()){
+        //wyslanie ceny do frontu
+        $odp = true;
+        $ch->setPostURL($url, $odp);
+        $ch->exec();
+    }else{
+        $odp = false;
+        $ch->setPostURL($url, $odp);
+        $ch->exec()
+    }
     
     //wyslanie do bazy rezerwacji (idUzytkownika, idRepertuaru, iloscStudent, iloscUczen, bilet = 0, miejsca)
 
-    //wyslanie ceny do frontu
-    $odp = true;
-    $ch->setPostURL($url, $odp);
+
 ?>
