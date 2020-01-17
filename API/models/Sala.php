@@ -7,6 +7,7 @@
         //wlasciwosci sali
 
         public $id_sali;
+        public $numer_sali;
         public $liczba_miejsc;
 
         public function __construct($db){

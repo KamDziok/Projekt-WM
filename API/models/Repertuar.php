@@ -69,7 +69,7 @@
 
             $stmt->bindParam(':id_repertuaru', $this->id_repertuaru);
             $stmt->bindParam(':id_filmu', $this->id_filmu);
-            $stmt->bindParam(':id_sali', $this->id_sali);
+            $stmt->bindParam(':id_sali', $this->id_saliFKRep);
             $stmt->bindParam(':data', $this->data);
 
             if($stmt->execute()){
