@@ -1,5 +1,4 @@
 <?php
-
 //naglowek
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
@@ -13,22 +12,20 @@ include_once './../models/Sala.php';
 $database = new Database();
 $db = $database->connect();
 
-//inicjalizacja obiektu Repertuar
 $sala = new Sala($db);
 
 try{
-    $data = json_decode(file_get_contents('php://input'), true);
+    $data = json_decode(file_get_contents('php://input'), TRUE);
 
-    $sala->id_sali = $data['id_sali'];
-    $sala->numer_sali = $data['numer_sali'];
-    $sala->liczba_miejsc =$data['liczba_miejs'];
+    // $user->id = $data->id;
+    $sala->id_sali = $data['id'];
 
-    //utworz repertuar
-    if($repertuar->create()){
-        echo json_encode(array('message' => 'Repertuar Created'));
+    //utworz uzytkownika
+    if($sala->getSalaById()){
+        echo json_encode($sala);
     }else{
-        echo json_encode(array('message' => 'Repertuar Not Created'));
+        echo json_encode(array('message' => 'User Not Exist'));
     }
-    }catch(Exception $e){
-        echo $e->getMessage();
-    }
+}catch(Exception $e){
+    echo json_encode(array('message' => $e->getMessage()));
+}

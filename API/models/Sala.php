@@ -17,7 +17,7 @@
         //funkcje z SQL...
 
         public function getSalaAll(){
-            $query = 'SELECT numer_sali , liczba_miejsc FROM ' . $this->table;
+            $query = 'SELECT id_sali, numer_sali , liczba_miejsc FROM ' . $this->table;
 
             $stmt = $this->conn->prepare($query);
 
@@ -27,19 +27,24 @@
         }
 
         public function getSalaById(){
-            $query = 'SELECT numer_sali , liczba_miejsc FROM ' . $this->table . ' WHERE numer_sali = ?';
+            $query = 'SELECT id_sali, numer_sali , liczba_miejsc FROM ' . $this->table . ' WHERE id_sali = ?';
 
             $stmt = $this->conn->prepare($query);
 
             //dodanie parametru
             $stmt->BindParam(1, $this->id_sali);
+            try{
+                $stmt->execute();
 
-            $stmt->execute();
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            $this->id_sali = $row['numer_sali'];
-            $this->liczba_miejsc = $row['liczba_miejsc'];
+                $this->id_sali = $row['id_sali'];
+                $this->numer_sali = $row['numer_sali'];
+                $this->liczba_miejsc = $row['liczba_miejsc'];
+                return TRUE;
+            }catch(Exception $e){
+                return FALSE;
+            }
         }
 
         public function deleteSalaById(){
