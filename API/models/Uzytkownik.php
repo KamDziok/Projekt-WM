@@ -121,4 +121,29 @@
             }
             return false;
         }
+        public function chechUzytkownikExist_no_create(){
+            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table . ' WHERE nick = ?';
+
+            $stmt = $this->conn->prepare($query);
+
+            //dodanie parametru
+            $stmt->BindParam(1, $this->login);
+
+            $stmt->execute();
+            
+            if($stmt->rowCount() == 1){
+
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $this->id_uzytkownika = $row['user_id'];
+                $this->admin = $row['uprawnienia_administracyjne'];
+                $this->login = $row['nick'];
+                $this->email = $row['mail'];
+                $this->imie = $row['imie'];
+                $this->nazwisko = $row['nazwisko'];
+                
+                return true;
+            }
+            return false;
+        }
     }
