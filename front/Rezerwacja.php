@@ -57,9 +57,9 @@
                 </div>
 				<div>
                     <label>Bilety ulgowe studenckie</label>
-                    <input onclick="student()" type="number" id="student">
+                        <input type="number" id="student" min="0">
                     <label>Bilety ulgowe szkolne</label>
-                    <input onclick="szkolny()" type="number" id="szkolny">
+                        <input type="number" id="szkolny" min="0">
                 </div>
                 <button onclick="takeData()">Wybierz</button>
             </div>
@@ -548,15 +548,6 @@
     <!-- //js -->
     <!-- script for seat selection -->
     <script>
-
-        $("#student").click(function(){
-            this.css("max", $("#Numseats").val() - $("#skolny").val()); //to nie dziala (nie wiem jak ustawic parametr max)
-        });
-
-        $("inpit#szkolny").click(function(){
-            this.css("max", $("#Numseats").val() - $("#student").val());
-        });
-        
 
         function onLoaderFunc() {
             $(".seatStructure *").prop("disabled", true);

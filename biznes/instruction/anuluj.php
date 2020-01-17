@@ -5,8 +5,8 @@
     include_once './../model/Rezerwacje.php';
 
     $ch = new ClientURL();
-    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/podsumowanie.php';
-    $urlBaza = 'http://localhost:8080/WM/projekt/Projekt-WM/API/rezerwacje/create.php';  
+    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/rezerwacje/miejsca.php';
+    $urlBaza = 'http://localhost:8080/WM/projekt/Projekt-WM/API/rezerwacje/create.php'; 
 
     //odebranie danych
     header('Access-Control-Allow-Origin: *');
@@ -27,35 +27,21 @@
     $miejsca = $listonosz['miejsca'];
     $iloscUczen = $listonosz['iloscUczen'];
     $iloscStudent = $listonosz['iloscStudent'];
-    $idRepertuar = $listonosz['idRepertuaru'];
-    $idUzytkownika = $listonosz['idUzytkownika'];
+    $idRezerwacji = $listonosz['idRezerwacji'];
     $id = $listonosz['indexMiejscaTab'];
-    $admin = $listonosz['admin'];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
     $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
-    $Rezerwacja->potwierdz($id);
 
-    $wyslij['idUzytkownika'] = $idUzytkownika;
-    $wyslij['idRepertuaru'] = $idRepertuar;
-    $wyslij['iloscUczen'] = $iloscUczen;
-    $wyslij['iloscStudent'] = $iloscStudent;
-    if($admin == 1) $wyslij['bilet'] = 0;
-    else $wyslij['bilet'] = 1;
-    $wyslij['miejsca'] = $miejsca;
+    $Rezerwacja->anuluj($id);
+    $json = json_decode(file_get_contents("miejsca.json"), TRUE);
+    $ch->setPostURL($url, json_encode($json));
+    $ch->exec();
 
-    $Ceny = new Ceny();
-    $wyslij['cena'] = $Rezerwacja->obliczCene($Ceny, date('N', $dzienTygodnia));
+    //wyslanie do bazy info o usuniecie rekordy
+    $ch->setPostURL($url, json_encode(array("idRezerwacji" => $idRezerwacji)));
+    $ch->exec();
 
-    $ch->setPostURL($urlBaza, json_encode($wyslij));
-    $result = $ch->exec();
-
-    $odpAPI = json_decode($result, TRUE);
-
-    if($odpAPI['Rezerwacja']){
-        echo json_encode(array("odp" => TRUE));
-    }else{
-        echo json_encode(array("odp" => FALSE));
-    }
+    echo json_encode(array("odp" => TRUE));
 ?>
