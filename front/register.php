@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>REGISTER</title>
+<title>Rejestracja</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="Place your description here" />
 <meta name="keywords" content="put, your, keyword, here" />
 <meta name="author" content="Templates.com - website templates provider" />
 <link href="style.css" rel="stylesheet" type="text/css" />
+<link href="style.scss" rel="stylesheet" type="text/scss" />
 <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="js/cufon-yui.js" type="text/javascript"></script>
 <script src="js/cufon-replace.js" type="text/javascript"></script>
@@ -21,59 +22,69 @@
 <![endif]-->
 </head>
 <body id="page2">
+
 <div class="tail-top">
 	<div class="tail-bottom">
 		<div id="main">
 <!-- HEADER -->
 			<div id="header">
 				<div class="row-1">
-					<div class="fleft"><a href="index.html">Kino<span>URZ</span></a></div>
+					<div class="fleft"><a href="index.php">KinoURZ</a></div>
 					<ul>
-						<li><a href="index.html"><img src="images/icon1.gif" alt="" /></a></li>
-						<li><a href="contact-us.html"><img src="images/icon2.gif" alt="" /></a></li>
-						<li><a href="sitemap.html"><img src="images/icon3.gif" alt="" /></a></li>
+						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
+						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
 					</ul>
 				</div>
 				<div class="row-2">
 					<ul>
-						<li><a href="index.php">Kino</a></li>
-						<li><a href="register.php"class="active">Stwórz konto</a></li>
+						<li><a href="index.php" >Kino</a></li>
+						<li><a href="register.php" class="active">Zarejestruj</a></li>
 						<li><a href="logowanie.php" >Zaloguj</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
-						<li class="last"><a href="sitemap.html">S</a></li>
+						
 					</ul>
 				</div>
 			</div>
 <!-- CONTENT -->
-			<div  class="wrap">
-						  <div class="Regisration">
-						  	<li>
-							
-						    	<h2><span>Zarejestruj</span></h2>
-						 	</li>
-						  	<form>
-						  		<input type="text" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Imie';}" >
-						  		<input type="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nazwisko';}" >
-						  		<input type="text" value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email ';}" >
-						  		<input type="text" value="User Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Login';}" >
-								<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" >
-								<input type="password" value=" Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" >
-								 <div class="Remember-me">
-								<div class="p-container">
-								
-								<div class ="clear"></div>
-							</div>
-												 
-								<div class="submit">
-									<input type="submit" onclick="myFunction()" value="Zarejestruj>" >
-								</div>
-									<div class="clear"> </div>
-								</div>
-											
-						  </form>
-					</div>
-<!-- FOOTER -->
+<!-- CONTENT -->
+
+<div id="content">
+				<div id="slogan">
+					<div class="image png"></div>
+					<div class="inside">
 			
+					
+
+						
+					
+					
+					<form >
+
+  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
+  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Imię" />
+  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Nazwisko" />
+  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Mail" />
+  <input type="password" class="login-password" required="true" placeholder="Hasło" />
+  <input type="password" class="login-password" required="true" placeholder="Powtórz hasło" />
+  <input type="submit" name="zarejestruj" value="zarejestruj" class="login-submit" />
+</form>
+
+</div></div></div><div>
+				
+				
+
+
+<!-- FOOTER -->
+<div id="footer2">
+				<div class="left">
+					<div class="right">
+						<div class="inside">Copyright - Grupa laboratoryjna nr 2, projektowa nr 1<br>
+							Krzysztof Banaś, Kamil Dziok, Damian Gaworowski, Hubert Jakobsze, Łukasz Kwaśny
+							
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

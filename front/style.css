@@ -987,20 +987,16 @@ right: -12%;
 }
 
 .login-username, .login-password {
-  background: transparent;
-  border: 0 solid;
-  border-bottom: 1px solid rgba(white, .5);
-  color: white;
-  display: block;
-  margin: 1rem;
-  padding: .5rem;
-  transition: 250ms background ease-in;
-  width: calc(100% - 3rem);
-  &:focus {
-    background: white;
-    color: black;
-    transition: 250ms background ease-in;
-  }
+	background: white;
+	border: 0 solid;
+	border-bottom: 1px solid rgba(white, .5);
+	display: block;
+	margin: auto;
+	padding: .5rem;
+	align-items: center;
+	justify-content: center;
+	transition: 250ms background ease-in;
+	width: calc(100% - 3rem);
 }
 
 .login-forgot-pass {
@@ -1022,8 +1018,9 @@ right: -12%;
   }
 }
 .login-submit {
-  border: 1px solid white;
-  background: transparent;
+  border: 5px solid black;
+  border-radius: 6px;
+  background: black;
   color: white;
   display: block;
   margin: 1rem auto;
@@ -1031,8 +1028,8 @@ right: -12%;
   padding: .25rem;
   transition: 250ms background ease-in;
   &:hover, &:focus {
-    background: white;
-    color: black;
+    background: black;
+    color: white;
     transition: 250ms background ease-in;
   }
 }
@@ -1070,7 +1067,26 @@ right: -12%;
 /* GLOBAL */
 #main {width:940px;margin:0 auto;font-size:0.875em}
 #header {height:171px;margin-bottom:-8px}
-#footer {background:url(images/footer-tail.gif) repeat-x left top #bfbfbf;color:#1d1d1d;font-size:.86em;line-height:1.667em;text-align:center}
+#footer {background:url(images/footer-tail.gif) repeat-x left top #fff;
+	color:#000;
+	font-size:.86em;
+	line-height:1.667em;
+	text-align:center
+
+
+}
+
+#footer2 {background:url(images/footer-tail.gif) repeat-x left top #fff;
+	color:#000;
+	font-size:.86em;
+	line-height:1.667em;
+	text-align:center
+	clear: both;
+    position: fixed;
+	bottom: 0;
+	width: 60rem;
+
+}
 /* ALIGMENT */
 .fleft {float:left}
 .fright {float:right}
@@ -1133,9 +1149,24 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 .link1 span {display:block;float:left;padding:0 5px;background:url(images/link1-left.png) no-repeat left top}
 .link1 span span {display:block;background:url(images/link1-tail.gif) repeat-x left top;padding:8px 15px}
 .link2 {display:block;float:left;background:url(images/link2-right.gif) no-repeat right top;color:#fff;cursor:pointer;text-decoration:none;line-height:1em}
+.link3 {display:block;float:left; color:#fff;cursor:pointer;text-decoration:none;line-height:1em}
 .link2:hover span {text-decoration:underline}
 .link2 span {display:block;float:left;padding:0 6px;background:url(images/link2-left.gif) no-repeat left top}
 .link2 span span {display:block;background:url(images/link2-tail.gif) repeat-x left top;padding:9px 15px 10px 15px}
+.link3 button {  border: 5px solid black;
+	border-radius: 6px;
+	background: black;
+	color: white;
+	display: block;
+	margin: 1rem auto;
+	min-width: 1px;
+	padding: .25rem;
+	transition: 250ms background ease-in;
+	&:hover, &:focus {
+	  background: black;
+	  color: white;
+	  transition: 250ms background ease-in;
+	}}
 .line-hor {overflow:hidden;font-size:0;line-height:0;width:918px;height:8px;margin-left:11px;background:url(images/line-hor.gif) repeat-x left top;z-index:1;position:relative}
 /* BOXES */
 .box {background:#000;width:100%;margin-top:-3px}
@@ -1162,6 +1193,10 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 #footer .right {min-height:89px;height:auto !important;height:89px;background:url(images/footer-right.gif) no-repeat right top;text-align:center}
 #footer .inside {padding:13px 0}
 #footer a {color:#2c6d9a}
+#footer2 .left {background:url(images/footer-left.gif) no-repeat left top}
+#footer2 .right {min-height:89px;height:auto !important;height:89px;background:url(images/footer-right.gif) no-repeat right top;text-align:center}
+#footer2 .inside {padding:13px 0}
+#footer2 a {color:#2c6d9a}
 #slogan {width:940px;height:322px;position:relative;background:url(images/banner-bg.gif) no-repeat left top;color:#1d1d1d}
 #slogan .image {position:absolute;right:-30px;top:-11px;z-index:100;width:572px;height:348px;background:url(images/banner-img.png) no-repeat left top}
 #slogan p {margin-bottom:23px}
