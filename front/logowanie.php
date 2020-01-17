@@ -39,7 +39,7 @@
 					<ul>
 						<li><a href="index.php">Kino</a></li>
 						<li><a href="about-us.php">Stwórz Konto</a></li>
-						<li><a href="articles.php" class="active">Zaloguj</a></li>
+						<li><a href="register.php" class="active">Zaloguj</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
 						<li class="last"><a href="sitemap.html">S</a></li>
 					</ul>
