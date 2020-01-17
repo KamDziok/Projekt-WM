@@ -96,7 +96,7 @@
         }
 
         public function chechUzytkownikExist(){
-            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table . ' WHERE nick = ? AND mail = ?';
+            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table . ' WHERE nick = ? OR mail = ?';
 
             $stmt = $this->conn->prepare($query);
 
