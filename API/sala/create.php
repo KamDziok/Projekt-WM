@@ -19,15 +19,14 @@ $sala = new Sala($db);
 try{
     $data = json_decode(file_get_contents('php://input'), true);
 
-    $sala->id_sali = $data['id_sali'];
     $sala->numer_sali = $data['numer_sali'];
-    $sala->liczba_miejsc =$data['liczba_miejs'];
+    $sala->liczba_miejsc =$data['liczba_miejsc'];
 
     //utworz repertuar
-    if($repertuar->create()){
-        echo json_encode(array('message' => 'Repertuar Created'));
+    if($sala->create()){
+        echo json_encode(array('message' => 'Sala Created'));
     }else{
-        echo json_encode(array('message' => 'Repertuar Not Created'));
+        echo json_encode(array('message' => 'Sala Not Created'));
     }
     }catch(Exception $e){
         echo $e->getMessage();

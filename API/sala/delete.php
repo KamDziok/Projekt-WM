@@ -21,7 +21,7 @@ try{
     $sala->id_sali = $data['id'];
 
     //utworz uzytkownika
-    if($sala->deleteUserById()){
+    if($sala->deleteSalaById()){
         echo json_encode(array('message' => 'Sala delete'));
     }else{
         echo json_encode(array('message' => 'Sala Not Exist'));
