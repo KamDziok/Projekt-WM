@@ -7,7 +7,6 @@
 <meta name="keywords" content="put, your, keyword, here" />
 <meta name="author" content="Templates.com - website templates provider" />
 <link href="style.css" rel="stylesheet" type="text/css" />
-<link href="style.scss" rel="stylesheet" type="text/scss" />
 <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="js/cufon-yui.js" type="text/javascript"></script>
 <script src="js/cufon-replace.js" type="text/javascript"></script>

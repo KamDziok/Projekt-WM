@@ -1,21 +1,32 @@
-<?php
-?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>Admin Panel</title>
+<title>Zarejestruj</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="KinoURZ" />
-<meta name="keywords" content="" />
-<meta name="author" content="KinoURZ" />
+<meta name="description" content="Place your description here" />
+<meta name="keywords" content="put, your, keyword, here" />
+<meta name="author" content="Templates.com - website templates provider" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="js/cufon-yui.js" type="text/javascript"></script>
+<script src="js/cufon-replace.js" type="text/javascript"></script>
+<script src="js/Gill_Sans_400.font.js" type="text/javascript"></script>
+<script src="js/script.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+
+<!--[if lt IE 7]>
+	<script type="text/javascript" src="js/ie_png.js"></script>
+	<script type="text/javascript">
+		 ie_png.fix('.png, .link1 span, .link1');
+	</script>
+	<link href="ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
 <style type="text/css">
+   
     body {
         color: #566787;
 		background: #f5f5f5;
@@ -261,17 +272,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-<script src="js/cufon-yui.js" type="text/javascript"></script>
-<script src="js/cufon-replace.js" type="text/javascript"></script>
-<script src="js/Gill_Sans_400.font.js" type="text/javascript"></script>
-<script src="js/script.js" type="text/javascript"></script>
-<!--[if lt IE 7]>
-	<script type="text/javascript" src="js/ie_png.js"></script>
-	<script type="text/javascript">
-		 ie_png.fix('.png, .link1 span, .link1');
-	</script>
-	<link href="ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
+
 </head>
 <body id="page4">
 <div class="tail-top">
@@ -280,7 +281,7 @@ $(document).ready(function(){
 <!-- HEADER -->
 			<div id="header">
 				<div class="row-1">
-					<div class="fleft"><a href="index.html">Kino<span>URZ</span></a></div>
+				<div class="fleft"><a href="index.php">Kino<span>URZ</span></a></div>
 					<ul>
 						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
@@ -299,6 +300,8 @@ $(document).ready(function(){
 				</div>
 			</div>
 <!-- CONTENT -->
+
+<div id="content">
 <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -517,10 +520,11 @@ $(document).ready(function(){
 		</div>
 	</div>
 <!-- FOOTER -->
-			<div id="footer">
+<div id="footer2">
 				<div class="left">
 					<div class="right">
-						<div class="inside">Copyright - KinoURZ<br />
+						<div class="inside">Copyright - Grupa laboratoryjna nr 2, projektowa nr 1<br>
+							Krzysztof Banaś, Kamil Dziok, Damian Gaworowski, Hubert Jakobsze, Łukasz Kwaśny
 							
 						</div>
 					</div>
