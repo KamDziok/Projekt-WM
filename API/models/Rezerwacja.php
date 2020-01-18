@@ -50,7 +50,7 @@
         }
         
         public function deleteRezerwacjaById(){
-            $query = 'DELETE FROM ' . $this->table . ' WHERE id = ' . $this->id_rezerwacji;
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id_rezerwacji = ' . $this->id_rezerwacji;
             
             try{
                 if($this->conn->query($query) == TRUE){
@@ -114,5 +114,17 @@
             printf('Error: %s.\n', $stmt->error);
 
             return FALSE;
+        }
+
+        public function kupBilet(){
+            $query = 'UPDATE ' . $this->table .' SET bilet = 1 WHERE id_rezerwacji = ' . $this->id_rezerwacji;
+
+            if ($this->conn->query($sql) === TRUE) {
+                $conn->close();
+                return TRUE;
+            } else {
+                $conn->close();
+                return FALSE;
+            }
         }
     }
