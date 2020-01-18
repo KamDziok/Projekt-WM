@@ -115,4 +115,16 @@
 
             return FALSE;
         }
+
+        public function kupBilet(){
+            $query = 'UPDATE ' . $this->table .' SET bilet = 1 WHERE id_rezerwacji = ' . $this->id_rezerwacji;
+
+            if ($this->conn->query($sql) === TRUE) {
+                $conn->close();
+                return TRUE;
+            } else {
+                $conn->close();
+                return FALSE;
+            }
+        }
     }
