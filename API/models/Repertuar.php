@@ -50,9 +50,17 @@
         }
 
         public function deleteRepertuarById(){
-            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id_repertuaru = ' . $this->id_repertuaru;
             
-            $stmt = $this->conn->prepare($query);
+            try{
+                if($this->conn->query($query) == TRUE){
+                    return TRUE;
+                }else{
+                    return FALSE;
+                }
+            }catch(Exception $e){
+                return FALSE;
+            }
         }
       
         public function create(){
