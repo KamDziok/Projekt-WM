@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -31,6 +34,15 @@
 				<div class="row-1">
 					<div class="fleft"><a href="index.php">KinoURZ</a></div>
 					<ul>
+						<!-- <li><a><?php //tutaj do ogarniecia
+							if(isset($_SESSION['zalogowany'])){
+								?>
+								<div class="avatar">
+									<p><?php echo "Witaj ".$_SESSION['login']; ?></p>
+								</div>
+								<?php
+							}
+						?><></li> -->
 						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
 					</ul>
@@ -41,7 +53,6 @@
 						<li><a href="register.php">Zarejestruj</a></li>
 						<li><a href="logowanie.php" class="active">zaloguj</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
-						
 					</ul>
 				</div>
 			</div>
@@ -63,11 +74,11 @@
 						
 					
 					
-					<form >
+					<form action="zaloguj.php">
 
   <input type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
   <input type="password" class="login-password" required="true" placeholder="Hasło" />
-  <input type="submit" name="Login" value="Login" class="login-submit" />
+  <input type="submit" name="Login" value="Login" class="login-submit" onclick="zaloguj()" />
 </form>
 
 </div></div></div><div>

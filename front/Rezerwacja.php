@@ -511,7 +511,7 @@
                 
 				
 	<div class="button"><a href="index.php" class="link2"><span><span>Wróc</span></span></a></div>
-		<div class="wrapper"><a href="podsumowanie.php" class="link2"><span><span>Podsumowanie</span></span></a></div>
+		<div class="wrapper"><a class="link2"><span><span>Podsumowanie</span></span></a></div>
             </div>
             <!-- //seat layout -->
             <!-- details after booking displayed here -->

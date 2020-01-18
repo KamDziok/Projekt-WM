@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -59,10 +63,10 @@
 				<div class="content">
 					<h3><span>W repertuarze</span></h3>
 					<ul class="movies">
-						<li>
+						<li id="1">
 							<h4>Toy Story 3</h4><img src="images/1page-img2.jpg" alt="" />
 							<p>Check out Disney-Pixar's official Toy Story site, watch the <span>Toy Story 3</span> trailer, and meet new characters. Remember, no toy gets left behind!</p>
-							<div class="wrapper"><a href="Rezerwacja.php" class="link3"><button>zarezerwuj</button></a></div>
+							<div class="wrapper"><a class="link3"><button>zarezerwuj</button></a></div>
 						</li><br>
 						<li>
 							<h4>Prince of Percia: Sands of Time</h4><img src="images/1page-img3.jpg" alt="" />
@@ -103,6 +107,13 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript"> Cufon.now(); </script>
+<script type="text/javascript"> Cufon.now(); 
+
+$("li").click(function(){
+	var tytul = ($(this).children("h4").text());
+});
+
+</script>
 </body>
+
 </html>
