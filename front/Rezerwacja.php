@@ -555,8 +555,8 @@
         }
 
         function takeData() {
-            if (($("#Username").val().length == 0) || ($("#Numseats").val().length == 0)) {
-                alert("Please Enter your Name and Number of Seats");
+            if ($("#Username").val().length == 0 || $("#Numseats").val().length == 0 || parseInt($("#szkolny").val()) + parseInt($("#student").val()) > parseInt($("#Numseats").val())) {
+                alert("podaj wszystkie dane lub zmień ilość ulg (nie mogą przekraczać liczby miejsc)");
             } else {
                 $(".inputForm *").prop("disabled", true);
                 $(".seatStructure *").prop("disabled", false);

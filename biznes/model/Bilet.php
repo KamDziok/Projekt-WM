@@ -21,8 +21,8 @@ class Bilet extends Rezerwacje{
         
     }
 
-    function drukujBilet(){ //funkcja otfiera pdf w nowym oknie
-        $this->bilet = new GenerujBilet($this->imie, $this->nazwisko, $this->miejsca, $this->iloscUczen, $this->iloscStudent, $this->sala, $this->film);
+    function drukujBilet($sala, $film){ //funkcja otfiera pdf w nowym oknie
+        $this->bilet = new GenerujBilet($this->imie, $this->nazwisko, $this->miejsca, $this->iloscUczen, $this->iloscStudent, $sala, $film);
         $this->bilet->AliasNbPages();
         $this->bilet->AddPage('L','A4',0);
         $this->bilet->headerTable();

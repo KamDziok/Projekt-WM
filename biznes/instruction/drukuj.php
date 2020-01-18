@@ -30,7 +30,7 @@
 
     $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Bilet = new Bilet($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
-    $doDruku = $Bilet->drukujBilet();
+    $doDruku = $Bilet->drukujBilet($sala, $data);
 
     echo json_encode(array($doDruku));
     // $wyslij[] = $doDruku;
