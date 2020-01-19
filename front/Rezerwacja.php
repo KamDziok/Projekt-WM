@@ -4,6 +4,10 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+if($_POST) $film = $_POST['film'];
+else $film = "kurwa";
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -33,7 +37,7 @@
 </head>
 
 <body onload="onLoaderFunc()">
-    <h1>Wybór miejsc na seansie filmu %WYBRANY_FILM%</h1>
+    <h1>Wybór miejsc film <?php echo $film; ?></h1>
     <div class="container">
 
         <div class="w3ls-reg">
