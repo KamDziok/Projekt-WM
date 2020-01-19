@@ -13,7 +13,7 @@ $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/loadi
 
 $ch = new ClientURL();
 
-$ch->setGetURL($url);
+$ch->setPostURL($url,$wyslij);
 $rezult = $ch->exec();
 
 use phpDocumentor\Reflection\Types\String_;
@@ -79,9 +79,9 @@ $liczbaRzedow = 10;
                 </div>
 				<div>
                     <label>Bilety ulgowe studenckie</label>
-                        <input type="number" name="iloscStudent[]" id="student" min="0">
+                        <input type="number" name="iloscStudent" id="student" min="0">
                     <label>Bilety ulgowe szkolne</label>
-                        <input type="number" name="iloscSzkolne[]" id="szkolny" min="0">
+                        <input type="number" name="iloscSzkolne" id="szkolny" min="0">
                 </div>
                 <div onclick="takeData()">Wybierz</div>
             </div>
@@ -561,8 +561,8 @@ $liczbaRzedow = 10;
     <script>
 
         function onLoaderFunc() {
-            $(".seatStructure *").prop("disabled", true);
-            $(".displayerBoxes *").prop("disabled", true);
+            $(".seatStructure *").prop("readonly", true);
+            $(".displayerBoxes *").prop("readonly", true);
         }
 
         function takeData() {
@@ -570,7 +570,7 @@ $liczbaRzedow = 10;
                 alert("podaj wszystkie dane lub zmień ilość ulg (nie mogą przekraczać liczby miejsc)");
             } else {
                 $(".inputForm *").prop("disabled", true);
-                $(".seatStructure *").prop("disabled", false);
+                $(".seatStructure *").prop("readonly", false);
                 document.getElementById("notification").innerHTML =
                     "<b style='margin-bottom:0px;background:#ff9800;letter-spacing:1px;'>Please Select your Seats NOW!</b>";
             }

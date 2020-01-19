@@ -9,7 +9,7 @@
 
 // $ch->setGetURL($url);
 // $rezult = $ch->exec();
-if(isset($_POST['miejsca']) && isset($_POST['imie'])){
+if(isset($_POST['miejsca'])){
 	$imie = $_POST['imie'];
 	$nazwisko = $_POST['nazwisko'];
 	$miejsca = $_POST['miejsca'];
@@ -78,7 +78,7 @@ $data = date("Y-m-d");
 							<div class="inner">
 								<h3>Podsumowanie <span>Rezerwacji</span></h3>
                                <h2><span>Dane Klienta:<span></h2>
-						      		<p><?php echo "Pan/Pani".$imie." ".$nazwisko; ?></p>		
+						      		<p><?php echo "Pan/Pani ".$imie." ".$nazwisko; ?></p>		
 								<h2><span>Zarezerwowane miejsca:<span></h2>
 						      		<p><?php echo "Miejsca nr.:	   "; foreach($miejsca as $m => $dane){echo $dane.", ";} ?></p>
 								<h2><span>Jakie Bilety:<span></h2>
