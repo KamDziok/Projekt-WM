@@ -80,7 +80,7 @@ class Rezerwacje{
     }
 
     function potwierdz($id){    //funkcja zmienia stan z 0 na 1 czyli zarezerwowane 
-        $rezerwacje = json_decode(file_get_contents("miejsca.json"));
+        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);
         foreach($rezerwacje as $r => $dane){
             if($id == $r) $dane[1][sizeof($dane, 1) - 3] = 1;
         }
@@ -88,21 +88,18 @@ class Rezerwacje{
         file_put_contents("miejsca.json", $rezerwacje);
 
             //wysyla potwierdzenie udanej transakcji. Przekierowywuje do strony glownej? 
-            return true;
+            return TRUE;
     }
 
-    function anuluj($id, $idRezarwacji){                                //funkcja nadaje idRepertuaru na -1 co skutkuje 
-        $rezerwacje = json_decode(file_get_contents("miejsca.json"));   //nie braniem tego rekordu pod uwage w przyszlosci
+    function anuluj($id){                                //funkcja nadaje idRepertuaru na -1 co skutkuje 
+        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);   //nie braniem tego rekordu pod uwage w przyszlosci
         foreach($rezerwacje as $r => $dane){
             if($id == $r) $dane[0] = -1;
         }
             $rezerwacje = json_encode($rezerwacje);
             file_put_contents("miejsca.json", $rezerwacje);
-            
-            $wyslij[] = $idRezarwacji;    //chyba wiecej nie trzeba
-            
-            //wysyla informacje o anulowaniu i usuwa z bazy dane tej rezerwacji
-            return $wyslij;
+
+            return TRUE;
     }
 }
 ?>

@@ -27,21 +27,26 @@
         }
 
         public function getRepertuarById(){
-            $query = 'SELECT id_repertuaru, id_filmu, id_sali, data FROM ' . $this->table . ' WHERE id = ?';
+            $query = 'SELECT id_repertuaru, id_filmu, id_sali, data FROM ' . $this->table . ' WHERE id_repertuaru = ?';
 
             $stmt = $this->conn->prepare($query);
 
             //dodanie parametru
-            $stmt->BindParam(1, $this->id);
+            $stmt->BindParam(1, $this->id_repertuaru);
+            try{
+                $stmt->execute();
 
-            $stmt->execute();
-
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            $this->id_repertuaru = $row['id_repertuaru'];
-            $this->id_filmu = $row['id_filmu'];
-            $this->id_saliFKRep = $row['id_sali'];
-            $this->data = $row['data'];
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                $this->id_repertuaru = $row['id_repertuaru'];
+                $this->id_filmu = $row['id_filmu'];
+                $this->id_saliFKRep = $row['id_sali'];
+                $this->data = $row['data'];
+                return TRUE;
+            }catch(Exception $e){
+                echo $e->getMessage();
+                return FALSE;
+            }
         }
 
         public function deleteRepertuarById(){

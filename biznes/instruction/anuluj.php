@@ -3,11 +3,10 @@
     include_once './../curl.php';
     include_once './../model/Repertuar.php';
     include_once './../model/Rezerwacje.php';
-    include_once './../model/Bilet.php';
 
     $ch = new ClientURL();
-    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/interfejs/potwierdzenie.php';
-    $urlBaza = 'http://localhost:8080/WM/projekt/Projekt-WM/API/rezerwacje/';  //dokończyć
+    $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/rezerwacje/miejsca.php';
+    $urlBaza = 'http://localhost:8080/WM/projekt/Projekt-WM/API/rezerwacje/delete.php'; 
 
     //odebranie danych
     header('Access-Control-Allow-Origin: *');
@@ -28,25 +27,29 @@
     $miejsca = $listonosz['miejsca'];
     $iloscUczen = $listonosz['iloscUczen'];
     $iloscStudent = $listonosz['iloscStudent'];
-    $idRepertuar = $listonosz['idRepertuaru'];
-    $idUzytkownika = $listonosz['idUzytkownika'];
-
     $idRezerwacji = $listonosz['idRezerwacji'];
-
+    $id = $listonosz['indexMiejscaTab'];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
     $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
-    $Bilet = new Bilet($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
-    $doDruku = $Bilet->drukujBilet($sala, $data);
+    $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
 
-    $wyslij['idRezerwacji'] = $idRezerwacji;
-    $ch->setPostURL($urlBaza, json_encode($wyslij));
+    $Rezerwacja->anuluj($id);
+
+    //wyslanie do bazy info o usuniecie rekordy
+    var_dump($idRezerwacji);
+    $ch->setPostURL($urlBaza, json_encode(array("idRezerwacji" => $idRezerwacji)));
     $result = $ch->exec();
+    $odpAPI = json_decode($result, TRUE);
+var_dump($odpAPI);
+    if($odpAPI['odp']){
 
-    echo json_encode(array($doDruku));
-    // $wyslij[] = $doDruku;
+        $json = json_decode(file_get_contents("miejsca.json"), TRUE);
+        $ch->setPostURL($url, json_encode($json));
+        $ch->exec();
 
-    //wyslanie ceny do frontu
-    // $ch->setPostURL($url, $wyslij);
-    // $ch->exec();
+        echo json_encode(array("odp" => TRUE));
+    }else{
+        echo json_encode(array("odp" => FALSE));
+    }
 ?>

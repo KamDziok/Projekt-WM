@@ -11,6 +11,7 @@
         public $iloscUczen;
         public $iloscStudent;
         public $id_repertuaruFKRez;
+        public $cena;
 
         public function __construct($db){
             $this->conn = $db;
@@ -40,55 +41,90 @@
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $this-> id_rezerwacji = $row['id_rezerwacji'];
-            $this-> bilet = $row['bilet'];
-            $this-> id_uzytkownikaFKRez = $row['user_id'];
-            $this-> iloscUczen = $row['ilosc_uczen_senior'];
-            $this-> iloscStudent = $row['ilosc_student'];
-            $this-> id_repertuaruFKRez = $row['id_repertuaru'];
+            $this->id_rezerwacji = $row['id_rezerwacji'];
+            $this->bilet = $row['bilet'];
+            $this->id_uzytkownikaFKRez = $row['user_id'];
+            $this->iloscUczen = $row['ilosc_uczen_senior'];
+            $this->iloscStudent = $row['ilosc_student'];
+            $this->id_repertuaruFKRez = $row['id_repertuaru'];
         }
         
         public function deleteRezerwacjaById(){
-            'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id_rezerwacji = ' . $this->id_rezerwacji;
             
+            try{
+                if($this->conn->query($query) == TRUE){
+                    return TRUE;
+                }else{
+                    return FALSE;
+                }
+            }catch(Exception $e){
+                return FALSE;
+            }
+        }
+
+        private function getIdRezerwacji(){
+            $query = 'SELECT id_rezerwacji FROM ' . $this->table . ' WHERE bilet = ' .
+            $this->bilet . " AND user_id = " . $this->id_uzytkownikaFKRez . " AND ilosc_uczen_senior = " . $this->iloscUczen .
+            " AND ilosc_student = " . $this->iloscStudent . " AND id_repertuaru = " . $this->id_repertuaruFKRez;
+
             $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+
+            $this->id_rezerwacji = $row['id_rezerwacji'];
         }
         
         public function create(){
             $query = 'INSERT INTO ' . $this->table .'
             SET 
-            id_rezerwacji = :id_rezerwacji,
             bilet = :bilet,
             user_id = :id_uzytkownikaFKRez,
             ilosc_uczen_senior = :iloscUczen,
             ilosc_student = :iloscStudent,
             id_repertuaru = :id_repertuaruFKRez;
+            cena = :cena
             ';
 
             $stmt = $this->conn->prepare($query);
 
             //czyszczenie danych
-            $this->id_rezerwacji = htmlspecialchars(strip_tags($this->id_rezerwacji));
             $this->bilet = htmlspecialchars(strip_tags($this->bilet));
             $this->id_uzytkownikaFKRez = htmlspecialchars(strip_tags($this->id_uzytkownikaFKRez));
             $this->iloscUczen = htmlspecialchars(strip_tags($this->iloscUczen));
-            $this->ilosc_student = htmlspecialchars(strip_tags($this->ilosc_student));
-            $this->id_repertuaru = htmlspecialchars(strip_tags($this->id_repertuaru));
+            $this->iloscStudent = htmlspecialchars(strip_tags($this->iloscStudent));
+            $this->id_repertuaruFKRez = htmlspecialchars(strip_tags($this->id_repertuaruFKRez));
 
-            $stmt->bindParam(':id_rezerwacji', $this->id_rezerwacji);
             $stmt->bindParam(':bilet', $this->bilet);
             $stmt->bindParam(':id_uzytkownikaFKRez', $this->id_uzytkownikaFKRez);
             $stmt->bindParam(':iloscUczen', $this->iloscUczen);
-            $stmt->bindParam(':ilosc_student', $this->ilosc_student);
-            $stmt->bindParam(':id_repertuaru', $this->id_repertuaru);
+            $stmt->bindParam(':iloscStudent', $this->iloscStudent);
+            $stmt->bindParam(':id_repertuaruFKRez', $this->id_repertuaruFKRez);
+            $stmt->bindParam(':cena', $this->cena);
 
             if($stmt->execute()){
+                $stmt->closeCursor();
+                $this->getIdRezerwacji();
                 return true;
             }
 
             //wypisz blad
             printf('Error: %s.\n', $stmt->error);
 
-            return false;
+            return FALSE;
+        }
+
+        public function kupBilet(){
+            $query = 'UPDATE ' . $this->table .' SET bilet = 1 WHERE id_rezerwacji = ' . $this->id_rezerwacji;
+
+            if ($this->conn->query($sql) === TRUE) {
+                $conn->close();
+                return TRUE;
+            } else {
+                $conn->close();
+                return FALSE;
+            }
         }
     }

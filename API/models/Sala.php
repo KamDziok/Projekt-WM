@@ -48,10 +48,10 @@
         }
 
         public function deleteSalaById(){
-            $query = 'DELETE FROM ' . $this->table . ' WHERE numer_sali = ' . $this->id_sali;
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id_sali = ' . $this->id_sali;
             
             try{
-                if($this->conn->query($query) === TRUE){
+                if($this->conn->query($query) == TRUE){
                     return TRUE;
                 }else{
                     return FALSE;
@@ -71,11 +71,11 @@
             $stmt = $this->conn->prepare($query);
 
             //czyszczenie danych
-            $this->id_sali = htmlspecialchars(strip_tags($this->id_sali));
+            $this->numer_sali = htmlspecialchars(strip_tags($this->numer_sali));
             $this->liczba_miejsc = htmlspecialchars(strip_tags($this->liczba_miejsc));
 
             $stmt->bindParam(':liczba_miejsc', $this->liczba_miejsc);
-            $stmt->bindParam(':id_sali', $this->id_sali);
+            $stmt->bindParam(':id_sali', $this->numer_sali);
 
             if($stmt->execute()){
                 return true;

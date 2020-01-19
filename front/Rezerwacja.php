@@ -57,9 +57,9 @@
                 </div>
 				<div>
                     <label>Bilety ulgowe studenckie</label>
-                    <input onclick="student()" type="number" id="student">
+                        <input type="number" id="student" min="0">
                     <label>Bilety ulgowe szkolne</label>
-                    <input onclick="szkolny()" type="number" id="szkolny">
+                        <input type="number" id="szkolny" min="0">
                 </div>
                 <button onclick="takeData()">Wybierz</button>
             </div>
@@ -511,7 +511,7 @@
                 
 				
 	<div class="button"><a href="index.php" class="link2"><span><span>Wróc</span></span></a></div>
-		<div class="wrapper"><a href="podsumowanie.php" class="link2"><span><span>Podsumowanie</span></span></a></div>
+		<div class="wrapper"><a class="link2"><span><span>Podsumowanie</span></span></a></div>
             </div>
             <!-- //seat layout -->
             <!-- details after booking displayed here -->
@@ -549,23 +549,14 @@
     <!-- script for seat selection -->
     <script>
 
-        $("#student").click(function(){
-            this.css("max", $("#Numseats").val() - $("#skolny").val()); //to nie dziala (nie wiem jak ustawic parametr max)
-        });
-
-        $("inpit#szkolny").click(function(){
-            this.css("max", $("#Numseats").val() - $("#student").val());
-        });
-        
-
         function onLoaderFunc() {
             $(".seatStructure *").prop("disabled", true);
             $(".displayerBoxes *").prop("disabled", true);
         }
 
         function takeData() {
-            if (($("#Username").val().length == 0) || ($("#Numseats").val().length == 0)) {
-                alert("Please Enter your Name and Number of Seats");
+            if ($("#Username").val().length == 0 || $("#Numseats").val().length == 0 || parseInt($("#szkolny").val()) + parseInt($("#student").val()) > parseInt($("#Numseats").val())) {
+                alert("podaj wszystkie dane lub zmień ilość ulg (nie mogą przekraczać liczby miejsc)");
             } else {
                 $(".inputForm *").prop("disabled", true);
                 $(".seatStructure *").prop("disabled", false);

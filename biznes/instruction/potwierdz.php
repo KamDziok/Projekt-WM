@@ -34,7 +34,7 @@
     $admin = $listonosz['admin'];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
-    $Repertuar = new Repertuar($film, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
+    $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
     $Rezerwacja->potwierdz($id);
 
@@ -45,23 +45,18 @@
     if($admin == 1) $wyslij['bilet'] = 0;
     else $wyslij['bilet'] = 1;
     $wyslij['miejsca'] = $miejsca;
+
+    $Ceny = new Ceny();
+    $wyslij['cena'] = $Rezerwacja->obliczCene($Ceny, date('N', $dzienTygodnia));
+
     $ch->setPostURL($urlBaza, json_encode($wyslij));
     $result = $ch->exec();
+
     $odpAPI = json_decode($result, TRUE);
+
     if($odpAPI['Rezerwacja']){
-        //wyslanie ceny do frontu
-        // $odp = true;
-        // $ch->setPostURL($url, $odp);
-        // $ch->exec();
-        echo json_encode(array("odp" => TRUE));
+        echo json_encode(array("odp" => TRUE, "idRezerwacji" => $odpAPI['idRezerwacji']));
     }else{
-        // $odp = false;
-        // $ch->setPostURL($url, $odp);
-        // $ch->exec();
         echo json_encode(array("odp" => FALSE));
     }
-    
-    //wyslanie do bazy rezerwacji (idUzytkownika, idRepertuaru, iloscStudent, iloscUczen, bilet = 0, miejsca)
-
-
 ?>
