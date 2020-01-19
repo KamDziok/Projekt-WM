@@ -21,20 +21,20 @@ function rezerwoj($i){
 }
 
 $rezult[0]['idFilm'] = 0;
-$rezult[0]['film'] = "bla";
-$rezult[0]['sala'] = "bla";
-$rezult[0]['data'] = "bla";
-$rezult[0]['opis'] = "bla";
+$rezult[0]['film'] = "Przeminęło z wiatrem";
+$rezult[0]['sala'] = "1";
+$rezult[0]['data'] = "Data seansu: 01.01.2020";
+$rezult[0]['opis'] = "Ekranizacja powieści Margaret Mitchell. Beztroska i bogata Scarlett O'Hara wikła się w burzliwy związek z Rhettem Butlerem.";
 $rezult[1]['idFilm'] = 1;
-$rezult[1]['film'] = "bla";
-$rezult[1]['sala'] = "bla";
-$rezult[1]['data'] = "bla";
-$rezult[1]['opis'] = "bla";
+$rezult[1]['film'] = "Tytanic";
+$rezult[1]['sala'] = "1";
+$rezult[1]['data'] = "Data seansu: 01.01.2020";
+$rezult[1]['opis'] = "Rok 1912, brytyjski statek Titanic wyrusza w swój dziewiczy rejs do USA. Na pokładzie emigrant Jack przypadkowo spotyka arystokratkę Rose.";
 $rezult[2]['idFilm'] = 2;
-$rezult[2]['film'] = "bla";
-$rezult[2]['sala'] = "bla";
-$rezult[2]['data'] = "bla";
-$rezult[2]['opis'] = "bla";
+$rezult[2]['film'] = "Opowieści z Narni";
+$rezult[2]['sala'] = "1";
+$rezult[2]['data'] = "Data seansu: 01.01.2020";
+$rezult[2]['opis'] = "Podczas II wojny światowej czwórka rodzeństwa zamieszkuje na wsi w domu ekscentrycznego profesora. Dzieci odkrywają przejście przez szafę do magicznej krainy zwanej Narnią.";
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -46,7 +46,6 @@ $rezult[2]['opis'] = "bla";
 <meta name="keywords" content="put, your, keyword, here" />
 <meta name="author" content="Templates.com - website templates provider" />
 <link href="style.css" rel="stylesheet" type="text/css" />
-<link href="style.scss" rel="stylesheet" type="text/scss" />
 <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="js/cufon-yui.js" type="text/javascript"></script>
 <script src="js/cufon-replace.js" type="text/javascript"></script>
@@ -90,7 +89,7 @@ $rezult[2]['opis'] = "bla";
 					<div class="image png"></div>
 					<div class="inside">
 						<h2>Witaj<span>Na stronie KinaURZ</span></h2>
-						<p>Mamy zaszczyt przywitać cie na stronie KinaURZ. Poniżej znajdują sie autlnie dostępne filmy.</p>
+						<p class="black">Mamy zaszczyt przywitać cie na stronie KinaURZ. Poniżej znajdują sie autlnie dostępne filmy.</p>
 						
 					</div>
 				</div>
@@ -101,7 +100,7 @@ $rezult[2]['opis'] = "bla";
 						<?php
 							foreach($rezult as $r => $dane){
 								// echo "<li><h4>".$dane['film']."<h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><div class='wrapper'><a class='link3'><button id='".$r."'>Zarezerwój</button></a></div></li>";
-								echo "<li><form action='Rezerwacja.php' method='post'><input type='text' name='film' value='".$dane['film']."' disabled/><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><input type='text' name='data' value='".$dane['data']."' disabled/><div class='wrapper'><input type='submit' value='Zarezerwuj' /></div></form></li>";
+								echo "<li><form action='Rezerwacja.php' method='POST'><h4><input type='text' name='film' value='".$dane['film']."' disabled/></h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><p></p><input type='text' name='data' value='".$dane['data']."' disabled/><div class='wrapper'><input  class='login-submit' type='submit' value='Zarezerwuj' /></span></div></form></li>";
 							}
 						?>
 						<li class="clear">&nbsp;</li>
