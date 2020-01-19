@@ -101,7 +101,7 @@ $rezult[2]['opis'] = "bla";
 						<?php
 							foreach($rezult as $r => $dane){
 								// echo "<li><h4>".$dane['film']."<h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><div class='wrapper'><a class='link3'><button id='".$r."'>Zarezerwój</button></a></div></li>";
-								echo "<li><form action='Rezerwacja.php' method='POST'><input type='text' name='film' value='".$dane['film']."' disabled/><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><input type='text' name='data' value='".$dane['data']."' disabled/><div class='wrapper'><input type='submit' value='Zarezerwuj' /></div></form></li>";
+								echo "<li><form action='Rezerwacja.php' method='post'><input type='text' name='film' value='".$dane['film']."' disabled/><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><input type='text' name='data' value='".$dane['data']."' disabled/><div class='wrapper'><input type='submit' value='Zarezerwuj' /></div></form></li>";
 							}
 						?>
 						<li class="clear">&nbsp;</li>

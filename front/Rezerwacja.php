@@ -5,8 +5,12 @@
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-if($_POST) $film = $_POST['film'];
+if($_GET) $film = $_GET['film'];
 else $film = "kurwa";
+
+$liczbaMiejscRzedu = 14;
+$liczbaRzedow = 10;
+
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -38,8 +42,7 @@ else $film = "kurwa";
 
 <body onload="onLoaderFunc()">
     <h1>Wybór miejsc film <?php echo $film; ?></h1>
-    <div class="container">
-
+    <form action="podsumowanie.php" method="post" class="container">
         <div class="w3ls-reg">
             <!-- input fields -->
             <div class="inputForm">
@@ -49,7 +52,6 @@ else $film = "kurwa";
                         <label> Imię i nazwisko
                             <span>*</span>
                         </label>
-					
                         <input type="text" id="Username" required>
                     </div>
                     <div class="agileits-right">
@@ -65,7 +67,7 @@ else $film = "kurwa";
                     <label>Bilety ulgowe szkolne</label>
                         <input type="number" id="szkolny" min="0">
                 </div>
-                <button onclick="takeData()">Wybierz</button>
+                <div onclick="takeData()">Wybierz</div>
             </div>
             <!-- //input fields -->
           
@@ -78,7 +80,7 @@ else $film = "kurwa";
             </ul>
             
             <div class="seatStructure txt-center" style="overflow-x:auto;">
-                <table id="seatsBlock">
+                <!-- <table id="seatsBlock">
                     <p id="notification"></p>
                     <tr>
                         <td></td>
@@ -507,46 +509,35 @@ else $film = "kurwa";
                             <input type="checkbox" class="seats" value="J12">
                         </td>
                     </tr>
+                </table> -->
+                <table>
+                    <?php
+                        for($j = 0; $j < $liczbaRzedow; $j++){
+                            echo "<tr>";
+                                for($i = 0; $i < $liczbaMiejscRzedu; $i++){
+                                    echo "<td><input type='checkbox' class='seats' value='".$j*10+$i."'></td>";
+                                }
+                            echo "</tr>";
+                        }
+                    ?>
                 </table>
 
                 <div class="screen">
                     <h2 class="wthree">EKRAN KINA</h2>
                 </div>
                 
-				
-	<div class="button"><a href="index.php" class="link2"><span><span>Wróc</span></span></a></div>
-		<div class="wrapper"><a class="link2"><span><span>Podsumowanie</span></span></a></div>
+                <div class="button"><a href="index.php" class="link2"><span><span>Wróc</span></span></a></div>
+                <!-- prosze mi wlaczyc <input type="submit"> -->
+		        <div class="wrapper"><a class="link2"><span><input type="submit" value="Podsumowanie" enabled/></span></a></div>    
             </div>
             <!-- //seat layout -->
             <!-- details after booking displayed here -->
-            <div class="displayerBoxes txt-center" style="overflow-x:auto;">
-                <table class="Displaytable w3ls-table" width="100%">
-                    <tr>
-                        <th>Imie i nazwisko</th>
-                        <th>Numer miejsc</th>
-                        <th>Miejsca</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea id="nameDisplay"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="NumberDisplay"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="seatsDisplay"></textarea>
-                        </td>
-                    </tr>
-                </table>
-            </div>
             <!-- //details after booking displayed here -->
-        </div>
-    </div>
-    <div class="copy-wthree">
-        <p>© 2020 by KinoURZ
-            
-        </p>
-    </div>
+            <div class="copy-wthree">
+                <p>© 2020 by KinoURZ</p>
+            </div>
+    </form>
+
     <!-- js -->
     <script src="js/jquery-2.2.3.min.js"></script>
     <!-- //js -->
@@ -628,7 +619,6 @@ else $film = "kurwa";
         });
     </script>
     <!-- //script for seat selection -->
-
 </body>
 
 </html>

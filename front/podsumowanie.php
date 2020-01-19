@@ -54,19 +54,16 @@
 							<div class="inner">
 								<h3>Podsumowanie <span>Rezerwacji</span></h3>
                                <h2><span>Dane Klienta:<span></h2>
-						      <p>%Imię_i_nazwisko%.</p>		
-<h2><span>Zarezerwowane miejsca:<span></h2>
-						      <p>%zarezerwowane miejsca%.</p>
-<h2><span>Jakie Bilety:<span></h2>
-						      <p>%Rodzaj_ulgi%.</p>		
-<h2><span>Data Sprzedaży:<span></h2>
-<p>%Data</p>
-
-<h2><span>Łączna cena</span></h2>
-<p>%Cena</p>
-
-<div class="wrapper"><a href="index.php" class="link2"><span><span>Zatwierdz rezerwacje</span></span></a></div>
-						      								  
+						      		<p><?php echo "Pan/Pani".$imie." ".$nazwisko; ?></p>		
+								<h2><span>Zarezerwowane miejsca:<span></h2>
+						      		<p><?php foreach($miejsca as $m => $dane){echo "Miejsca nr.:".$dane;} ?></p>
+								<h2><span>Jakie Bilety:<span></h2>
+						      		<p><?php echo "Bilety szkolne: ".$iloscSzkolne.", Biletu studencke: ".$iloscStudenckie; ?></p>		
+								<h2><span>Data Sprzedaży:<span></h2>
+									<p><?php $data = new DateTime(); echo $data; ?></p>
+								<h2><span>Łączna cena</span></h2>
+									<p><?php echo $cena; ?></p>
+								<div class="wrapper"><a href="index.php" class="link2"><span><span>Zatwierdz rezerwacje</span></span></a></div>					  
 							</div>
 						</div>
 					</div>
