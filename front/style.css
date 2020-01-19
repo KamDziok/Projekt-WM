@@ -1,14 +1,18 @@
 /* TAGS */
 * {margin:0;padding:0}
 html, body {min-width:940px} 
-body {background:#000;font-family:Arial,Helvetica,sans-serif;font-size:100%;line-height:1em;color:#858585}
+body {background:#000;font-family:Arial,Helvetica,sans-serif;font-size:100%;line-height:1em;color:#fff}
 object {vertical-align:top;outline:none}
-input, textarea, select {font-family:Arial,Helvetica,sans-serif;font-size:1em;vertical-align:middle;font-weight:normal}
+input, textarea, select {font-family:Arial,Helvetica,sans-serif;font-size:1em;vertical-align:middle;font-weight:normal
+}
 fieldset {border:0}
-p {margin:0;padding:0}
+p {margin:0;padding:0; color:white}
 img {border:0;vertical-align:top;text-align:left}
 ul, ol {list-style:none}
 
+input{color:white;
+background-color: transparent;
+border: transparent;}
 .content {
 	width:100%;
 	margin:0 auto;
@@ -1129,7 +1133,7 @@ right: -12%;
 .img-box1.alt {padding-top:0;padding-bottom:25px}
 .img-box1.alt img {margin-top:0}
 .img-box1 img {float:left;margin:-10px 20px 0 0}
-p {margin-bottom:15px;line-height:1.714em}
+p {margin-bottom:15px;line-height:1.714em;color:white}
 .p1 {margin-bottom:23px}
 .address {width:100%;overflow:hidden;line-height:1.714em}
 .address span {color:#fff}
@@ -1204,3 +1208,4 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 #page1 #content .box {margin:0}
 #page1 #header .row-2 ul li a {height:59px}
 #page1 #header .row-2 ul li.last a:hover {position:relative;z-index:2}
+.black {color:black}
