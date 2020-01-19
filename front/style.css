@@ -991,9 +991,8 @@ right: -12%;
 }
 
 .login-username, .login-password {
-	background: white;
-	border: 0 solid;
-	border-bottom: 1px solid rgba(white, .5);
+	background: black;
+	border: 1px solid rgb(92, 92, 92);
 	display: block;
 	margin: auto;
 	padding: .5rem;
