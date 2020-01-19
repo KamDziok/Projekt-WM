@@ -5,15 +5,30 @@
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-if($_GET) $film = $_GET['film'];
-else $film = "kurwa";
+include_once 'curl.php';
 
-$liczbaMiejscRzedu = 14;
+session_start();
+
+$url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/loadingAll.php';
+
+$ch = new ClientURL();
+
+$ch->setGetURL($url);
+$rezult = $ch->exec();
+
+use phpDocumentor\Reflection\Types\String_;
+
+if(isset($_POST['film'])) 
+    $film = $_POST['film'];
+else
+    $film = "kurwa";
+
+$liczbaMiejscRzedu = 14;    //te dane trzeba z kads wziac
 $liczbaRzedow = 10;
 
 ?>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="pl">
 
 <head>
     <title>KinoURZ REZERWACJA</title>
@@ -41,7 +56,7 @@ $liczbaRzedow = 10;
 </head>
 
 <body onload="onLoaderFunc()">
-    <h1>Wybór miejsc film <?php echo $film; ?></h1>
+    <h1>Wybór miejsc filmu <?php echo $film; ?></h1>
     <form action="podsumowanie.php" method="post" class="container">
         <div class="w3ls-reg">
             <!-- input fields -->
@@ -52,20 +67,21 @@ $liczbaRzedow = 10;
                         <label> Imię i nazwisko
                             <span>*</span>
                         </label>
-                        <input type="text" id="Username" required>
+                        <input type="text" name="imie" id="Username" required>
+                        <input type="text" name="nazwisko" id="Username" required>
                     </div>
                     <div class="agileits-right">
                         <label> Liczba miejsc
                             <span>*</span>
                         </label>
-                        <input type="number" id="Numseats" required min="1">
+                        <input type="number" name="iloscMiejsc" id="Numseats" required min="1">
                     </div>
                 </div>
 				<div>
                     <label>Bilety ulgowe studenckie</label>
-                        <input type="number" id="student" min="0">
+                        <input type="number" name="iloscStudent[]" id="student" min="0">
                     <label>Bilety ulgowe szkolne</label>
-                        <input type="number" id="szkolny" min="0">
+                        <input type="number" name="iloscSzkolne[]" id="szkolny" min="0">
                 </div>
                 <div onclick="takeData()">Wybierz</div>
             </div>
@@ -515,7 +531,7 @@ $liczbaRzedow = 10;
                         for($j = 0; $j < $liczbaRzedow; $j++){
                             echo "<tr>";
                                 for($i = 0; $i < $liczbaMiejscRzedu; $i++){
-                                    echo "<td><input type='checkbox' class='seats' value='".$j*10+$i."'></td>";
+                                    echo "<td><input type='checkbox' name='miejsca[]' class='seats' value='".($j*10+$i)."'></td>";
                                 }
                             echo "</tr>";
                         }
@@ -528,7 +544,7 @@ $liczbaRzedow = 10;
                 
                 <div class="button"><a href="index.php" class="link2"><span><span>Wróc</span></span></a></div>
                 <!-- prosze mi wlaczyc <input type="submit"> -->
-		        <div class="wrapper"><a class="link2"><span><input type="submit" value="Podsumowanie" enabled/></span></a></div>    
+		        <div class="wrapper"><a class="link2"><span><input type="submit" value="Podsumowanie" /></span></a></div>    
             </div>
             <!-- //seat layout -->
             <!-- details after booking displayed here -->
@@ -576,11 +592,6 @@ $liczbaRzedow = 10;
                 $('#seatsBlock :checked').each(function () {
                     allSeatsVals.push($(this).val());
                 });
-
-                //Displaying 
-                $('#nameDisplay').val(allNameVals);
-                $('#NumberDisplay').val(allNumberVals);
-                $('#seatsDisplay').val(allSeatsVals);
             } else {
                 alert("Please select " + ($("#Numseats").val()) + " seats")
             }

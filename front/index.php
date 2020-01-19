@@ -100,7 +100,7 @@ $rezult[2]['opis'] = "Podczas II wojny światowej czwórka rodzeństwa zamieszku
 						<?php
 							foreach($rezult as $r => $dane){
 								// echo "<li><h4>".$dane['film']."<h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><div class='wrapper'><a class='link3'><button id='".$r."'>Zarezerwój</button></a></div></li>";
-								echo "<li><form action='Rezerwacja.php' method='POST'><h4><input type='text' name='film' value='".$dane['film']."' disabled/></h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><p></p><input type='text' name='data' value='".$dane['data']."' disabled/><div class='wrapper'><input  class='login-submit' type='submit' value='Zarezerwuj' /></span></div></form></li>";
+								echo "<li><form action='Rezerwacja.php' method='POST'><h4><input type='text' name='film' value='".$dane['film']."' disabled/></h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><p></p><input type='text' name='data' value='".$dane['data']."' disabled/><div class='wrapper'><input  class='login-submit' name='wyslij' type='submit' value='Zarezerwuj' /></span></div></form></li>";
 							}
 						?>
 						<li class="clear">&nbsp;</li>
