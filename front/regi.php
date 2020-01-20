@@ -12,12 +12,12 @@ session_start();
 include_once 'curl.php';
 
 
-$login = $_SESSION['login'];
-$imie = $_SESSION['imie'];
-$nazwisko = $_SESSION['nazwisko'];
-$mail = $_SESSION['mail'];
-$passwordOne = $_SESSION['passwordOne'];
-$passwordTwo = $_SESSION['passwordTow'];
+$login = $_POST['login'];
+$imie = $_POST['imie'];
+$nazwisko = $_POST['nazwisko'];
+$mail = $_POST['mail'];
+$passwordOne = $_POST['passwordOne'];
+$passwordTwo = $_POST['passwordTow'];
 
 //porównanie haseł
 
