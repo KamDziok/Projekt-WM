@@ -47,8 +47,9 @@
 				<div class="fleft"><a href="index.php">Kino<span>URZ</span></a></div>
 					<ul>
 						
-						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
+					<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
+						<li><a href="Panel_Pracownika.php"><img src="images/icon3.gif" alt="" /></a></li>
 						
 					</ul>
 				</div>
@@ -57,7 +58,11 @@
 						
 						<li><a href="index.php" >Kino</a></li>
 						<li><a href="register.php" class="active">Zarejestruj</a></li>
-						<li><a href="logowanie.php" >Zaloguj</a></li>
+						<?php if(!$_SESSION['zalogowany']){?>
+						<li><a href="logowanie.php">Zaloguj</a></li>
+						<?php }else{?>
+						<li><a href="logout.php">Wyloguj</a></li>
+						<?php }?>
 						<li><a href="contact-us.php">Kontakt</a></li>
 						
 					</ul>
@@ -76,14 +81,14 @@
 						
 					
 					
-					<form >
+					<form action="regi.php" method="POST">
 
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Imię" />
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Nazwisko" />
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Mail" />
-  <input type="password" class="login-password" required="true" placeholder="Hasło" />
-  <input type="password" class="login-password" required="true" placeholder="Powtórz hasło" />
+  <input name="login" type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
+  <input name="imie" type="login" class="login-username" autofocus="true" required="true" placeholder="Imię" />
+  <input name="nazwisko" type="login" class="login-username" autofocus="true" required="true" placeholder="Nazwisko" />
+  <input name="mail" type="login" class="login-username" autofocus="true" required="true" placeholder="Mail" />
+  <input name="passwordOne" type="password" class="login-password" required="true" placeholder="Hasło" />
+  <input name="passwordTwo" type="password" class="login-password" required="true" placeholder="Powtórz hasło" />
   <input type="submit" name="zarejestruj" value="zarejestruj" class="login-submit" />
 </form>
 
