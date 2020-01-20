@@ -3,7 +3,7 @@
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>Admin Panel</title>
+<title>Panel Pracownika</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="KinoURZ" />
 <meta name="keywords" content="" />
@@ -280,7 +280,7 @@ $(document).ready(function(){
 				</div>
 				<div class="row-2">
 					<ul>
-						<li><a href="index.html">Kino</a></li>
+						<li><a href="index.php">Kino</a></li>
 						<li><a href="register.php">Stwórz Konto</a></li>
 						<li><a href="logowanie.php">Wyloguj</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
@@ -290,17 +290,16 @@ $(document).ready(function(){
 				</div>
 			</div>
 <!-- CONTENT -->
-<div id="content">
 <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>Zarzadzanie <b>uzytkownikami</b></h2>
+						<h2>Panel <b>Pracownika</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowego pracownika</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>						
+						<a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj Film</span></a>
+												
 					</div>
                 </div>
             </div>
@@ -313,11 +312,8 @@ $(document).ready(function(){
 								<label for="selectAll"></label>
 							</span>
 						</th>
-                        <th>Imie i Nazwisko</th>
-                        <th>Email</th>
-						<th>Typ Konta</th>
-                        <th>Login</th>
-                        <th>Akcja</th>
+                        <th>Imie i nazwisko rezerwującego</th>
+                        <th>Miejsca</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -328,13 +324,11 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td>Walenty Potter</td>
-                        <td>hogwart@mail.com</td>
-						<td>Klient</td>
-                        <td>aezakmi22</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr>
                     <tr>
@@ -344,13 +338,11 @@ $(document).ready(function(){
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-                        <td>Beata Banot</td>
-                        <td>laland@mail.com</td>
-						<td>Pracownik</td>
-                        <td>Pracownik2</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr>
 					<tr>
@@ -360,13 +352,11 @@ $(document).ready(function(){
 								<label for="checkbox3"></label>
 							</span>
 						</td>
-                        <td>Maria Daria</td>
-                        <td>mariaanders@mail.com</td>
-						<td>Klient</td>
-                        <td>Marycha23</td>
+                       <td>%DANE%</td>
+                        <td>%Miejsca%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr>
                     <tr>
@@ -376,13 +366,11 @@ $(document).ready(function(){
 								<label for="checkbox4"></label>
 							</span>
 						</td>
-                        <td>Piotr Kowalski</td>
-                        <td>franwilson@mail.com</td>
-						<td>Klient</td>
-                        <td>Germen111</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr>					
 					<tr>
@@ -392,19 +380,17 @@ $(document).ready(function(){
 								<label for="checkbox5"></label>
 							</span>
 						</td>
-                        <td>Hermenegilda Bonifacy</td>
-                        <td>abc@mail.com</td>
-						<td>Pracownik</td>
-                        <td>Pracownik1</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr> 
                 </tbody>
             </table>
 			<div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                <div class="hint-text">Pokazano <b>5</b> z <b>25</b> wyników</div>
                 <ul class="pagination">
                     <li class="page-item disabled"><a href="#">Poprzednia</a></li>
                     <li class="page-item"><a href="#" class="page-link">1</a></li>

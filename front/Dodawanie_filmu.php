@@ -262,17 +262,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-<script src="js/cufon-yui.js" type="text/javascript"></script>
-<script src="js/cufon-replace.js" type="text/javascript"></script>
-<script src="js/Gill_Sans_400.font.js" type="text/javascript"></script>
-<script src="js/script.js" type="text/javascript"></script>
-<!--[if lt IE 7]>
-	<script type="text/javascript" src="js/ie_png.js"></script>
-	<script type="text/javascript">
-		 ie_png.fix('.png, .link1 span, .link1');
-	</script>
-	<link href="ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
+
 </head>
 <body id="page4">
 <div class="tail-top">
