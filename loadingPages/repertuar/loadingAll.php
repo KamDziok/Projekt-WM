@@ -10,7 +10,21 @@ $ch->setGetURL($url);
 $result = $ch->exec();
 
 $array = json_decode($result, true);
+
+$dateNow = new DateTime();
+$toPage = array();
+
+for($i = 0; $i < count($array['data']);$i++){
+    echo $array['data'][$i]['data'];
+    // $dataRep = new DateTime($array['data'][$i]['data']);
+    $dataRep = DateTime::createFromFormat('Y-m-d H:i:s', $array['data'][$i]['data']);
+    var_dump($dataRep);
+    if($dataRep < $dateNow){
+        array_push($toPage, $array['data'][$i]);
+    }
+}
+
 //naglowek
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-echo json_encode($array['data']);
+echo json_encode($toPage);
