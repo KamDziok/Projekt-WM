@@ -15,7 +15,7 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
     $listonosz = json_decode(file_get_contents('php://input'), TRUE);
 
-    $data = $listonosz['data'];
+    $data = $listonosz['data']; //tytul
     $godzina = $listonosz['godz'];
     $minuta = $listonosz['min'];
     $miesiac = $listonosz['miesiac'];
