@@ -16,7 +16,7 @@ $toPage = array();
 
 for($i = 0; $i < count($array['data']);$i++){
     $dataRep = DateTime::createFromFormat('Y-m-d H:i:s', $array['data'][$i]['data']);
-    if($dataRep < $dateNow){
+    if($dataRep > $dateNow){
         array_push($toPage, $array['data'][$i]);
     }
 }

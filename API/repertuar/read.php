@@ -13,7 +13,6 @@
 
     //inicjalizacja obiektu Repertuar
     $rep = new Repertuar($db);
-    $film = new Film($db);
 
     //User zapytanie
     $result = $rep->getRepertuarAll();
@@ -36,7 +35,8 @@
                 'id_sali' => $id_sali,
                 'data' => $data,
             );
-
+            
+            $film = new Film($db);
             $film->id_filmu = $id_filmu;
             $film->getFilmById();
 
