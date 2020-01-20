@@ -287,7 +287,11 @@ $(document).ready(function(){
 					<ul>
 						<li><a href="index.php">Kino</a></li>
 						<li><a href="Panel_Pracownika.php">Panel Pracownika</a></li>
-						<li><a href="logowanie.php">Wyloguj</a></li>
+						<?php if(!$_SESSION['zalogowany']){?>
+						<li><a href="logowanie.php">Zaloguj</a></li>
+						<?php }else{?>
+						<li><a href="logout.php">Wyloguj</a></li>
+						<?php }?>
 						<li><a href="Panel_Repertuaru.php">Panel Repertuaru</a></li>
 						<li><a href="Panel_Admina.php">Uzytkownicy</a></li>
 						

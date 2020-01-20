@@ -285,7 +285,11 @@ $(document).ready(function(){
 						<li><a href="Panel_Pracownika.php" class="active">Panel pracownika</a></li>
 						<li><a href="Panel_Repertuaru.php">Panel Repertuaru</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
-						<li><a href="logowanie.php">Wyloguj</a></li>
+						<?php if(!$_SESSION['zalogowany']){?>
+						<li><a href="logowanie.php">Zaloguj</a></li>
+						<?php }else{?>
+						<li><a href="logout.php">Wyloguj</a></li>
+						<?php }?>
 
 
 						

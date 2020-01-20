@@ -64,7 +64,11 @@
 					<ul>
 						<li><a href="index.php" >Kino</a></li>
 						<li><a href="register.php">Zarejestruj</a></li>
-						<li><a href="logowanie.php" class="active">Zaloguj</a></li>
+						<?php if(!$_SESSION['zalogowany']){?>
+						<li><a href="logowanie.php">Zaloguj</a></li>
+						<?php }else{?>
+						<li><a href="logout.php">Wyloguj</a></li>
+						<?php }?>
 						<li><a href="contact-us.php">Kontakt</a></li>
 					</ul>
 				</div>
