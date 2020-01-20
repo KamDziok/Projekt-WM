@@ -1,9 +1,3 @@
-<!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unported
-	License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <?php
 include_once 'curl.php';
 
@@ -25,15 +19,20 @@ $liczbaMiejscRzedu = 14;    //te dane trzeba z kads wziac
 $liczbaRzedow = 10;
 
 ?>
-<!DOCTYPE html>
-<html lang="pl">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>KinoURZ REZERWACJA</title>
-    <!-- Meta-Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta name="keywords" content="">
+<title>KinoURZ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Place your description here" />
+<meta name="keywords" content="put, your, keyword, here" />
+<meta name="author" content="Templates.com - website templates provider" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="js/cufon-yui.js" type="text/javascript"></script>
+<script src="js/cufon-replace.js" type="text/javascript"></script>
+<script src="js/Gill_Sans_400.font.js" type="text/javascript"></script>
+<script src="js/script.js" type="text/javascript"></script>
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -44,35 +43,51 @@ $liczbaRzedow = 10;
             window.scrollTo(0, 1);
         }
     </script>
-    <!-- //Meta-Tags -->
-    <!-- Index-Page-CSS -->
-    <link rel="stylesheet" href="css/styles.css" type="text/css" media="all">
-    <!-- //Custom-Stylesheet-Links -->
-    <!--fonts -->
-    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-    <!-- //fonts -->
+
 </head>
 
-<body onload="onLoaderFunc()">
-    <h1>Wybór miejsc filmu <?php echo $film; ?></h1>
+<body onload="onLoaderFunc()"id="page1">
+
+<div class="tail-top">
+	<div class="tail-bottom">
+		<div id="main">
+<!-- HEADER -->
+			<div id="header">
+				<div class="row-1">
+					<div class="fleft"><a href="index.php">Kino<span>URZ</span></a></div>
+					<ul>
+						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
+						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
+					</ul>
+				</div>
+				<div class="row-2">
+					<ul>
+						<li><a href="Rejestracja.php" class="active">Rezerwacja</a></li>
+						<li><a href="contact-us.php">Kontakt</a></li>
+						
+					</ul>
+				</div>
+			</div>
+
+            <div id="content">
+				<div id="slogan2">
+				
+                <div class="row">	
+  <h4  style="margin:auto;padding-top:15px; padding-left:15px">Wybór miejsc filmu <?php echo $film; ?></h4>
     <form action="podsumowanie.php" method="post" class="container">
         <div class="w3ls-reg">
             <!-- input fields -->
             <div class="inputForm">
-                <h2>Wypełnij pola i wybierz swoje miejsca</h2>
+                <h3 style="margin:auto;padding-top:15px; padding-left:15px; color:black">Wypełnij pola i wybierz swoje miejsca</h3><br>
                 <div class="mr_agilemain">
                     <div class="agileits-left">
-                        <label> Imię i nazwisko
-                            <span>*</span>
-                        </label>
-                        <input type="text" name="imie" id="Username" required>
-                        <input type="text" name="nazwisko" id="Username" required>
+                       
+                        <input class="login-username2" type="text" name="imie" placeholder="Imię" id="Username" required>
+                        <input class="login-username2" type="text" name="nazwisko" placeholder="Nazwisko" id="Username" required>
                     </div>
                     <div class="agileits-right">
-                        <label> Liczba miejsc
-                            <span>*</span>
-                        </label>
-                        <input type="number" name="iloscMiejsc" id="Numseats" required min="1">
+                 
+                        <input class="login-username2" type="number" name="iloscMiejsc" placeholder="Liczba miejsc" id="Numseats" required min="1">
                     </div>
                 </div>
 				<div>
@@ -84,17 +99,10 @@ $liczbaRzedow = 10;
                 <div onclick="takeData()">Wybierz</div>
             </div>
             <!-- //input fields -->
-          
-            <ul class="seat_w3ls">
-                <li class="smallBox greenBox">Wybrane siedzenia</li>
-
-                <li class="smallBox redBox">Zarezerwowane siedzenia</li>
-
-                <li class="smallBox emptyBox">Puste siedzenia</li>
-            </ul>
+          <br>
             
-            <div class="seatStructure txt-center" style="overflow-x:auto;">
-                <table>
+                <ul style="text-align: center; margin-bottom=0px; color:black;"><li>Wybrane siedzenia</li><li>Zarezerwowane siedzenia</li><li>Puste siedzenia</li></ul>
+                <table style="margin:auto">
                     <?php
                         for($j = 0; $j < $liczbaRzedow; $j++){
                             echo "<tr>";
@@ -106,25 +114,19 @@ $liczbaRzedow = 10;
                     ?>
                 </table>
                 <div class="screen">
-                    <h2 class="wthree">EKRAN KINA</h2>
-                </div>
-                
-                <div class="button"><a href="index.php" class="link2"><span><span>Wróc</span></span></a></div>
+                <h3 style="margin:auto;padding-top:15px; padding-left:15px; color:black; text-align:center">EKRAN KINA</h2>
+                </div><br>
+                <div style="margin-left: 41.5%">
+               <input name="Powrót" value="Powrót" class="login-submit2" type="button"/>
+         
                 <!-- prosze mi wlaczyc <input type="submit"> -->
-		        <div class="wrapper"><a class="link2"><span><input type="submit" value="Podsumowanie" /></span></a></div>    
-            </div>
-            <!-- //seat layout -->
-            <!-- details after booking displayed here -->
-            <!-- //details after booking displayed here -->
-            <div class="copy-wthree">
-                <p>© 2020 by KinoURZ</p>
-            </div>
+                <input name="Podsumowanie" value="Podsumowanie" class="login-submit2" type="submit"/> </div> 
+         
+
     </form>
 
-    <!-- js -->
     <script src="js/jquery-2.2.3.min.js"></script>
-    <!-- //js -->
-    <!-- script for seat selection -->
+
     <script>
 
         function onLoaderFunc() {
@@ -196,7 +198,21 @@ $liczbaRzedow = 10;
             }
         });
     </script>
+    </div>   </div>  </div>
     <!-- //script for seat selection -->
-</body>
+    <div id="footer2">
+				<div class="left">
+					<div class="right">
+						<div class="inside">Copyright - Grupa laboratoryjna nr 2, projektowa nr 1<br>
+							Krzysztof Banaś, Kamil Dziok, Damian Gaworowski, Hubert Jakobsze, Łukasz Kwaśny
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
+</body>
 </html>
