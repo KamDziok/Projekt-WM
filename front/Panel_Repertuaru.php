@@ -310,7 +310,7 @@ $(document).ready(function(){
 						<h2>Zarzadzanie <b>Repertuarem</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowego pracownika</span></a>
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj repertuar</span></a>
 										
 					</div>
                 </div>
