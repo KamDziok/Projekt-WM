@@ -89,9 +89,10 @@ $json = json_decode($rezult, TRUE);
 				<div class="row-2">
 					<ul>
 						<li><a href="index.php" class="active">Kino</a></li>
-						<li><a href="register.php">Zarejestruj</a></li>
+						
 						<?php if(!$_SESSION['zalogowany']){?>
 						<li><a href="logowanie.php">Zaloguj</a></li>
+						<li><a href="register.php">Zarejestruj</a></li>
 						<?php }else{?>
 						<li><a href="logout.php">Wyloguj</a></li>
 						<?php }?>
