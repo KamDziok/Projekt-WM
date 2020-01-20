@@ -21,13 +21,12 @@ $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/read_
 
 $ch = new ClientURL();
 
+$wyslij = $_GET['id'];
+
 $ch->setPostURL($url,$wyslij);
 $rezult = $ch->exec();
 
 use phpDocumentor\Reflection\Types\String_;
-
-if(isset($_POST['film'])) 
-    $film = $_POST['film'];
 
 $liczbaMiejscRzedu = 14;    //te dane trzeba z kads wziac
 $liczbaRzedow = 10;

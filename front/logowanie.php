@@ -1,18 +1,18 @@
 <?php
 	session_start();
 	
-	if (!isset($_SESSION['inicjuj']))
-	{
-		session_regenerate_id();
-		$_SESSION['inicjuj'] = true;
-		$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-	}
+	// if (!isset($_SESSION['inicjuj']))
+	// {
+	// 	session_regenerate_id();
+	// 	$_SESSION['inicjuj'] = true;
+	// 	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+	// }
 	
 	
-	if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
-	{
-		die('Proba przejecia sesji udaremniona!');	
-	}
+	// if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
+	// {
+	// 	die('Proba przejecia sesji udaremniona!');	
+	// }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
@@ -86,11 +86,11 @@
 						
 					
 					
-					<form action="zaloguj.php">
+					<form action="zaloguj.php" method="POST">
 
   <input type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
   <input type="password" class="login-password" required="true" placeholder="Hasło" />
-  <input type="submit" name="Login" value="Login" class="login-submit" onclick="zaloguj()" />
+  <input type="submit" name="Login" value="Login" class="login-submit" />
 </form>
 
 </div></div></div><div>
