@@ -15,6 +15,11 @@ session_start();
 		die('Proba przejecia sesji udaremniona!');	
 	}
 
+if(!$_SESSION['zalogowany']){
+    $_SESSION['url'] = "Repertuar.php?id=".$_GET["id"];
+    header('Location: logowanie.php');
+}
+
 include_once 'curl.php';
 
 $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/read_single.php';
