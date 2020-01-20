@@ -38,6 +38,7 @@
             );
 
             $film->id_filmu = $id_filmu;
+            $film->getFilmById();
 
             //umiesc w "data"
             array_push($rep_arr['data'], $rep_item);
