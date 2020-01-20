@@ -2,18 +2,18 @@
 
 session_start();
 	
-	if (!isset($_SESSION['inicjuj']))
-	{
-		session_regenerate_id();
-		$_SESSION['inicjuj'] = true;
-		$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-	}
+	// if (!isset($_SESSION['inicjuj']))
+	// {
+	// 	session_regenerate_id();
+	// 	$_SESSION['inicjuj'] = true;
+	// 	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+	// }
 	
 	
-	if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
-	{
-		die('Proba przejecia sesji udaremniona!');	
-	}
+	// if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
+	// {
+	// 	die('Proba przejecia sesji udaremniona!');	
+	// }
 
 include_once 'curl.php';
 
@@ -24,31 +24,6 @@ $ch = new ClientURL();
 $ch->setGetURL($url);
 $rezult = $ch->exec();
 $json = json_decode($rezult, TRUE);
-// function rezerwoj($i){
-// 	global $rezult;
-// 	$_SESSION['idFilm'] = $rezult[$i]['idFilm'];
-// 	$_SESSION['film'] = $rezult[$i]['film'];
-// 	$_SESSION['sala'] = $rezult[$i]['sala'];
-// 	$_SESSION['data'] = $rezult[$i]['data'];
-// 	$_SESSION['opis'] = $rezult[$i]['opis'];
-// 	header('Location: Rezerwacja.php');
-// }
-
-// $rezult[0]['idFilm'] = 0;
-// $rezult[0]['film'] = "Przeminęło z wiatrem";
-// $rezult[0]['sala'] = "1";
-// $rezult[0]['data'] = "Data seansu: 01.01.2020";
-// $rezult[0]['opis'] = "Ekranizacja powieści Margaret Mitchell. Beztroska i bogata Scarlett O'Hara wikła się w burzliwy związek z Rhettem Butlerem.";
-// $rezult[1]['idFilm'] = 1;
-// $rezult[1]['film'] = "Tytanic";
-// $rezult[1]['sala'] = "1";
-// $rezult[1]['data'] = "Data seansu: 01.01.2020";
-// $rezult[1]['opis'] = "Rok 1912, brytyjski statek Titanic wyrusza w swój dziewiczy rejs do USA. Na pokładzie emigrant Jack przypadkowo spotyka arystokratkę Rose.";
-// $rezult[2]['idFilm'] = 2;
-// $rezult[2]['film'] = "Opowieści z Narni";
-// $rezult[2]['sala'] = "1";
-// $rezult[2]['data'] = "Data seansu: 01.01.2020";
-// $rezult[2]['opis'] = "Podczas II wojny światowej czwórka rodzeństwa zamieszkuje na wsi w domu ekscentrycznego profesora. Dzieci odkrywają przejście przez szafę do magicznej krainy zwanej Narnią.";
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -119,7 +94,7 @@ $json = json_decode($rezult, TRUE);
 											<h4>
 												<?php echo $dane['film']['tytul'];?>
 											</h4>
-											<img src='images/1page-img<?php echo($dane['film']['id_filmu']+2);?>.jpg' alt='nie dla psa kielbasa' />
+											<img src='images/1page-img<?php echo($dane['film']['id_filmu']+1);?>.jpg' alt='nie dla psa kielbasa' />
 											<p>
 											<?php echo $dane['film']['opis'];?>
 											</p>
