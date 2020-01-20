@@ -28,3 +28,19 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+$url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/uzytkownik/rejestracja.php';
+$arrayData = array('login' => $login, 'password' => $passwordOne, 'email' => $mail, 'imie' => $imie, 'nazwisko' => $nazwisko);
+
+$ch->setPostURL($url, $arrayData);
+$wynik = $ch->exec();
+
+$json = json_decode($wynik, TRUE);
+
+if($json['message'] == 'User Exist'){
+    //uzytkownik isynieje
+}
+if($json['message'] == 'User Created'){
+    //stworzona uzytkownika
+}else{
+    //nie stworzono uzytkownika
+}
