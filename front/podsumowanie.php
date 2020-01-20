@@ -106,6 +106,5 @@ $data = date("Y-m-d");
 		</div>
 	</div>
 </div>
-<script type="text/javascript"> Cufon.now(); </script>
 </body>
 </html>
