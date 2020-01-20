@@ -91,12 +91,15 @@ $liczbaRzedow = 10;
                     </div>
                 </div>
 				<div>
-                    <label>Bilety ulgowe studenckie</label>
-                        <input type="number" name="iloscStudent" id="student" min="0">
-                    <label>Bilety ulgowe szkolne</label>
-                        <input type="number" name="iloscSzkolne" id="szkolny" min="0">
-                </div>
-                <div onclick="takeData()">Wybierz</div>
+
+                   
+                        <input class="login-username2" type="number" name="iloscStudent[]" placeholder="Bilety ulgowe studenckie" id="student" min="0">
+               
+                        <input  class="login-username2" type="number" name="iloscSzkolne[]" placeholder="Bilety ulgowe szkolne" id="szkolny" min="0">
+                </div><br>
+                <input style="margin:auto" type="button" name="Wybierz" value="Wybierz" class="login-submit" onclick="takeData()" />
+
+
             </div>
             <!-- //input fields -->
           <br>
