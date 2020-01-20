@@ -9,32 +9,32 @@ $ch = new ClientURL();
 
 $ch->setGetURL($url);
 $rezult = $ch->exec();
+$json = json_decode($rezult, TRUE);
+// function rezerwoj($i){
+// 	global $rezult;
+// 	$_SESSION['idFilm'] = $rezult[$i]['idFilm'];
+// 	$_SESSION['film'] = $rezult[$i]['film'];
+// 	$_SESSION['sala'] = $rezult[$i]['sala'];
+// 	$_SESSION['data'] = $rezult[$i]['data'];
+// 	$_SESSION['opis'] = $rezult[$i]['opis'];
+// 	header('Location: Rezerwacja.php');
+// }
 
-function rezerwoj($i){
-	global $rezult;
-	$_SESSION['idFilm'] = $rezult[$i]['idFilm'];
-	$_SESSION['film'] = $rezult[$i]['film'];
-	$_SESSION['sala'] = $rezult[$i]['sala'];
-	$_SESSION['data'] = $rezult[$i]['data'];
-	$_SESSION['opis'] = $rezult[$i]['opis'];
-	header('Location: Rezerwacja.php');
-}
-
-$rezult[0]['idFilm'] = 0;
-$rezult[0]['film'] = "Przeminęło z wiatrem";
-$rezult[0]['sala'] = "1";
-$rezult[0]['data'] = "Data seansu: 01.01.2020";
-$rezult[0]['opis'] = "Ekranizacja powieści Margaret Mitchell. Beztroska i bogata Scarlett O'Hara wikła się w burzliwy związek z Rhettem Butlerem.";
-$rezult[1]['idFilm'] = 1;
-$rezult[1]['film'] = "Tytanic";
-$rezult[1]['sala'] = "1";
-$rezult[1]['data'] = "Data seansu: 01.01.2020";
-$rezult[1]['opis'] = "Rok 1912, brytyjski statek Titanic wyrusza w swój dziewiczy rejs do USA. Na pokładzie emigrant Jack przypadkowo spotyka arystokratkę Rose.";
-$rezult[2]['idFilm'] = 2;
-$rezult[2]['film'] = "Opowieści z Narni";
-$rezult[2]['sala'] = "1";
-$rezult[2]['data'] = "Data seansu: 01.01.2020";
-$rezult[2]['opis'] = "Podczas II wojny światowej czwórka rodzeństwa zamieszkuje na wsi w domu ekscentrycznego profesora. Dzieci odkrywają przejście przez szafę do magicznej krainy zwanej Narnią.";
+// $rezult[0]['idFilm'] = 0;
+// $rezult[0]['film'] = "Przeminęło z wiatrem";
+// $rezult[0]['sala'] = "1";
+// $rezult[0]['data'] = "Data seansu: 01.01.2020";
+// $rezult[0]['opis'] = "Ekranizacja powieści Margaret Mitchell. Beztroska i bogata Scarlett O'Hara wikła się w burzliwy związek z Rhettem Butlerem.";
+// $rezult[1]['idFilm'] = 1;
+// $rezult[1]['film'] = "Tytanic";
+// $rezult[1]['sala'] = "1";
+// $rezult[1]['data'] = "Data seansu: 01.01.2020";
+// $rezult[1]['opis'] = "Rok 1912, brytyjski statek Titanic wyrusza w swój dziewiczy rejs do USA. Na pokładzie emigrant Jack przypadkowo spotyka arystokratkę Rose.";
+// $rezult[2]['idFilm'] = 2;
+// $rezult[2]['film'] = "Opowieści z Narni";
+// $rezult[2]['sala'] = "1";
+// $rezult[2]['data'] = "Data seansu: 01.01.2020";
+// $rezult[2]['opis'] = "Podczas II wojny światowej czwórka rodzeństwa zamieszkuje na wsi w domu ekscentrycznego profesora. Dzieci odkrywają przejście przez szafę do magicznej krainy zwanej Narnią.";
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -98,9 +98,26 @@ $rezult[2]['opis'] = "Podczas II wojny światowej czwórka rodzeństwa zamieszku
 					<h3><span>W repertuarze</span></h3>
 					<ul class="movies">
 						<?php
-							foreach($rezult as $r => $dane){
+							foreach($json as $r => $dane){
 								// echo "<li><h4>".$dane['film']."<h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><div class='wrapper'><a class='link3'><button id='".$r."'>Zarezerwój</button></a></div></li>";
-								echo "<li><form action='Rezerwacja.php' method='POST'><h4><input type='text' name='film' value='".$dane['film']."' readonly/></h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><p></p><input type='text' name='data' value='".$dane['data']."' readonly/><div class='wrapper'><input  class='login-submit' name='wyslij' type='submit' value='Zarezerwuj' /></span></div></form></li>";
+								?> <li>
+										<form action='Rezerwacja.php?id=<?php echo $dane['id_repertuaru'];?>' method='POST'>
+											<h4>
+												<?php echo $dane['film']['tytul'];?>
+											</h4>
+											<img src='images/1page-img<?php echo($dane['film']['id_filmu']+2);?>.jpg' alt='nie dla psa kielbasa' />
+											<p>
+											<?php echo $dane['film']['opis'];?>
+											</p>
+											<p></p>
+											<!-- <input type='text' name='data' value='".$dane['data']."' readonly/> -->
+											<div class='wrapper'>
+												<input  class='login-submit' name='wyslij' type='submit' value='Zarezerwuj' />
+												</span>
+											</div>
+										</form>
+									</li>
+						<?php
 							}
 						?>
 						<li class="clear">&nbsp;</li>
