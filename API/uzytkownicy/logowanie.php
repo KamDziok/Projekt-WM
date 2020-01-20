@@ -23,7 +23,7 @@ try{
     $user->password = $data->password;
 
     //utworz uzytkownika
-    if($user->chechUzytkownikExist()){
+    if($user->logowanie()){
 
         $user->password = "";
         echo json_encode(array("loginW" => true, $user));
