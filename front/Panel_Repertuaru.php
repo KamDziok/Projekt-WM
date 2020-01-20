@@ -284,7 +284,7 @@ $(document).ready(function(){
 <!-- HEADER -->
 			<div id="header">
 				<div class="row-1">
-					<div class="fleft"><a href="index.phph">Kino<span>URZ</span></a></div>
+					<div class="fleft"><a href="index.php">Kino<span>URZ</span></a></div>
 					<ul>
 						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
@@ -308,11 +308,11 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>Zarzadzanie <b>filmami</b></h2>
+						<h2>Panel <b>Repertuaru</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addFilmModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowy film</span></a>
-						<a href="#deleteFilmModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>						
+						<a href="#addFilmModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj Repertuar</span></a>
+											
 					</div>
                 </div>
             </div>
@@ -325,8 +325,10 @@ $(document).ready(function(){
 								<label for="selectAll"></label>
 							</span>
 						</th>
-                        <th>Tytuł Filmu</th>
-                        <th>Plakat Filmu</th>
+                        <th>Id Filmu</th>
+                        <th>Nr Sali</th>
+						<th>Data</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -337,11 +339,12 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -352,11 +355,12 @@ $(document).ready(function(){
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-                        <<td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -367,11 +371,12 @@ $(document).ready(function(){
 								<label for="checkbox3"></label>
 							</span>
 						</td>
-                       <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                       <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -382,11 +387,12 @@ $(document).ready(function(){
 								<label for="checkbox4"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>					
@@ -397,11 +403,12 @@ $(document).ready(function(){
 								<label for="checkbox5"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr> 
@@ -416,16 +423,20 @@ $(document).ready(function(){
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">Dodaj Film</h4>
+						<h4 class="modal-title">Dodaj Repertuar</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Tytuł</label>
+							<label>Id Filmu</label>
 							<input type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Plakat</label>
+							<label>Numer sali</label>
+							<input type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Data</label>
 							<input type="text" class="form-control" required>
 						</div>
 													

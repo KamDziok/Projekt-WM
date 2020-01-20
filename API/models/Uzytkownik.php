@@ -19,6 +19,32 @@
 
         //funkcje z SQL...
 
+        public function logowanie(){
+            $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table . ' WHERE nick = ? OR haslo = ?';
+
+            $stmt = $this->conn->prepare($query);
+
+            //dodanie parametru
+            $stmt->BindParam(1, $this->login);
+            $stmt->BindParam(2, $this->password);
+
+            try{
+                $stmt->execute();
+
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $this->id_uzytkownika = $row['user_id'];
+                $this->login = $row['nick'];
+                $this->admin = $row['uprawnienia_administracyjne'];
+                $this->email = $row['mail'];
+                $this->imie = $row['imie'];
+                $this->nazwisko = $row['nazwisko'];
+                return TRUE;
+            }catch(Exception $e){
+                return FALSE;
+            }
+        }
+
         public function getUzytkownicyAll(){
             $query = 'SELECT user_id, uprawnienia_administracyjne, nick, mail, haslo, imie, nazwisko FROM ' . $this->table;
 

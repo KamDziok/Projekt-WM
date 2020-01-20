@@ -86,11 +86,11 @@
 						
 					
 					
-					<form action="zaloguj.php" method="POST">
+					<form action="zaloguj.php" methos="POST">
 
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
-  <input type="password" class="login-password" required="true" placeholder="Hasło" />
-  <input type="submit" name="Login" value="Login" class="login-submit" />
+  <input type="login" name="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
+  <input type="password" name="password" class="login-password" required="true" placeholder="Hasło" />
+  <input type="submit" name="LoginButton" value="Login" class="login-submit" />
 </form>
 
 </div></div></div><div>
