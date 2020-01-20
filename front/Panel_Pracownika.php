@@ -296,7 +296,7 @@ $(document).ready(function(){
 				<div class="row-2">
 					<ul>
 						<li><a href="index.php">Kino</a></li>
-						<li><a href="register.php">Stwórz Konto</a></li>
+						<li><a href="Panel_Pracownika.php">Panel Pracownika</a></li>
 						<li><a href="logowanie.php">Wyloguj</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
 						<li><a href="Panel_Admina.php">Uzytkownicy</a></li>
