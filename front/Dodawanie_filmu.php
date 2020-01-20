@@ -2,11 +2,16 @@
 session_start();
 	
 if (!isset($_SESSION['inicjuj']))
-
+{
+	session_regenerate_id();
+	$_SESSION['inicjuj'] = true;
+	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+}
 
 
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>Admin Panel</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -23,22 +28,19 @@ if (!isset($_SESSION['inicjuj']))
 <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
 <style type="text/css">
     body {
-        color: #566787;
-		background: #f5f5f5;
+        
 		font-family: 'Varela Round', sans-serif;
 		font-size: 13px;
 	}
 	.table-wrapper {
-        background: #fff;
+      
         padding: 20px 25px;
         margin: 30px 0;
 		border-radius: 3px;
         box-shadow: 0 1px 1px rgba(0,0,0,.05);
     }
 	.table-title {        
-		padding-bottom: 15px;
-		background: #435d7d;
-		color: #fff;
+	
 		padding: 16px 30px;
 		margin: -20px -25px 10px;
 		border-radius: 3px 3px 0 0;
@@ -82,10 +84,10 @@ if (!isset($_SESSION['inicjuj']))
 		width: 100px;
 	}
     table.table-striped tbody tr:nth-of-type(odd) {
-    	background-color: #fcfcfc;
+    	
 	}
 	table.table-striped.table-hover tbody tr:hover {
-		background: #f5f5f5;
+		
 	}
     table.table th i {
         font-size: 13px;
@@ -141,10 +143,10 @@ if (!isset($_SESSION['inicjuj']))
         color: #666;
     }	
     .pagination li.active a, .pagination li.active a.page-link {
-        background: #03A9F4;
+    
     }
     .pagination li.active a:hover {        
-        background: #0397d6;
+     
     }
 	.pagination li.disabled i {
         color: #ccc;
@@ -177,7 +179,7 @@ if (!isset($_SESSION['inicjuj']))
 		margin-right: 10px;
 		display: inline-block;
 		vertical-align: text-top;
-		background: white;
+		
 		border: 1px solid #bbb;
 		border-radius: 2px;
 		box-sizing: border-box;
@@ -198,7 +200,7 @@ if (!isset($_SESSION['inicjuj']))
 	}
 	.custom-checkbox input[type="checkbox"]:checked + label:before {
 		border-color: #03A9F4;
-		background: #03A9F4;
+	
 	}
 	.custom-checkbox input[type="checkbox"]:checked + label:after {
 		border-color: #fff;
@@ -207,7 +209,7 @@ if (!isset($_SESSION['inicjuj']))
 		color: #b8b8b8;
 		cursor: auto;
 		box-shadow: none;
-		background: #ddd;
+	
 	}
 	/* Modal styles */
 	.modal .modal-dialog {
@@ -271,44 +273,43 @@ $(document).ready(function(){
 </head>
 <body id="page4">
 <div class="tail-top">
-	<div class="tail-bottom">
-		<div id="main">
+
+	<div id="main">
 <!-- HEADER -->
 			<div id="header">
 				<div class="row-1">
-					<div class="fleft"><a href="index.phph">Kino<span>URZ</span></a></div>
+					<div class="fleft"><a href="index.php">Kino<span>URZ</span></a></div>
 					<ul>
-					<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
+						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
 						<li><a href="Panel_Pracownika.php"><img src="images/icon3.gif" alt="" /></a></li>
 					</ul>
 				</div>
 				<div class="row-2">
 					<ul>
-						<li><a href="index.php">Kino</a></li>
-						<li><a href="Panel_Pracownika.php">Panel Pracownika</a></li>
-						<?php if(!$_SESSION['zalogowany']){?>
-						<li><a href="logowanie.php">Zaloguj</a></li>
-						<?php }else{?>
-						<li><a href="logout.php">Wyloguj</a></li>
-						<?php }?>
+					
+					
+						<li><a href="Dodawanie_filmu.php" class="active" >Panel Filmów</a></li>
+						<li><a href="Panel_Admina.php" >Panel Admin</a></li>
 						<li><a href="Panel_Repertuaru.php">Panel Repertuaru</a></li>
-						<li><a href="Panel_Admina.php">Uzytkownicy</a></li>
+						<li><a href="Panel_Pracownika.php">Panel Pracownika</a></li>
+						<li><a href="logowanie.php">Wyloguj</a></li>
 						
 					</ul>
 				</div>
 			</div>
 <!-- CONTENT -->
-<div class="container">
-        <div class="table-wrapper">
+<div id="content">
+				<div id="slogan2">
+				
+                <div class="row" style="margin-left:15px;margin-right:15px;padding:15px">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>Zarzadzanie <b>filmami</b></h2>
+						<h2>Zarzadzanie <b>Filmami</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addFilmModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowy film</span></a>
-						<a href="#deleteFilmModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>						
+						<a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowy film</span></a>									
 					</div>
                 </div>
             </div>
@@ -321,8 +322,10 @@ $(document).ready(function(){
 								<label for="selectAll"></label>
 							</span>
 						</th>
-                        <th>Tytuł Filmu</th>
-                        <th>Plakat Filmu</th>
+                        <th>Tytuł</th>
+                        <th>Czas Trwania</th>
+						<th></th>
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -333,11 +336,11 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -348,11 +351,11 @@ $(document).ready(function(){
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-                        <<td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -363,11 +366,11 @@ $(document).ready(function(){
 								<label for="checkbox3"></label>
 							</span>
 						</td>
-                       <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                      <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -378,11 +381,11 @@ $(document).ready(function(){
 								<label for="checkbox4"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                       <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                           
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>					
@@ -393,18 +396,17 @@ $(document).ready(function(){
 								<label for="checkbox5"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                            
                             <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
-                    </tr> 
+                    </tr>  
                 </tbody>
             </table>
-			
-        </div>
+		
     </div>
 	<!-- Edit Modal HTML -->
 	<div id="addFilmModal" class="modal fade">
@@ -483,11 +485,14 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+		</div><br><br><br>
+	
 <!-- FOOTER -->
-			<div id="footer">
+<div id="footer">
 				<div class="left">
 					<div class="right">
-						<div class="inside">Copyright - KinoURZ<br />
+						<div class="inside">Copyright - Grupa laboratoryjna nr 2, projektowa nr 1<br>
+							Krzysztof Banaś, Kamil Dziok, Damian Gaworowski, Hubert Jakobsze, Łukasz Kwaśny
 							
 						</div>
 					</div>

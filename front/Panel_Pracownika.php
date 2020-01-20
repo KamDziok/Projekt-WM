@@ -1,24 +1,19 @@
 <?php
-
 session_start();
 	
-	// if (!isset($_SESSION['inicjuj']))
-	// {
-	// 	session_regenerate_id();
-	// 	$_SESSION['inicjuj'] = true;
-	// 	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-	// }
-	
-	
-	// if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
-	// {
-	// 	die('Proba przejecia sesji udaremniona!');	
-	// }
+if (!isset($_SESSION['inicjuj']))
+{
+	session_regenerate_id();
+	$_SESSION['inicjuj'] = true;
+	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+}
+
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>Panel Pracownika</title>
+<title>Admin Panel</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="KinoURZ" />
 <meta name="keywords" content="" />
@@ -33,20 +28,21 @@ session_start();
 <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
 <style type="text/css">
     body {
-        color:black;
+        
 		font-family: 'Varela Round', sans-serif;
 		font-size: 13px;
 	}
 	.table-wrapper {
       
-     
-     
+        padding: 20px 25px;
+        margin: 30px 0;
 		border-radius: 3px;
         box-shadow: 0 1px 1px rgba(0,0,0,.05);
     }
 	.table-title {        
 	
-
+		padding: 16px 30px;
+		margin: -20px -25px 10px;
 		border-radius: 3px 3px 0 0;
     }
     .table-title h2 {
@@ -78,10 +74,15 @@ session_start();
 	}
     table.table tr th, table.table tr td {
         border-color: #e9e9e9;
-		
+		padding: 12px 15px;
 		vertical-align: middle;
     }
-
+	table.table tr th:first-child {
+		width: 60px;
+	}
+	table.table tr th:last-child {
+		width: 100px;
+	}
     table.table-striped tbody tr:nth-of-type(odd) {
     	
 	}
@@ -90,29 +91,29 @@ session_start();
 	}
     table.table th i {
         font-size: 13px;
-    
+        margin: 0 5px;
         cursor: pointer;
     }	
     table.table td:last-child i {
 		opacity: 0.9;
 		font-size: 22px;
-       
+        margin: 0 5px;
     }
 	table.table td a {
 		font-weight: bold;
-		color: #000;
+		color: #566787;
 		display: inline-block;
 		text-decoration: none;
 		outline: none !important;
 	}
 	table.table td a:hover {
-		color: #000;
+		color: #2196F3;
 	}
 	table.table td a.edit {
-        color: #000;
+        color: #FFC107;
     }
     table.table td a.delete {
-        color: #000;
+        color: #F44336;
     }
     table.table td i {
         font-size: 19px;
@@ -120,7 +121,7 @@ session_start();
 	table.table .avatar {
 		border-radius: 50%;
 		vertical-align: middle;
-	
+		margin-right: 10px;
 	}
     .pagination {
         float: right;
@@ -150,7 +151,10 @@ session_start();
 	.pagination li.disabled i {
         color: #ccc;
     }
-
+    .pagination li i {
+        font-size: 16px;
+        padding-top: 6px
+    }
     .hint-text {
         float: left;
         margin-top: 10px;
@@ -269,33 +273,28 @@ $(document).ready(function(){
 </head>
 <body id="page4">
 <div class="tail-top">
-	<div class="tail-bottom">
-		<div id="main">
+
+	<div id="main">
 <!-- HEADER -->
 			<div id="header">
 				<div class="row-1">
 					<div class="fleft"><a href="index.php">Kino<span>URZ</span></a></div>
 					<ul>
-					<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
+						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
 						<li><a href="Panel_Pracownika.php"><img src="images/icon3.gif" alt="" /></a></li>
 					</ul>
 				</div>
 				<div class="row-2">
 					<ul>
-
-					<li><a href="index.php" >Kino</a></li>
-						<li><a href="Panel_Admina.php" >Panel Admina</a></li>
-						<li><a href="Panel_Pracownika.php" class="active">Panel pracownika</a></li>
+					
+					
+						
+						<li><a href="Dodawanie_filmu.php" >Panel Filmów</a></li>
+						<li><a href="Panel_Admina.php">Panel Admin</a></li>
 						<li><a href="Panel_Repertuaru.php">Panel Repertuaru</a></li>
-						<li><a href="contact-us.php">Kontakt</a></li>
-						<?php if(!$_SESSION['zalogowany']){?>
-						<li><a href="logowanie.php">Zaloguj</a></li>
-						<?php }else{?>
-						<li><a href="logout.php">Wyloguj</a></li>
-						<?php }?>
-
-
+						<li><a href="Panel_Pracownika.php"class="active">Panel Pracownika</a></li>
+						<li><a href="logowanie.php">Wyloguj</a></li>
 						
 					</ul>
 				</div>
@@ -304,18 +303,19 @@ $(document).ready(function(){
 <div id="content">
 				<div id="slogan2">
 				
-				<div class="row" style="padding:15px">
+                <div class="row" style="margin-left:15px;margin-right:15px;padding:15px">
             <div class="table-title">
+                <div class="row">
                     <div class="col-sm-6">
-						<h2>Panel <b>Pracownika</b></h2>
+						<h2>Zarzadzanie <b>Rezerwacjami</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="index.php" class="btn btn-success" data-toggle="modal"><span>Dodaj rezerwacje</span></a>
-												
+						<a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowa rezerwacje</span></a>
+										
 					</div>
                 </div>
             </div>
-            <table class="table table-striped table-hover" style="margin-left:15px;margin-right:30px;">
+            <table class="table table-striped table-hover">
                 <thead>
                     <tr>
 						<th>
@@ -324,8 +324,11 @@ $(document).ready(function(){
 								<label for="selectAll"></label>
 							</span>
 						</th>
-                        <th>Imie i nazwisko rezerwującego</th>
-                        <th>Miejsca</th>
+                        <th>Dane rezerwujacego</th>
+                        <th>Nr Sali</th>
+						
+                        
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -401,8 +404,7 @@ $(document).ready(function(){
                     </tr> 
                 </tbody>
             </table>
-			
-        </div>
+		
     </div>
 	<!-- Edit Modal HTML -->
 	<div id="addFilmModal" class="modal fade">
@@ -480,7 +482,9 @@ $(document).ready(function(){
 				</form>
 			</div>
 		</div>
-	</div><br><br><br>
+	</div>
+		</div><br><br><br>
+	
 <!-- FOOTER -->
 <div id="footer">
 				<div class="left">
@@ -492,7 +496,7 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
-		</div></div>
+		</div>
 	</div>
 </div>
 <script type="text/javascript"> Cufon.now(); </script>
