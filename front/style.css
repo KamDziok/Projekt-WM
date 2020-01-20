@@ -7,6 +7,7 @@ input, textarea, select {font-family:Arial,Helvetica,sans-serif;font-size:1em;ve
 }
 fieldset {border:0}
 p {margin:0;padding:0; color:white}
+
 img {border:0;vertical-align:top;text-align:left}
 ul, ol {list-style:none}
 
@@ -1001,6 +1002,17 @@ right: -12%;
 	transition: 250ms background ease-in;
 	width: calc(100% - 3rem);
 }
+.login-username2{
+	background: black;
+	border: 1px solid rgb(92, 92, 92);
+	display: block;
+	margin:auto;
+	padding: .5rem;
+	align-items: center;
+	justify-content: center;
+	transition: 250ms background ease-in;
+	width: calc(40% - 3rem);
+}
 
 .login-forgot-pass {
   //border-bottom: 1px solid white;
@@ -1036,6 +1048,22 @@ right: -12%;
     transition: 250ms background ease-in;
   }
 }
+
+.login-submit2 {
+	border: 5px solid black;
+	border-radius: 6px;
+	background: black;
+	color: white;
+
+	min-width: 1px;
+	padding: .25rem;
+	transition: 250ms background ease-in;
+	&:hover, &:focus {
+	  background: black;
+	  color: white;
+	  transition: 250ms background ease-in;
+	}
+  }
 
 
 
@@ -1204,6 +1232,10 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 #slogan .image {position:absolute;right:-30px;top:-11px;z-index:100;width:572px;height:348px;background:url(images/banner-img.png) no-repeat left top}
 #slogan p {margin-bottom:23px}
 #slogan .inside {padding:36px 0 0 50px;width:320px}
+#slogan2 {width:940px;height:700px;position:relative;background:url(images/banner-bg2.gif) no-repeat left top;color:#1d1d1d}
+#slogan2 .image {position:absolute;right:-30px;top:-11px;z-index:100;width:572px;height:348px;background:url(images/banner-img.png) no-repeat left top}
+#slogan2 p {margin-bottom:23px}
+#slogan2 .inside {padding:36px 0 0 50px;width:696px}
 #page1 #content .box {margin:0}
 #page1 #header .row-2 ul li a {height:59px}
 #page1 #header .row-2 ul li.last a:hover {position:relative;z-index:2}
