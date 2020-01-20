@@ -46,14 +46,14 @@ session_start();
         $_SESSION['imie'] == $zaloguj['imie'];
         $_SESSION['nazwisko'] == $zaloguj['nazwisko'];
         $_SESSION['email'] == $zaloguj['email'];
-        if($_SESSION['url'] != '' || $_SESSION['url'] != null){
-            header('Location: '.$_SESSION['url']);
-        }
 		if($_SESSION['admin'] == 0 || $_SESSION['admin'] == 1){
 			header('Location: index.php');
 		}else{
 			header('Location: Panel_Admina.php');
-		}
+        }
+        if($_SESSION['urlBool']){
+            header('Location: '.$_SESSION['url']);
+        }
 		exit();
 	}
 ?>

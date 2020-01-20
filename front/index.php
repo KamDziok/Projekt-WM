@@ -10,10 +10,7 @@ session_start();
 	// }
 	
 	
-	// if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
-	// {
-	// 	die('Proba przejecia sesji udaremniona!');	
-	// }
+$_SESSION['urlBool'] = FALSE;
 
 include_once 'curl.php';
 
