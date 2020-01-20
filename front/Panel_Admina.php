@@ -282,23 +282,18 @@ $(document).ready(function(){
 					<ul>
 						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
-						<li><a href="Panel_Admina.php"><img src="images/icon3.gif" alt="" /></a></li>
+						<li><a href="Panel_Pracownika.php"><img src="images/icon3.gif" alt="" /></a></li>
 					</ul>
 				</div>
 				<div class="row-2">
 					<ul>
-<<<<<<< HEAD
+					
 					<li><a href="index.php" >Kino</a></li>
-						<li><a href="Panel_Admina.php" class="active">Panel Admina</a></li>
-						<li><a href="Panel_Pracownika.php" >Panel pracownika</a></li>
+						<li><a href="Panel_Admina.php" >Panel Admina</a></li>
+						<li><a href="Panel_Pracownika.php" class="active">Panel pracownika</a></li>
+						<li><a href="Panel_Repertuaru.php">Panel Repertuaru</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
-=======
-						<li><a href="index.php">Kino</a></li>
-						<li><a href="Panel_Pracownika.php">Panel Pracownika</a></li>
 						<li><a href="logowanie.php">Wyloguj</a></li>
-						<li><a href="contact-us.php">Kontakt</a></li>
-						<li><a href="Dodawanie_filmu.php">Filmy</a></li>
->>>>>>> refs/remotes/origin/master
 						
 					</ul>
 				</div>
@@ -418,12 +413,7 @@ $(document).ready(function(){
                     </tr> 
                 </tbody>
             </table>
-<<<<<<< HEAD
 		
-=======
-			
-        </div>
->>>>>>> refs/remotes/origin/master
     </div>
 	<!-- Edit Modal HTML -->
 	<div id="addFilmModal" class="modal fade">

@@ -55,8 +55,9 @@
 								<?php
 							}
 						?><></li> -->
-						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
+							<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
+						<li><a href="Panel_Pracownika.php"><img src="images/icon3.gif" alt="" /></a></li>
 					</ul>
 				</div>
 				<div class="row-2">
