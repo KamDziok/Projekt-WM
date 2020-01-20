@@ -37,7 +37,7 @@ class Film{
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->$id_filmu = $row['id_filmu'];
+        // $this->$id_filmu = $row['id_filmu'];
         $this->tytul = $row['tytul'];
         $this->rezyser = $row['rezyser'];
         $this->opis = $row['opis'];
