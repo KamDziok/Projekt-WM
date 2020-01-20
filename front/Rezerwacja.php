@@ -88,7 +88,7 @@ $liczbaRzedow = 10;
 				
                 <div class="row">	
   <h4  style="margin:auto;padding-top:15px; padding-left:15px">Wybór miejsc filmu <?php echo $film; ?></h4>
-    <form action="podsumowanie.php?<?php echo $wyslij['id']; ?>" method="post" class="container">
+    <form action="podsumowanie.php?id=<?php echo $wyslij['id']?>" method="post" class="container">
         <div class="w3ls-reg">
             <!-- input fields -->
             <div class="inputForm">
