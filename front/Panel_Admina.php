@@ -1,18 +1,14 @@
 <?php
 session_start();
 	
-// if (!isset($_SESSION['inicjuj']))
-// {
-// 	session_regenerate_id();
-// 	$_SESSION['inicjuj'] = true;
-// 	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-// }
+if (!isset($_SESSION['inicjuj']))
+{
+	session_regenerate_id();
+	$_SESSION['inicjuj'] = true;
+	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+}
 
 
-// if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
-// {
-// 	die('Proba przejecia sesji udaremniona!');	
-// }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -292,16 +288,13 @@ $(document).ready(function(){
 				<div class="row-2">
 					<ul>
 					
-					<li><a href="index.php" >Kino</a></li>
-						<li><a href="Panel_Admina.php" >Panel Admina</a></li>
-						<li><a href="Panel_Pracownika.php" class="active">Panel pracownika</a></li>
+					
+						
+						<li><a href="Dodawanie_filmu.php" >Panel Filmów</a></li>
+						<li><a href="Panel_Admina.php"class="active">Panel Admin</a></li>
 						<li><a href="Panel_Repertuaru.php">Panel Repertuaru</a></li>
-						<li><a href="contact-us.php">Kontakt</a></li>
-						<?php if(!$_SESSION['zalogowany']){?>
-						<li><a href="logowanie.php">Zaloguj</a></li>
-						<?php }else{?>
-						<li><a href="logout.php">Wyloguj</a></li>
-						<?php }?>
+						<li><a href="Panel_Pracownika.php">Panel Pracownika</a></li>
+						<li><a href="logowanie.php">Wyloguj</a></li>
 						
 					</ul>
 				</div>
@@ -318,7 +311,7 @@ $(document).ready(function(){
 					</div>
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowego pracownika</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>						
+										
 					</div>
                 </div>
             </div>
@@ -351,7 +344,7 @@ $(document).ready(function(){
 						<td>Klient</td>
                         <td>aezakmi22</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            
                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -367,7 +360,7 @@ $(document).ready(function(){
 						<td>Pracownik</td>
                         <td>Pracownik2</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            
                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -383,7 +376,7 @@ $(document).ready(function(){
 						<td>Klient</td>
                         <td>Marycha23</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            
                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -399,7 +392,7 @@ $(document).ready(function(){
 						<td>Klient</td>
                         <td>Germen111</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            
                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>					
@@ -415,7 +408,7 @@ $(document).ready(function(){
 						<td>Pracownik</td>
                         <td>Pracownik1</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            
                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr> 

@@ -20,7 +20,7 @@ $urlBiznes = 'http://localhost:8080/WM/projekt/Projekt-WM/biznes/instruction/rez
 
 $ch = new ClientURL();
 
-$wyslij[] = $_GET['id'];
+$wyslij['id'] = $_GET['id'];
 
 $ch->setPostURL($url, $wyslij);
 $rezult = $ch->exec();
@@ -47,7 +47,7 @@ if($fromBiznes[0]){
 	$cena = $fromBiznes['cena'];
 	$index = $fromBiznes['indexTabeliMiejsca'];
 }else{
-	header('Location: Rezerwacja.php');
+	header('Location: Rezerwacja.php?id='.$wyslij['id']);
 }
 
 if(isset($_POST['miejsca']) && isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['iloscSzkolne']) && isset($_POST['iloscStudent'])){
@@ -129,7 +129,7 @@ $data = date("Y-m-d");
 									<p style="padding-left: 50px"><?php echo $data; ?></p>
 								<h4 style="padding-left: 50px">Łączna cena: </h4>
 									<p style="padding-left: 50px"><?php echo $cena; ?></p><br><br>
-								<div class="wrapper" style="padding-left: 50px"><a href="wyslijPotw.php" ><input type="button" name="zatwierdz" value="Zatwierdź rezerwację" class="login-submit2" /></a></div>	<br><br>
+								<div class="wrapper" style="padding-left: 50px"><a href="wyslijPotw.php?id=<?php echo $wyslij['id']; ?>?index=<?php echo $index; ?>" ><input type="button" name="zatwierdz" value="Zatwierdź rezerwację" class="login-submit2" /></a></div>	<br><br>
 							</div>
 						</div>
 					</div>
