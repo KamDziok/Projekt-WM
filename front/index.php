@@ -91,6 +91,7 @@ $json = json_decode($rezult, TRUE);
 					<h3><span>W repertuarze</span></h3>
 					<ul class="movies">
 						<?php
+						if(is_array($json)){
 							foreach($json as $r => $dane){
 								// echo "<li><h4>".$dane['film']."<h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><div class='wrapper'><a class='link3'><button id='".$r."'>Zarezerwój</button></a></div></li>";
 								?> <li>
@@ -98,11 +99,13 @@ $json = json_decode($rezult, TRUE);
 											<h4>
 												<?php echo $dane['film']['tytul'];?>
 											</h4>
-											<img src='images/1page-img<?php echo($dane['film']['id_filmu']+1);?>.jpg' alt='nie dla psa kielbasa' />
+											<img src='images/1page-img<?php echo($dane['film']['id_filmu']-2);?>.jpg' alt='nie dla psa kielbasa' />
 											<p>
 											<?php echo $dane['film']['opis'];?>
 											</p>
-											<p></p>
+											<p>
+											<?php echo $dane['data'];?>
+											</p>
 											<!-- <input type='text' name='data' value='".$dane['data']."' readonly/> -->
 											<div class='wrapper'>
 												<input  class='login-submit' name='wyslij' type='submit' value='Zarezerwuj' />
@@ -112,6 +115,7 @@ $json = json_decode($rezult, TRUE);
 									</li>
 						<?php
 							}
+						}
 						?>
 						<li class="clear">&nbsp;</li>
 						<!-- <li id="1">
