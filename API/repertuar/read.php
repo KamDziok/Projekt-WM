@@ -5,6 +5,7 @@
 
     include_once './../config/Database.php';
     include_once './../models/Repertuar.php';
+    include_once './../models/Film.php';
 
     //inicjalizacja polaczenia z baza danych
     $database = new Database();
@@ -12,6 +13,7 @@
 
     //inicjalizacja obiektu Repertuar
     $rep = new Repertuar($db);
+    $film = new Film($db);
 
     //User zapytanie
     $result = $rep->getRepertuarAll();
@@ -30,13 +32,17 @@
 
             $rep_item = array(
                 'id_repertuaru' => $id_repertuaru,
-                'id_filmu' => $id_filmu,
+                'film' => $id_filmu,
                 'id_sali' => $id_sali,
                 'data' => $data,
             );
 
+            $film->id_filmu = $id_filmu;
+
             //umiesc w "data"
             array_push($rep_arr['data'], $rep_item);
+            $index = count($rep_arr['data']);
+            $rep_arr['data'][$index-1]['film'] = $film;
         }
 
         //umiesc w JSON i wyrzuc

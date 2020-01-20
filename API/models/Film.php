@@ -16,7 +16,7 @@ class Film{
     }
 
     public function getFilmAll(){
-        $query = 'SELECT id, id_sali FROM ' . $this->table;
+        $query = 'SELECT id_filmu, tytul, rezyser, opis FROM ' . $this->table;
 
         $stmt = $this->conn->prepare($query);
 
@@ -26,12 +26,12 @@ class Film{
     }
 
     public function getFilmById(){
-        $query = 'SELECT id_filmu, tytul, rezyser, opis FROM ' . $this->table . ' WHERE id = ?';
+        $query = 'SELECT id_filmu, tytul, rezyser, opis FROM ' . $this->table . ' WHERE id_filmu = ?';
 
         $stmt = $this->conn->prepare($query);
 
         //dodanie parametru
-        $stmt->BindParam(1, $this->id_miejsca);
+        $stmt->BindParam(1, $this->id_filmu);
 
         $stmt->execute();
 
@@ -50,18 +50,24 @@ class Film{
     public function create(){
         $query = 'INSERT INTO ' . $this->table .'
         SET 
-            id = :id_miejsca,
-            id_sali = :id_saliFKMie;
+            id_filmu = :id_filmu,
+            tytul = :tytul,
+            rezyser = :rezyser,
+            opis = :opis;
         ';
 
         $stmt = $this->conn->prepare($query);
 
         //czyszczenie danych
-        $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->id_sali = htmlspecialchars(strip_tags($this->id_sali));
+        $this->id_filmu = htmlspecialchars(strip_tags($this->id_filmu));
+        $this->tytul = htmlspecialchars(strip_tags($this->tytul));
+        $this->rezyser = htmlspecialchars(strip_tags($this->rezyser));
+        $this->opis = htmlspecialchars(strip_tags($this->opis));
 
-        $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':id_sali', $this->id_sali);
+        $stmt->bindParam(':id_filmu', $this->id_filmu);
+        $stmt->bindParam(':tytul', $this->tytul);
+        $stmt->bindParam(':rezyser', $this->rezyser);
+        $stmt->bindParam(':opis', $this->opis);
 
         if($stmt->execute()){
             return true;
