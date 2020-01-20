@@ -1,5 +1,18 @@
 <?php
+session_start();
+	
+if (!isset($_SESSION['inicjuj']))
+{
+	session_regenerate_id();
+	$_SESSION['inicjuj'] = true;
+	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+}
 
+
+if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
+{
+	die('Proba przejecia sesji udaremniona!');	
+}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
