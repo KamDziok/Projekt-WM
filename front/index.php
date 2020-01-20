@@ -94,7 +94,7 @@ $json = json_decode($rezult, TRUE);
 						<?php if(!$_SESSION['zalogowany']){?>
 						<li><a href="logowanie.php">Zaloguj</a></li>
 						<?php }else{?>
-						<li><a href="logowanie.php">Wyloguj</a></li>
+						<li><a href="logout.php">Wyloguj</a></li>
 						<?php }?>
 						<li><a href="contact-us.php">Kontakt</a></li>
 						

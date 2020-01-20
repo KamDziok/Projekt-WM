@@ -1,7 +1,7 @@
 <?php
 
 session_destroy();
-$_SESSION['zaloguj'] = FALSE;
+$_SESSION['zalogowany'] = FALSE;
 header('Location: index.php');
 
 ?>
