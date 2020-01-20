@@ -1,9 +1,9 @@
 <?php
 
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>Admin Panel</title>
+<title>Panel Pracownika</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="KinoURZ" />
 <meta name="keywords" content="" />
@@ -280,7 +280,7 @@ $(document).ready(function(){
 				</div>
 				<div class="row-2">
 					<ul>
-						<li><a href="index.html">Kino</a></li>
+						<li><a href="index.php">Kino</a></li>
 						<li><a href="register.php">Stwórz Konto</a></li>
 						<li><a href="logowanie.php">Wyloguj</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
@@ -295,11 +295,11 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>Zarzadzanie <b>filmami</b></h2>
+						<h2>Panel <b>Pracownika</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addFilmModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowy film</span></a>
-						<a href="#deleteFilmModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>						
+						<a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj Film</span></a>
+												
 					</div>
                 </div>
             </div>
@@ -312,8 +312,8 @@ $(document).ready(function(){
 								<label for="selectAll"></label>
 							</span>
 						</th>
-                        <th>Tytuł Filmu</th>
-                        <th>Plakat Filmu</th>
+                        <th>Imie i nazwisko rezerwującego</th>
+                        <th>Miejsca</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -324,12 +324,11 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr>
                     <tr>
@@ -339,12 +338,11 @@ $(document).ready(function(){
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-                        <<td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr>
 					<tr>
@@ -354,12 +352,11 @@ $(document).ready(function(){
 								<label for="checkbox3"></label>
 							</span>
 						</td>
-                       <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                       <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr>
                     <tr>
@@ -369,12 +366,11 @@ $(document).ready(function(){
 								<label for="checkbox4"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr>					
 					<tr>
@@ -384,12 +380,11 @@ $(document).ready(function(){
 								<label for="checkbox5"></label>
 							</span>
 						</td>
-                        <td>%Tytuł%</td>
-                        <td>%plakat%</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
-                            <a href="#editFilmModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
+                            <a href="index.php" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Potwierdz</span></a>
                         </td>
                     </tr> 
                 </tbody>

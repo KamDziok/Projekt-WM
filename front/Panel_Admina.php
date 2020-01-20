@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+=======
 <?php
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+>>>>>>> refs/remotes/origin/master
 <head>
 <title>Admin Panel</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -261,17 +267,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-<script src="js/cufon-yui.js" type="text/javascript"></script>
-<script src="js/cufon-replace.js" type="text/javascript"></script>
-<script src="js/Gill_Sans_400.font.js" type="text/javascript"></script>
-<script src="js/script.js" type="text/javascript"></script>
-<!--[if lt IE 7]>
-	<script type="text/javascript" src="js/ie_png.js"></script>
-	<script type="text/javascript">
-		 ie_png.fix('.png, .link1 span, .link1');
-	</script>
-	<link href="ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
+
 </head>
 <body id="page4">
 <div class="tail-top">
@@ -293,12 +289,13 @@ $(document).ready(function(){
 						<li><a href="register.php">Stwórz Konto</a></li>
 						<li><a href="logowanie.php">Wyloguj</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
-						<li><a href="Dodawanie_Filmu.php">Filmy</a></li>
+						<li><a href="Panel_Admina.php">Uzytkownicy</a></li>
 						
 					</ul>
 				</div>
 			</div>
 <!-- CONTENT -->
+<div id="content">
 <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -426,42 +423,35 @@ $(document).ready(function(){
         </div>
     </div>
 	<!-- Edit Modal HTML -->
-	<div id="addEmployeeModal" class="modal fade">
+	<div id="addFilmModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">Add Employee</h4>
+						<h4 class="modal-title">Dodaj Film</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Imię i Nazwisko</label>
+							<label>Tytuł</label>
 							<input type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Email</label>
-							<input type="email" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Typ użytkownika</label>
-							<textarea class="form-control" required></textarea>
-						</div>
-						<div class="form-group">
-							<label>login</label>
+							<label>Plakat</label>
 							<input type="text" class="form-control" required>
-						</div>								
+						</div>
+													
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-success" value="Add">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
+						<input type="submit" class="btn btn-success" value="Dodaj">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 	<!-- Edit Modal HTML -->
-	<div id="editEmployeeModal" class="modal fade">
+	<div id="editFilmModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
@@ -471,21 +461,14 @@ $(document).ready(function(){
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Imię i Nazwisko</label>
+							<label>Tytuł</label>
 							<input type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Email</label>
-							<input type="email" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Typ użytkownika</label>
-							<textarea class="form-control" required></textarea>
-						</div>
-						<div class="form-group">
-							<label>login</label>
+							<label>plakat</label>
 							<input type="text" class="form-control" required>
-						</div>					
+						</div>
+										
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -496,20 +479,20 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<!-- Delete Modal HTML -->
-	<div id="deleteEmployeeModal" class="modal fade">
+	<div id="deleteFilmModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">Usuń</h4>
+						<h4 class="modal-title">Usuń Film</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
-						<p>Jesteś pewny ?</p>
-						<p class="text-warning"><small>Nie można wykonac.</small></p>
+						<p>Jesteś pewny że chcesz usunąć ten film ?</p>
+						<p class="text-warning"><small>This action cannot be undone.</small></p>
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
 						<input type="submit" class="btn btn-danger" value="Usuń">
 					</div>
 				</form>
