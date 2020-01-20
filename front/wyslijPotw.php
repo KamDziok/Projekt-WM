@@ -4,7 +4,8 @@ $urlBiznes = 'http://localhost:8080/WM/projekt/Projekt-WM/biznes/instruction/rez
 
 $ch = new ClientURL();
 
-$wyslij[] = $_GET['id'];
+$wyslij['id'] = $_GET['id'];
+$index = $_GET['index'];
 
 $ch->setPostURL($url, $wyslij);
 $rezult = $ch->exec();
@@ -23,16 +24,15 @@ $listonosz['iloscUczen'] = $_POST['iloscUczen'];
 $listonosz['iloscStudent'] = $_POST['iloscStudent'];
 $listonosz['idRepertuaru'] = $wyslij['id'];
 $listonosz['idUzytkownika'] = $_SESSION['id'];
-$listonosz['indexMiejscaTab'] = ;
-$listonosz['admin'] = ;
+$listonosz['indexMiejscaTab'] = $index;
+$listonosz['admin'] = $_SESSION['admin'];
 
 $ch->setPostURL($urlBiznes, $listonosz);
 $fromBiznes = $ch->exec();
 
-if($fromBiznes[0]){
-	$cena = $fromBiznes['cena'];
-	$index = $fromBiznes['indexTabeliMiejsca'];
+if($fromBiznes['odp']){
+    header('Location: index.php');
 }else{
-	header('Location: Rezerwacja.php');
+	header('Location: podsumowanie.php?id='.$wyslij['id'].'?index='.$index);
 }
 ?>

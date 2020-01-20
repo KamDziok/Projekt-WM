@@ -42,12 +42,9 @@
     $wyslij['idRepertuaru'] = $idRepertuar;
     $wyslij['iloscUczen'] = $iloscUczen;
     $wyslij['iloscStudent'] = $iloscStudent;
-    if($admin == 1) $wyslij['bilet'] = 0;
+    if($admin == 0) $wyslij['bilet'] = 0;
     else $wyslij['bilet'] = 1;
     $wyslij['miejsca'] = $miejsca;
-
-    $Ceny = new Ceny();
-    $wyslij['cena'] = $Rezerwacja->obliczCene($Ceny, date('N', $dzienTygodnia));
 
     $ch->setPostURL($urlBaza, json_encode($wyslij));
     $result = $ch->exec();
