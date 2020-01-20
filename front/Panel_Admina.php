@@ -9,10 +9,6 @@ if (!isset($_SESSION['inicjuj']))
 }
 
 
-if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
-{
-	die('Proba przejecia sesji udaremniona!');	
-}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -32,22 +28,19 @@ if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
 <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
 <style type="text/css">
     body {
-        color: #566787;
-		background: #f5f5f5;
+        
 		font-family: 'Varela Round', sans-serif;
 		font-size: 13px;
 	}
 	.table-wrapper {
-        background: #fff;
+      
         padding: 20px 25px;
         margin: 30px 0;
 		border-radius: 3px;
         box-shadow: 0 1px 1px rgba(0,0,0,.05);
     }
 	.table-title {        
-		padding-bottom: 15px;
-		background: #435d7d;
-		color: #fff;
+	
 		padding: 16px 30px;
 		margin: -20px -25px 10px;
 		border-radius: 3px 3px 0 0;
@@ -91,10 +84,10 @@ if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
 		width: 100px;
 	}
     table.table-striped tbody tr:nth-of-type(odd) {
-    	background-color: #fcfcfc;
+    	
 	}
 	table.table-striped.table-hover tbody tr:hover {
-		background: #f5f5f5;
+		
 	}
     table.table th i {
         font-size: 13px;
@@ -150,10 +143,10 @@ if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
         color: #666;
     }	
     .pagination li.active a, .pagination li.active a.page-link {
-        background: #03A9F4;
+    
     }
     .pagination li.active a:hover {        
-        background: #0397d6;
+     
     }
 	.pagination li.disabled i {
         color: #ccc;
@@ -186,7 +179,7 @@ if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
 		margin-right: 10px;
 		display: inline-block;
 		vertical-align: text-top;
-		background: white;
+		
 		border: 1px solid #bbb;
 		border-radius: 2px;
 		box-sizing: border-box;
@@ -207,7 +200,7 @@ if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
 	}
 	.custom-checkbox input[type="checkbox"]:checked + label:before {
 		border-color: #03A9F4;
-		background: #03A9F4;
+	
 	}
 	.custom-checkbox input[type="checkbox"]:checked + label:after {
 		border-color: #fff;
@@ -216,7 +209,7 @@ if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
 		color: #b8b8b8;
 		cursor: auto;
 		box-shadow: none;
-		background: #ddd;
+	
 	}
 	/* Modal styles */
 	.modal .modal-dialog {
@@ -280,12 +273,12 @@ $(document).ready(function(){
 </head>
 <body id="page4">
 <div class="tail-top">
-	<div class="tail-bottom">
-		<div id="main">
+
+	<div id="main">
 <!-- HEADER -->
 			<div id="header">
 				<div class="row-1">
-					<div class="fleft"><a href="index.html">Kino<span>URZ</span></a></div>
+					<div class="fleft"><a href="index.php">Kino<span>URZ</span></a></div>
 					<ul>
 						<li><a href="index.php"><img src="images/icon1-act.gif" alt="" /></a></li>
 						<li><a href="contact-us.php"><img src="images/icon2.gif" alt="" /></a></li>
@@ -294,19 +287,19 @@ $(document).ready(function(){
 				</div>
 				<div class="row-2">
 					<ul>
-						<li><a href="index.html">Kino</a></li>
-						<li><a href="register.php">Stwórz Konto</a></li>
-						<li><a href="logowanie.php">Wyloguj</a></li>
+					<li><a href="index.php" >Kino</a></li>
+						<li><a href="Panel_Admina.php" class="active">Panel Admina</a></li>
+						<li><a href="Panel_Pracownika.php" >Panel pracownika</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
-						<li><a href="Panel_Admina.php">Uzytkownicy</a></li>
 						
 					</ul>
 				</div>
 			</div>
 <!-- CONTENT -->
 <div id="content">
-<div class="container">
-        <div class="table-wrapper">
+				<div id="slogan2">
+				
+                <div class="row" style="margin-left:15px;margin-right:15px;padding:15px">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
@@ -417,19 +410,7 @@ $(document).ready(function(){
                     </tr> 
                 </tbody>
             </table>
-			<div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                <ul class="pagination">
-                    <li class="page-item disabled"><a href="#">Poprzednia</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link">kolejna</a></li>
-                </ul>
-            </div>
-        </div>
+		
     </div>
 	<!-- Edit Modal HTML -->
 	<div id="addFilmModal" class="modal fade">
@@ -508,11 +489,14 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+		</div><br><br><br>
+	
 <!-- FOOTER -->
-			<div id="footer">
+<div id="footer">
 				<div class="left">
 					<div class="right">
-						<div class="inside">Copyright - KinoURZ<br />
+						<div class="inside">Copyright - Grupa laboratoryjna nr 2, projektowa nr 1<br>
+							Krzysztof Banaś, Kamil Dziok, Damian Gaworowski, Hubert Jakobsze, Łukasz Kwaśny
 							
 						</div>
 					</div>
