@@ -14,8 +14,7 @@ if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
 	die('Proba przejecia sesji udaremniona!');	
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 <title>Admin Panel</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -297,24 +296,23 @@ $(document).ready(function(){
 						<li><a href="index.php">Kino</a></li>
 						<li><a href="Panel_Pracownika.php">Panel Pracownika</a></li>
 						<li><a href="logowanie.php">Wyloguj</a></li>
-						<li><a href="contact-us.php">Kontakt</a></li>
-						<li><a href="Dodawanie_filmu.php">Filmy</a></li>
+						<li><a href="Panel_Repertuaru.php">Panel Repertuaru</a></li>
+						<li><a href="Panel_Admina.php">Uzytkownicy</a></li>
 						
 					</ul>
 				</div>
 			</div>
 <!-- CONTENT -->
-<div id="content">
 <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>Zarzadzanie <b>uzytkownikami</b></h2>
+						<h2>Panel <b>Repertuaru</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowego pracownika</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>						
+						<a href="#addFilmModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj Repertuar</span></a>
+											
 					</div>
                 </div>
             </div>
@@ -327,11 +325,10 @@ $(document).ready(function(){
 								<label for="selectAll"></label>
 							</span>
 						</th>
-                        <th>Imie i Nazwisko</th>
-                        <th>Email</th>
-						<th>Typ Konta</th>
-                        <th>Login</th>
-                        <th>Akcja</th>
+                        <th>Id Filmu</th>
+                        <th>Nr Sali</th>
+						<th>Data</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -342,13 +339,13 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td>Walenty Potter</td>
-                        <td>hogwart@mail.com</td>
-						<td>Klient</td>
-                        <td>aezakmi22</td>
+                        <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            
+                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
                     <tr>
@@ -358,13 +355,13 @@ $(document).ready(function(){
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-                        <td>Beata Banot</td>
-                        <td>laland@mail.com</td>
-						<td>Pracownik</td>
-                        <td>Pracownik2</td>
+                        <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            
+                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
 					<tr>
@@ -374,13 +371,13 @@ $(document).ready(function(){
 								<label for="checkbox3"></label>
 							</span>
 						</td>
-                        <td>Maria Daria</td>
-                        <td>mariaanders@mail.com</td>
-						<td>Klient</td>
-                        <td>Marycha23</td>
+                       <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            
+                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>
                     <tr>
@@ -390,13 +387,13 @@ $(document).ready(function(){
 								<label for="checkbox4"></label>
 							</span>
 						</td>
-                        <td>Piotr Kowalski</td>
-                        <td>franwilson@mail.com</td>
-						<td>Klient</td>
-                        <td>Germen111</td>
+                        <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            
+                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr>					
 					<tr>
@@ -406,13 +403,13 @@ $(document).ready(function(){
 								<label for="checkbox5"></label>
 							</span>
 						</td>
-                        <td>Hermenegilda Bonifacy</td>
-                        <td>abc@mail.com</td>
-						<td>Pracownik</td>
-                        <td>Pracownik1</td>
+                        <td>%Id Filmu%</td>
+                        <td>%Nr Sali%</td>
+						<td>%Data%</td>
+						
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            
+                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
                         </td>
                     </tr> 
                 </tbody>
@@ -426,16 +423,20 @@ $(document).ready(function(){
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">Dodaj Film</h4>
+						<h4 class="modal-title">Dodaj Repertuar</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Tytuł</label>
+							<label>Id Filmu</label>
 							<input type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Plakat</label>
+							<label>Numer sali</label>
+							<input type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Data</label>
 							<input type="text" class="form-control" required>
 						</div>
 													
