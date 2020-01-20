@@ -17,14 +17,7 @@ session_start();
 
 include_once 'curl.php';
 
-$url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/read_single.php';
-
-$ch = new ClientURL();
-
-$wyslij = $_GET['id'];
-
-$ch->setPostURL($url,$wyslij);
-$rezult = $ch->exec();
+$wyslij['id'] = $_GET['id'];
 
 use phpDocumentor\Reflection\Types\String_;
 
@@ -88,7 +81,7 @@ $liczbaRzedow = 10;
 				
                 <div class="row">	
   <h4  style="margin:auto;padding-top:15px; padding-left:15px">Wybór miejsc filmu <?php echo $film; ?></h4>
-    <form action="podsumowanie.php" method="post" class="container">
+    <form action="podsumowanie.php?<?php echo $wyslij['id']?>" method="post" class="container">
         <div class="w3ls-reg">
             <!-- input fields -->
             <div class="inputForm">
