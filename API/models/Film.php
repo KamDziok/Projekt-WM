@@ -37,8 +37,10 @@ class Film{
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->id_miejsca = $row['id'];
-        $this->id_saliFKMie = $row['id_sali'];
+        // $this->$id_filmu = $row['id_filmu'];
+        $this->tytul = $row['tytul'];
+        $this->rezyser = $row['rezyser'];
+        $this->opis = $row['opis'];
     }
 
     public function deleteFilmById(){

@@ -287,10 +287,18 @@ $(document).ready(function(){
 				</div>
 				<div class="row-2">
 					<ul>
+<<<<<<< HEAD
 					<li><a href="index.php" >Kino</a></li>
 						<li><a href="Panel_Admina.php" class="active">Panel Admina</a></li>
 						<li><a href="Panel_Pracownika.php" >Panel pracownika</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
+=======
+						<li><a href="index.php">Kino</a></li>
+						<li><a href="Panel_Pracownika.php">Panel Pracownika</a></li>
+						<li><a href="logowanie.php">Wyloguj</a></li>
+						<li><a href="contact-us.php">Kontakt</a></li>
+						<li><a href="Dodawanie_filmu.php">Filmy</a></li>
+>>>>>>> refs/remotes/origin/master
 						
 					</ul>
 				</div>
@@ -410,7 +418,12 @@ $(document).ready(function(){
                     </tr> 
                 </tbody>
             </table>
+<<<<<<< HEAD
 		
+=======
+			
+        </div>
+>>>>>>> refs/remotes/origin/master
     </div>
 	<!-- Edit Modal HTML -->
 	<div id="addFilmModal" class="modal fade">
