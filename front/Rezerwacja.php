@@ -16,7 +16,8 @@ session_start();
 	}
 
 if(!$_SESSION['zalogowany']){
-    $_SESSION['url'] = "Repertuar.php?id=".$_GET["id"];
+    $_SESSION['urlBool'] = TRUE;
+    $_SESSION['url'] = "Rezerwacja.php?id=".$_GET["id"];
     header('Location: logowanie.php');
 }
 

@@ -10,7 +10,7 @@ session_start();
 	}
 	
 	
-
+$_SESSION['urlBool'] = FALSE;
 
 include_once 'curl.php';
 
