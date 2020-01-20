@@ -16,7 +16,6 @@ session_start();
 	}
 
     include_once 'curl.php';
-    session_start();
 
     $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/uzytkownik/logowanie.php';
 
