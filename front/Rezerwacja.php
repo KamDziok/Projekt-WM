@@ -20,7 +20,7 @@ $liczbaRzedow = 10;
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 <title>KinoURZ</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -62,6 +62,7 @@ $liczbaRzedow = 10;
 				</div>
 				<div class="row-2">
 					<ul>
+                    <li><a href="index.php" >Kino</a></li>
 						<li><a href="Rejestracja.php" class="active">Rezerwacja</a></li>
 						<li><a href="contact-us.php">Kontakt</a></li>
 						

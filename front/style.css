@@ -1033,7 +1033,7 @@ right: -12%;
   }
 }
 .login-submit {
-  border: 5px solid black;
+  border: 3px solid white;
   border-radius: 6px;
   background: black;
   color: white;
@@ -1050,7 +1050,7 @@ right: -12%;
 }
 
 .login-submit2 {
-	border: 5px solid black;
+	border: 3px solid white;
 	border-radius: 6px;
 	background: black;
 	color: white;
@@ -1064,6 +1064,7 @@ right: -12%;
 	  transition: 250ms background ease-in;
 	}
   }
+  
 
 
 
