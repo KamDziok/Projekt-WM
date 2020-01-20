@@ -17,12 +17,12 @@ session_start();
 
 include_once 'curl.php';
 
-$url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/loadingAll.php';
+$url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/read_single.php';
 
 $ch = new ClientURL();
 
-// $ch->setPostURL($url,$wyslij);
-// $rezult = $ch->exec();
+$ch->setPostURL($url,$wyslij);
+$rezult = $ch->exec();
 
 use phpDocumentor\Reflection\Types\String_;
 
