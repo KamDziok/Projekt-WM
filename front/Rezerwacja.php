@@ -91,31 +91,30 @@ $liczbaRzedow = 10;
                     </div>
                 </div>
 				<div>
-
-                   
-                        <input class="login-username2" type="number" name="iloscStudent[]" placeholder="Bilety ulgowe studenckie" id="student" min="0">
-               
-                        <input  class="login-username2" type="number" name="iloscSzkolne[]" placeholder="Bilety ulgowe szkolne" id="szkolny" min="0">
+                    <input class="login-username2" type="number" name="iloscStudent" placeholder="Bilety ulgowe studenckie" id="student" min="0">
+            
+                    <input  class="login-username2" type="number" name="iloscSzkolne" placeholder="Bilety ulgowe szkolne" id="szkolny" min="0">
                 </div><br>
                 <input style="margin:auto" type="button" name="Wybierz" value="Wybierz" class="login-submit" onclick="takeData()" />
 
 
             </div>
             <!-- //input fields -->
-          <br>
-            
-                <ul style="text-align: center; margin-bottom=0px; color:black;"><li>Wybrane siedzenia</li><li>Zarezerwowane siedzenia</li><li>Puste siedzenia</li></ul>
+            <br>
+            <div class='seatStructure'>
+                <ul style="text-align: center; margin-bottom:0px; color:black;"><li>Wybrane siedzenia</li><li>Zarezerwowane siedzenia</li><li>Puste siedzenia</li></ul>
                 <table style="margin:auto">
                     <?php
                         for($j = 0; $j < $liczbaRzedow; $j++){
                             echo "<tr>";
                                 for($i = 0; $i < $liczbaMiejscRzedu; $i++){
-                                    echo "<td><input type='checkbox' name='miejsca[]' class='seats' value='".($j*10+$i)."'></td>";
+                                    echo "<td class='displayerBoxes'><input type='checkbox' name='miejsca[]' class='seats' value='".($j*10+$i)."'></td>";
                                 }
                             echo "</tr>";
                         }
                     ?>
                 </table>
+            </div>
                 <div class="screen">
                 <h3 style="margin:auto;padding-top:15px; padding-left:15px; color:black; text-align:center">EKRAN KINA</h2>
                 </div><br>
@@ -133,7 +132,7 @@ $liczbaRzedow = 10;
     <script>
 
         function onLoaderFunc() {
-            $(".seatStructure *").prop("readonly", true);
+            $(".seatStructure *").prop("disabled", true);
             $(".displayerBoxes *").prop("readonly", true);
         }
 
@@ -142,7 +141,7 @@ $liczbaRzedow = 10;
                 alert("podaj wszystkie dane lub zmień ilość ulg (nie mogą przekraczać liczby miejsc)");
             } else {
                 $(".inputForm *").prop("readonly", true);
-                $(".seatStructure *").prop("readonly", false);
+                $(".seatStructure *").prop("disabled", false);
                 document.getElementById("notification").innerHTML =
                     "<b style='margin-bottom:0px;background:#ff9800;letter-spacing:1px;'>Please Select your Seats NOW!</b>";
             }
