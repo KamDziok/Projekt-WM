@@ -81,14 +81,14 @@
 						
 					
 					
-					<form >
+					<form action="regi.php" method="POST">
 
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Imię" />
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Nazwisko" />
-  <input type="login" class="login-username" autofocus="true" required="true" placeholder="Mail" />
-  <input type="password" class="login-password" required="true" placeholder="Hasło" />
-  <input type="password" class="login-password" required="true" placeholder="Powtórz hasło" />
+  <input name="login" type="login" class="login-username" autofocus="true" required="true" placeholder="Login" />
+  <input name="imie" type="login" class="login-username" autofocus="true" required="true" placeholder="Imię" />
+  <input name="nazwisko" type="login" class="login-username" autofocus="true" required="true" placeholder="Nazwisko" />
+  <input name="mail" type="login" class="login-username" autofocus="true" required="true" placeholder="Mail" />
+  <input name="passwordOne" type="password" class="login-password" required="true" placeholder="Hasło" />
+  <input name="passwordTwo" type="password" class="login-password" required="true" placeholder="Powtórz hasło" />
   <input type="submit" name="zarejestruj" value="zarejestruj" class="login-submit" />
 </form>
 
