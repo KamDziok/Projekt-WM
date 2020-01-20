@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Sty 2020, 21:17
+-- Czas generowania: 20 Sty 2020, 19:46
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -63,6 +63,10 @@ CREATE TABLE `repertuar` (
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Zrzut danych tabeli `repertuar`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -75,8 +79,14 @@ CREATE TABLE `rezerwacja` (
   `user_id` int(11) NOT NULL,
   `ilosc_uczen_senior` int(11) NOT NULL,
   `ilosc_student` int(11) NOT NULL,
-  `id_repertuaru` int(11) NOT NULL
+  `id_repertuaru` int(11) NOT NULL,
+  `cena` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `rezerwacja`
+--
+
 
 -- --------------------------------------------------------
 
@@ -89,6 +99,11 @@ CREATE TABLE `rezerwacje_miejsca` (
   `id_miejsca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Zrzut danych tabeli `rezerwacje_miejsca`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -96,9 +111,15 @@ CREATE TABLE `rezerwacje_miejsca` (
 --
 
 CREATE TABLE `sala` (
+  `id_sali` int(11) NOT NULL,
   `numer_sali` int(11) NOT NULL,
   `liczba_miejsc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `sala`
+--
+
 
 -- --------------------------------------------------------
 
@@ -115,6 +136,11 @@ CREATE TABLE `user` (
   `imie` varchar(255) COLLATE utf8_polish_ci NOT NULL,
   `nazwisko` varchar(255) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `user`
+--
+
 
 --
 -- Indeksy dla zrzutów tabel
@@ -142,7 +168,7 @@ ALTER TABLE `rezerwacja`
 -- Indeksy dla tabeli `sala`
 --
 ALTER TABLE `sala`
-  ADD PRIMARY KEY (`numer_sali`);
+  ADD PRIMARY KEY (`id_sali`);
 
 --
 -- Indeksy dla tabeli `user`
@@ -164,25 +190,25 @@ ALTER TABLE `miejsca`
 -- AUTO_INCREMENT dla tabeli `repertuar`
 --
 ALTER TABLE `repertuar`
-  MODIFY `id_repertuaru` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_repertuaru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT dla tabeli `rezerwacja`
 --
 ALTER TABLE `rezerwacja`
-  MODIFY `id_rezerwacji` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_rezerwacji` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT dla tabeli `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `numer_sali` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sali` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
