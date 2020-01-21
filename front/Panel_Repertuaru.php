@@ -20,6 +20,7 @@ $ch->setGetURL($url);
 $rezult = $ch->exec();
 $json = json_decode($rezult, TRUE);
 
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -343,7 +344,7 @@ $(document).ready(function(){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr><form action="repertuar_del.php" method="POST">
 						<?php
 						if(is_array($json)){
 							foreach($json as $r => $dane){ ?>
@@ -353,12 +354,13 @@ $(document).ready(function(){
 							</span></th><th><?php echo($dane['film']['id_filmu']); ?></th>
 							 <th><?php echo($dane['id_sali']); ?></th>
 							 <th><?php echo($dane['data']); ?></th><td>
-                            
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
+							 
+							
+							 <input style="color:black" type="submit" name="<?php echo($dane['id_sali']); ?>" value="<?php echo($dane['id_sali']);?>" data-toggle="modal" class="delete"><i  class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></input></form>
                         </td>
                     </tr>
 							 <?php 
-							 }} ?>
+							 }} ?></form>
                         
 						
                         
