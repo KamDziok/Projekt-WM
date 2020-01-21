@@ -8,6 +8,18 @@ if (!isset($_SESSION['inicjuj']))
 	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
 }
 
+$_SESSION['urlBool'] = FALSE;
+
+include_once 'curl.php';
+
+$url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/loadingAll.php';
+
+$ch = new ClientURL();
+
+$ch->setGetURL($url);
+$rezult = $ch->exec();
+$json = json_decode($rezult, TRUE);
+
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -332,83 +344,27 @@ $(document).ready(function(){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-                        <th>11</th>
-                        <th>22</th>
-						<th>15 stycznia 2020</th>
-                        <td>
-                            
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
+                    <tr><form action="repertuar_del.php" method="POST">
+						<?php
+						if(is_array($json)){
+							foreach($json as $r => $dane){ ?>
+							<th> <span class="custom-checkbox">
+								<input type="checkbox" >
+								<label for="selectAll"></label>
+							</span></th><th><?php echo($dane['film']['id_filmu']); ?></th>
+							 <th><?php echo($dane['id_sali']); ?></th>
+							 <th><?php echo($dane['data']); ?></th><td>
+							 
+							
+							 <input style="color:black" type="submit" name="<?php echo($dane['id_sali']); ?>" value="<?php echo($dane['id_sali']);?>" data-toggle="modal" class="delete"><i  class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></input></form>
                         </td>
                     </tr>
-                    <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox2" name="options[]" value="1">
-								<label for="checkbox2"></label>
-							</span>
-						</td>
-                        <th>11</th>
-                        <th>22</th>
-						<th>15 stycznia 2020</th>
+							 <?php 
+							 }} ?></form>
+                        
 						
-                        <td>
-                            
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
-                        </td>
-                    </tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox3" name="options[]" value="1">
-								<label for="checkbox3"></label>
-							</span>
-						</td>
-                       <th>11</th>
-                        <th>22</th>
-						<th>15 stycznia 2020</th>
-						
-                        <td>
-                            
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox4" name="options[]" value="1">
-								<label for="checkbox4"></label>
-							</span>
-						</td>
-                        <th>11</th>
-                        <th>22</th>
-						<th>15 stycznia 2020</th>
-						
-                        <td>
-                            
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
-                        </td>
-                    </tr>					
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox5" name="options[]" value="1">
-								<label for="checkbox5"></label>
-							</span>
-						</td>
-                        <th>11</th>
-                        <th>22</th>
-						<th>15 stycznia 2020</th>
-                        <td>
-                            
-                            <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a>
-                        </td>
+                        
+                    
                     </tr>
                 </tbody>
             </table>

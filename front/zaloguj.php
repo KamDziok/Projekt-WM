@@ -40,12 +40,13 @@ session_start();
 
     if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany'] == true)){
         // $_SESSION['admin'] == 0;
-        // $_SESSION['login'] == "Roman";   
-        $_SESSION['admin'] == $zaloguj['admin'];
-        $_SESSION['login'] == $zaloguj['login'];
-        $_SESSION['imie'] == $zaloguj['imie'];
-        $_SESSION['nazwisko'] == $zaloguj['nazwisko'];
-        $_SESSION['email'] == $zaloguj['email'];
+        // $_SESSION['login'] == "Roman";
+        $_SESSION['idUzytkownika'] = $zaloguj['id_uzytkownika'];  
+        $_SESSION['admin'] = $zaloguj['admin'];
+        $_SESSION['login'] = $zaloguj['login'];
+        $_SESSION['imie'] = $zaloguj['imie'];
+        $_SESSION['nazwisko'] = $zaloguj['nazwisko'];
+        $_SESSION['email'] = $zaloguj['email'];
 		if($_SESSION['admin'] == 0 || $_SESSION['admin'] == 1){
 			header('Location: index.php');
 		}else{
