@@ -11,7 +11,11 @@ $dataToAppi = json_encode($dataFormUser);
 
 $ch->setPostURL($url, $dataToAppi);
 $rezult = $ch->exec();
+echo json_encode(json_decode($rezult, true));
 
-$json = json_decode($rezult, true);
+// $json = json_decode($rezult, true);
 
-echo json_encode($json);
+// $repertuar = $json['repertuar'];
+// $film = $json['film'];
+
+// echo json_encode(array('repertuar' => $repertuar, 'film' => $film));
