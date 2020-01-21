@@ -25,24 +25,24 @@ try{
     $rezerwacja->iloscStudent = $data['iloscStudent'];
     $rezerwacja->id_repertuaruFKRez = $data['idRepertuaru'];
     $rezerwacja->bilet = $data['bilet'];
-    $rezerwacja->cena = $data['cena'];
+    $rezerwacja->cena = 0.0;
 
     if($rezerwacja->create()){
         $youCenRun = TRUE;
         
 
-        $arrayMiejsca = $data['miejsca'];
-        for($i = 0; $i < count($arrayMiejsca); $i++){
-            $rezerwacjeMiejsca = new RezerwacjeMiejsca($db);
+        // $arrayMiejsca = $data['miejsca'];
+        // for($i = 0; $i < count($arrayMiejsca); $i++){
+        //     $rezerwacjeMiejsca = new RezerwacjeMiejsca($db);
 
-            $rezerwacjeMiejsca->id_miejscaFHRezMie = $data['miejsca'][$i];
-            $rezerwacjeMiejsca->id_rezerwacjiFKRezMie = $rezerwacja->id_rezerwacji;
+        //     $rezerwacjeMiejsca->id_miejscaFHRezMie = $data['miejsca'][$i];
+        //     $rezerwacjeMiejsca->id_rezerwacjiFKRezMie = $rezerwacja->id_rezerwacji;
 
-            if(!$rezerwacjeMiejsca->create()){
-                $youCenRun = FALSE;
-                break;
-            }
-        }
+        //     if(!$rezerwacjeMiejsca->create()){
+        //         $youCenRun = FALSE;
+        //         break;
+        //     }
+        // }
 
         if($youCenRun){
             echo json_encode(array("Rezerwacja" => TRUE, "idRezerwacji" => $rezerwacja->id_rezerwacji));
