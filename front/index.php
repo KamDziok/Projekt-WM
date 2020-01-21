@@ -99,7 +99,7 @@ $json = json_decode($rezult, TRUE);
 											<h4>
 												<?php echo $dane['film']['tytul'];?>
 											</h4>
-											<img src='images/1page-img<?php echo($dane['film']['id_filmu']-2);?>.jpg' alt='nie dla psa kielbasa' />
+											<img src='images/1page-img<?php echo($dane['film']['id_filmu']);?>.jpg' alt='nie dla psa kielbasa' />
 											<p>
 											<?php echo $dane['film']['opis'];?>
 											</p>
