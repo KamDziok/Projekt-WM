@@ -23,7 +23,17 @@ if(!$_SESSION['zalogowany']){
 
 include_once 'curl.php';
 
-$wyslij['id'] = $_GET['id'];
+$wyslij['idRepertuaru'] = $_GET['id'];
+
+$url = 'http://localhost:8080/WM/projekt/Projekt-WM/API/repertuar/read_single.php';
+$ch = new ClientURL();
+$ch->setPostURL($url, json_encode($wyslij));
+$result = $ch->exec();
+
+$json = json_decode($result, TRUE);
+
+$_SESSION['tytul'] = $json['film']['tytul'];
+$_SESSION['godz'] = $json[''];
 
 use phpDocumentor\Reflection\Types\String_;
 
@@ -87,7 +97,7 @@ $liczbaRzedow = 10;
 				<div id="slogan2">
 				
                 <div class="row">	
-  <h4  style="margin:auto;padding-top:15px; padding-left:15px">Wybór miejsc filmu <?php echo $film; ?></h4>
+  <h4  style="margin:auto;padding-top:15px; padding-left:15px">Wybór miejsc filmu <?php echo $json['film']['tytul']; ?></h4>
     <form action="podsumowanie.php?id=<?php echo $wyslij['id']?>" method="post" class="container">
         <div class="w3ls-reg">
             <!-- input fields -->

@@ -7,6 +7,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
 include_once './../config/Database.php';
 include_once './../models/Repertuar.php';
+include_once './../models/Film.php';
 
 //inicjalizacja polaczenia z baza danych
 $database = new Database();
@@ -20,7 +21,11 @@ try{
     $repertuar->id_repertuaru = $data['idRepertuaru'];
 
     if($repertuar->getRepertuarById()){
-        echo json_encode($repertuar);
+        $film = new Film($db);
+        $film->id_filmu = $repertuar->id_filmu;
+        $film->getFilmById();
+
+        echo json_encode(array('repertuar' => $repertuar, 'film' => $film));
     }else{
         echo json_encode(array('message' => 'Repertuar Not Exist'));
     }

@@ -22,8 +22,8 @@ $ch = new ClientURL();
 
 $wyslij['id'] = $_GET['id'];
 
-$ch->setPostURL($url, $wyslij);
-$rezult = $ch->exec();
+// $ch->setPostURL($url, $wyslij);
+// $rezult = $ch->exec();
 
 $listonosz['data'] = $result[''];//tytul
 $listonosz['godz'] = $result[''];

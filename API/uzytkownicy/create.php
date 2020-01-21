@@ -28,12 +28,12 @@
     
         //utworz uzytkownika
         if($user->chechUzytkownikExist()){
-            echo json_encode(array('message' => 'User Exist'));
+            echo json_encode(array('message' => FALSE));
         }
         elseif($user->create()){
-            echo json_encode(array('message' => 'User Created'));
+            echo json_encode(array('message' => TRUE));
         }else{
-            echo json_encode(array('message' => 'User Not Created'));
+            echo json_encode(array('message' => FALSE));
         }
         }catch(Exception $e){
             echo $e->getMessage();

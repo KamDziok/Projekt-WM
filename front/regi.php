@@ -17,7 +17,7 @@ $imie = $_POST['imie'];
 $nazwisko = $_POST['nazwisko'];
 $mail = $_POST['mail'];
 $passwordOne = $_POST['passwordOne'];
-$passwordTwo = $_POST['passwordTow'];
+$passwordTwo = $_POST['passwordTwo'];
 
 //porównanie haseł
 
@@ -30,17 +30,15 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
 $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/uzytkownik/rejestracja.php';
 $arrayData = array('login' => $login, 'password' => $passwordOne, 'email' => $mail, 'imie' => $imie, 'nazwisko' => $nazwisko);
+$dataToAppi = json_encode($arrayData);
 
-$ch->setPostURL($url, $arrayData);
+$ch->setPostURL($url, $dataToAppi);
 $wynik = $ch->exec();
 
 $json = json_decode($wynik, TRUE);
 
-if($json['message'] == 'User Exist'){
-    //uzytkownik isynieje
-}
-if($json['message'] == 'User Created'){
-    //stworzona uzytkownika
+if($json['message']){
+    header('Location: index.php');
 }else{
-    //nie stworzono uzytkownika
+	header('Location: register.php');
 }

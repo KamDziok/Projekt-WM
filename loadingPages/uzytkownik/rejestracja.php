@@ -16,5 +16,5 @@ $ch->setPostURL($url, $dataToAppi);
 $rezult = $ch->exec();
 
 $json = json_decode($rezult, true);
-
+var_dump($json);
 echo json_encode($json);
