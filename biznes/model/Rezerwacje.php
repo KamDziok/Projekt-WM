@@ -11,7 +11,7 @@ class Rezerwacje{
     public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent){ //obiekt jest tworzony przed 
         Walidacja::walidacjaString($imie);                                                          //podaniem rodzaju biletu
         Walidacja::walidacjaString($nazwisko);
-        Walidacja::walidacjaTablicyInt($miejsca);
+        // Walidacja::walidacjaTablicyInt($miejsca);
         Walidacja::walidacjaUlgi($miejsca, 0, 0);
         $this->Repertuar = $Repertuar;
         $this->imie = $imie;
@@ -49,7 +49,7 @@ class Rezerwacje{
             if($dane[0] == $idRepertuar){
                 for($i = 0; $i < sizeof($miejsca) - 1; $i++){
                     for($j = 0; $j < sizeof($dane, 1) - 3; $j++){
-                        if($miejsca[$i] == $dane[1][$j]){
+                        if($miejsca[$i] == intval($dane[1][$j])){
                             $k = 0;
                             break;
                         }

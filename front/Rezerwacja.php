@@ -32,8 +32,12 @@ $result = $ch->exec();
 
 $json = json_decode($result, TRUE);
 
+
 $_SESSION['tytul'] = $json['film']['tytul'];
-$_SESSION['godz'] = $json[''];
+$_SESSION['dataRep'] = $json['repertuar']['data'];
+$_SESSION['idSali'] = $json['repertuar']['id_saliFKRep'];
+$_SESSION['idRepertuaru'] = $json['repertuar']['id_repertuaru'];
+
 
 use phpDocumentor\Reflection\Types\String_;
 

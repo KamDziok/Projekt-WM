@@ -14,7 +14,7 @@ session_start();
 	// {
 	// 	die('Proba przejecia sesji udaremniona!');	
 	// }
-
+include_once 'curl.php';
 $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/read_single.php';
 $urlBiznes = 'http://localhost:8080/WM/projekt/Projekt-WM/biznes/instruction/rezerwuj.php';
 
@@ -25,29 +25,36 @@ $wyslij['id'] = $_GET['id'];
 // $ch->setPostURL($url, $wyslij);
 // $rezult = $ch->exec();
 
-$listonosz['data'] = $result[''];//tytul
-$listonosz['godz'] = $result[''];
-$listonosz['min'] = $result[''];
-$listonosz['miesiac'] = $result[''];
-$listonosz['dzien'] = $result[''];
-$listonosz['rok'] = $result[''];
-$listonosz['idSali'] = $result[''];
+$listonosz['data'] = $_SESSION['tytul'];//tytul
+
+$dataRep = DateTime::createFromFormat('Y-m-d H:i:s', $_SESSION['dataRep']);
+
+$listonosz['godz'] = intval($dataRep->format('H'));
+$listonosz['min'] = intval($dataRep->format('i'));
+$listonosz['miesiac'] = intval($dataRep->format('m'));
+$listonosz['dzien'] = intval($dataRep->format('d'));
+$listonosz['rok'] = intval($dataRep->format('Y'));
+$listonosz['idSali'] = intval($_SESSION['idSali']);
 $listonosz['imie'] = $_POST['imie'];
 $listonosz['nazwisko'] = $_POST['nazwisko'];
 $listonosz['miejsca'] = $_POST['miejsca'];
-$listonosz['iloscUczen'] = $_POST['iloscUczen'];
-$listonosz['iloscStudent'] = $_POST['iloscStudent'];
-$listonosz['idRepertuaru'] = $wyslij['id'];
-$listonosz['idUzytkownika'] = $_SESSION['id'];
+$listonosz['iloscUczen'] = intval($_POST['iloscSzkolne']);
+$listonosz['iloscStudent'] = intval($_POST['iloscStudent']);
+$listonosz['idRepertuaru'] = intval($_SESSION['idRepertuaru']);
+$listonosz['idUzytkownika'] = intval($_SESSION['idUzytkownika']);
 
-$ch->setPostURL($urlBiznes, $listonosz);
-$fromBiznes = $ch->exec();
-
-if($fromBiznes[0]){
+$ch->setPostURL($urlBiznes, json_encode($listonosz));
+$fromBiznesString = $ch->exec();
+$fromBiznes = json_decode($fromBiznesString, TRUE);
+// var_dump($fromBiznesString);
+var_dump($fromBiznes);
+$cena = 0.0;
+if($fromBiznes['rezerwacja']){
 	$cena = $fromBiznes['cena'];
 	$index = $fromBiznes['indexTabeliMiejsca'];
 }else{
-	header('Location: Rezerwacja.php?id='.$wyslij['id']);
+	echo 'źle';
+	// header('Location: Rezerwacja.php?id='.$wyslij['id']);
 }
 
 if(isset($_POST['miejsca']) && isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['iloscSzkolne']) && isset($_POST['iloscStudent'])){
