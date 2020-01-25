@@ -6,7 +6,7 @@ include_once 'model/Walidacja.php';
 
 use PHPUnit\Framework\TestCase;
 
-class RezerwacjeTest extends TestCase {
+class BiletTest extends TestCase {
 
 
 }
