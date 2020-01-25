@@ -11,7 +11,7 @@ class Rezerwacje{
     public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent){ //obiekt jest tworzony przed 
         Walidacja::walidacjaString($imie);                                                          //podaniem rodzaju biletu
         Walidacja::walidacjaString($nazwisko);
-        Walidacja::walidacjaTablicyInt($miejsca);
+        // Walidacja::walidacjaTablicyInt($miejsca);
         Walidacja::walidacjaUlgi($miejsca, 0, 0);
         $this->Repertuar = $Repertuar;
         $this->imie = $imie;
