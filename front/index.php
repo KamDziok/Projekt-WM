@@ -12,23 +12,23 @@ session_start();
 	
 $_SESSION['urlBool'] = FALSE;
 
-// include_once 'curl.php';
+include_once 'curl.php';
 
-// $url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/loadingAll.php';
+$url = 'http://localhost:8080/WM/projekt/Projekt-WM/loadingPages/repertuar/loadingAll.php';
 
-// $ch = new ClientURL();
+$ch = new ClientURL();
 
-// $ch->setGetURL($url);
-// $rezult = $ch->exec();
-// $json = json_decode($rezult, TRUE);
+$ch->setGetURL($url);
+$rezult = $ch->exec();
+$json = json_decode($rezult, TRUE);
 
-$json2 = [['id_repertuaru' => '1','film' => ['tytul' => 'Toy Store 2', 'opis' => 'Kontynuacja opowieści sprzed kilku lat, zrealizowanej techniką komputerową. Akcja toczy się w domu chłopca, jego zabawki żyją własnym życiem. Jedna z figurek, kowboj, zostaje uszkodzona. Przez przypadek kowboj trafia na wyprzedaż rzeczy używanych.', 'id_filmu' => '1'], 'data' => '23.1.2020 18:00'],
-		['id_repertuaru' => '2','film' => ['tytul' => 'Titanic', 'opis' => 'W słoneczny, kwietniowy dzień w 1912 roku, na angielskim wybrzeżu arystokratyczna rodzina wraz z 17-letnią Rose (Kate Winslet) wchodzi na pokład Titanica, udając się w podróż do Stanów Zjednoczonych.', 'id_filmu' => '2'], 'data' => '23.1.2020 21:00'],
-		['id_repertuaru' => '3','film' => ['tytul' => 'Zmierzch', 'opis' => 'Isabella Swan to szukająca swego miejsca w świecie, zagubiona nastolatka, cicha marzycielka. Kiedy poznaje przystojnego, błyskotliwego i intrygującego Edwarda Cullena, nie zdaje sobie sprawy, że znajomość ta wstrząśnie jej życiem i zmieni je na zawsze.', 'id_filmu' => '3'], 'data' => '24.1.2020 11:00'],
-		['id_repertuaru' => '4','film' => ['tytul' => 'Toy Store 2', 'opis' => 'Kontynuacja opowieści sprzed kilku lat, zrealizowanej techniką komputerową. Akcja toczy się w domu chłopca, jego zabawki żyją własnym życiem. Jedna z figurek, kowboj, zostaje uszkodzona. Przez przypadek kowboj trafia na wyprzedaż rzeczy używanych.', 'id_filmu' => '1'], 'data' => '24.1.2020 18:00'],
-		['id_repertuaru' => '5','film' => ['tytul' => 'Zmierzch', 'opis' => 'Isabella Swan to szukająca swego miejsca w świecie, zagubiona nastolatka, cicha marzycielka. Kiedy poznaje przystojnego, błyskotliwego i intrygującego Edwarda Cullena, nie zdaje sobie sprawy, że znajomość ta wstrząśnie jej życiem i zmieni je na zawsze.', 'id_filmu' => '3'], 'data' => '24.1.2020 21:00'],
-		['id_repertuaru' => '6','film' => ['tytul' => 'Titanic', 'opis' => 'W słoneczny, kwietniowy dzień w 1912 roku, na angielskim wybrzeżu arystokratyczna rodzina wraz z 17-letnią Rose (Kate Winslet) wchodzi na pokład Titanica, udając się w podróż do Stanów Zjednoczonych.', 'id_filmu' => '2'], 'data' => '25.1.2020 12:00']];
-$_SESSION['zalogowany'] = false;
+$json2 = [['id_repertuaru' => 1,'film' => ['tytul' => "Toy Store 2", 'opis' => "Kontynuacja opowieści sprzed kilku lat, zrealizowanej techniką komputerową. Akcja toczy się w domu chłopca, jego zabawki żyją własnym życiem. Jedna z figurek, kowboj, zostaje uszkodzona. Przez przypadek kowboj trafia na wyprzedaż rzeczy używanych.", 'id_filmu' => 1], 'data' => "23.1.2020 18:00"],
+		['id_repertuaru' => 2,'film' => ['tytul' => "Titanic", 'opis' => "W słoneczny, kwietniowy dzień w 1912 roku, na angielskim wybrzeżu arystokratyczna rodzina wraz z 17-letnią Rose (Kate Winslet) wchodzi na pokład Titanica, udając się w podróż do Stanów Zjednoczonych.", 'id_filmu' => 2], 'data' => "23.1.2020 21:00"],
+		['id_repertuaru' => 3,'film' => ['tytul' => "Zmierzch", 'opis' => "Isabella Swan to szukająca swego miejsca w świecie, zagubiona nastolatka, cicha marzycielka. Kiedy poznaje przystojnego, błyskotliwego i intrygującego Edwarda Cullena, nie zdaje sobie sprawy, że znajomość ta wstrząśnie jej życiem i zmieni je na zawsze.", 'id_filmu' => 3], 'data' => "24.1.2020 11:00"],
+		['id_repertuaru' => 4,'film' => ['tytul' => "Toy Store 2", 'opis' => "Kontynuacja opowieści sprzed kilku lat, zrealizowanej techniką komputerową. Akcja toczy się w domu chłopca, jego zabawki żyją własnym życiem. Jedna z figurek, kowboj, zostaje uszkodzona. Przez przypadek kowboj trafia na wyprzedaż rzeczy używanych.", 'id_filmu' => 1], 'data' => "24.1.2020 18:00"],
+		['id_repertuaru' => 5,'film' => ['tytul' => "Zmierzch", 'opis' => "Isabella Swan to szukająca swego miejsca w świecie, zagubiona nastolatka, cicha marzycielka. Kiedy poznaje przystojnego, błyskotliwego i intrygującego Edwarda Cullena, nie zdaje sobie sprawy, że znajomość ta wstrząśnie jej życiem i zmieni je na zawsze.", 'id_filmu' => 3], 'data' => "24.1.2020 21:00"],
+		['id_repertuaru' => 6,'film' => ['tytul' => "Titanic", 'opis' => "W słoneczny, kwietniowy dzień w 1912 roku, na angielskim wybrzeżu arystokratyczna rodzina wraz z 17-letnią Rose (Kate Winslet) wchodzi na pokład Titanica, udając się w podróż do Stanów Zjednoczonych.", 'id_filmu' => 2], 'data' => "25.1.2020 12:00"]];
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
@@ -98,7 +98,7 @@ $_SESSION['zalogowany'] = false;
 					<h3><span>W repertuarze</span></h3>
 					<ul class="movies">
 						<?php
-						if(is_array($json2)){
+						if(is_array($json)){
 							foreach($json2 as $r => $dane){
 								// echo "<li><h4>".$dane['film']."<h4><img src='images/1page-img".($dane['idFilm']+2).".jpg' alt='nie dla psa kielbasa' /><p>".$dane['opis']."</p><div class='wrapper'><a class='link3'><button id='".$r."'>Zarezerwój</button></a></div></li>";
 								?> <li>
@@ -106,7 +106,7 @@ $_SESSION['zalogowany'] = false;
 											<h4>
 												<?php echo $dane['film']['tytul'];?>
 											</h4>
-											<img src='images/1page-img<?php echo($dane['film']['id_filmu']+1);?>.jpg' alt='nie dla psa kielbasa' />
+											<img src='images/1page-img<?php echo($dane['film']['id_filmu']);?>.jpg' alt='nie dla psa kielbasa' />
 											<p>
 											<?php echo $dane['film']['opis'];?>
 											</p>
