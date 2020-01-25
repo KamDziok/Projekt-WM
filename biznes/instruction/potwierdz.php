@@ -30,7 +30,7 @@
     $iloscStudent = $listonosz['iloscStudent'];
     $idRepertuar = $listonosz['idRepertuaru'];
     $idUzytkownika = $listonosz['idUzytkownika'];
-    // $id = $listonosz['indexMiejscaTab'];
+    $id = $listonosz['indexMiejscaTab'];
     $admin = $listonosz['admin'];
     $dzienTygodnia = mktime($godzina, $minuta, 0, $miesiac, $dzien, $rok);
 
@@ -44,7 +44,7 @@
     $wyslij['iloscStudent'] = $iloscStudent;
     if($admin == 0) $wyslij['bilet'] = 0;
     else $wyslij['bilet'] = 1;
-    // $wyslij['miejsca'] = $miejsca;
+    $wyslij['miejsca'] = $miejsca;
 
     $ch->setPostURL($urlBaza, json_encode($wyslij));
     $result = $ch->exec();
