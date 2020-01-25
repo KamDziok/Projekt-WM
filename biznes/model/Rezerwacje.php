@@ -80,12 +80,12 @@ class Rezerwacje{
     }
 
     function potwierdz($id){    //funkcja zmienia stan z 0 na 1 czyli zarezerwowane 
-        // $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);
-        // foreach($rezerwacje as $r => $dane){
-        //     if($id == $r) $dane[1][sizeof($dane, 1) - 3] = 1;
-        // }
-        // $rezerwacje = json_encode($rezerwacje);
-        // file_put_contents("miejsca.json", $rezerwacje);
+        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);
+        foreach($rezerwacje as $r => $dane){
+            if($id == $r) $dane[1][sizeof($dane, 1) - 3] = 1;
+        }
+        $rezerwacje = json_encode($rezerwacje);
+        file_put_contents("miejsca.json", $rezerwacje);
 
             //wysyla potwierdzenie udanej transakcji. Przekierowywuje do strony glownej? 
             return TRUE;

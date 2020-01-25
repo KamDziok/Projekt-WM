@@ -47,11 +47,10 @@ $ch->setPostURL($urlBiznes, json_encode($listonosz));
 $fromBiznesString = $ch->exec();
 $fromBiznes = json_decode($fromBiznesString, TRUE);
 // var_dump($fromBiznesString);
-// var_dump($fromBiznes);
+var_dump($fromBiznes);
 $cena = 0.0;
 if($fromBiznes['rezerwacja']){
 	$cena = $fromBiznes['cena'];
-	$_SESSION['cena'] = $cena;
 	$index = $fromBiznes['indexTabeliMiejsca'];
 }else{
 	echo 'źle';
