@@ -36,8 +36,7 @@
     $Repertuar = new Repertuar($data, $godzina, $minuta, $miesiac, $dzien, $rok, $sala);
     $Rezerwacja = new Rezerwacje($Repertuar, $imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent);
 
-    $index = $Rezerwacja->rezerwuj($idRepertuar, $miejsca);
-    if($index < 0){
+    if($Rezerwacja->rezerwuj($idRepertuar, $miejsca) < 0){
         //wyslanie informacji o niepowodzeniu i o prosbie odswiezenia strony(miejsca zajete)
         $wyslij['rezerwacja'] = false;
     }else{
@@ -49,7 +48,7 @@
 
         $wyslij['rezerwacja'] = true;
         $wyslij['cena'] = $Rezerwacja->obliczCene($Ceny, date('N', $dzienTygodnia));
-        $wyslij['indexTabeliMiejsca'] = $index;
+        $wyslij['indexTabeliMiejsca'] = $miejsca;
     }
 
     header('Access-Control-Allow-Origin: *');

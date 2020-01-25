@@ -11,8 +11,8 @@ class Rezerwacje{
     public function __construct($Repertuar,$imie, $nazwisko, $miejsca, $iloscUczen, $iloscStudent){ //obiekt jest tworzony przed 
         Walidacja::walidacjaString($imie);                                                          //podaniem rodzaju biletu
         Walidacja::walidacjaString($nazwisko);
-        Walidacja::walidacjaTablicyInt($miejsca);
-        Walidacja::walidacjaUlgi($miejsca, $iloscUczen, $iloscStudent);
+        // Walidacja::walidacjaTablicyInt($miejsca);
+        Walidacja::walidacjaUlgi($miejsca, 0, 0);
         $this->Repertuar = $Repertuar;
         $this->imie = $imie;
         $this->nazwisko = $nazwisko;
@@ -25,27 +25,26 @@ class Rezerwacje{
         
     }
 
-    public function getRepertuar(){
+    function getRepertuar(){
         return $this->Repertuar;
     }
 
-    public function getImie(){
+    function getImie(){
         return $this->imie;
     }
 
-    public function getNazwisko(){
+    function getNazwisko(){
         return $this->nazwisko;
     }
 
-    public function getMiejca(){
+    function getMiejca(){
         return $this->miejsca;
     }
 
-    public function rezerwuj($idRepertuar, $miejsca){                           //funkcja jesli ma dostep do pliku i podane miejsca nie są zajete 
-        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);     //zapisuje dane do pliku z stanem 0 czyli wstepnie zajete
+    static function rezerwuj($idRepertuar, $miejsca){   //funkcja jesli ma dostep do pliku i podane miejsca nie są zajete 
+        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);   //zapisuje dane do pliku z stanem 0 czyli wstepnie zajete
         $miejsca[] = 0;
         $k = 1;
-        $id = 0;
         foreach($rezerwacje as $r => $dane){
             if($dane[0] == $idRepertuar){
                 for($i = 0; $i < sizeof($miejsca) - 1; $i++){
@@ -58,18 +57,18 @@ class Rezerwacje{
                     if($k == 0) break;
                 }
             }
-            $id = $r + 1;
             if($k == 0) break;
         }
         if($k == 1){
             $rezerwacje[] = [$idRepertuar, $miejsca];
             $rezerwacje = json_encode($rezerwacje);
             file_put_contents("miejsca.json", $rezerwacje);
-            return $id;
+
+            return $r;
         }else return -1;
     }
 
-    public function obliczCene($cenyBiletow, $dzien){    //funkcja podaje cene rezerwacji przy podsumowaniu
+    function obliczCene($cenyBiletow, $dzien){    //funkcja podaje cene rezerwacji przy podsumowaniu
         $cena = 0.00;
         $ulgaSzkolna = $cenyBiletow->getSzkolne();
         $ulgaStudencka = $cenyBiletow->getStudenckie();
@@ -80,24 +79,27 @@ class Rezerwacje{
         return round($cena,2);
     }
 
-    public function potwierdz($id){    //funkcja zmienia stan z 0 na 1 czyli zarezerwowane 
-        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);
-        $dana = $rezerwacje[$id];
-        $rezerwacje[$id][1][sizeof($dana, 1) - 3] = 1;
-        $rezerwacje = json_encode($rezerwacje);
-        file_put_contents("miejsca.json", $rezerwacje);
+    function potwierdz($id){    //funkcja zmienia stan z 0 na 1 czyli zarezerwowane 
+        // $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);
+        // foreach($rezerwacje as $r => $dane){
+        //     if($id == $r) $dane[1][sizeof($dane, 1) - 3] = 1;
+        // }
+        // $rezerwacje = json_encode($rezerwacje);
+        // file_put_contents("miejsca.json", $rezerwacje);
 
-        // wysyla potwierdzenie udanej transakcji. Przekierowywuje do strony glownej? 
-        return TRUE;
+            //wysyla potwierdzenie udanej transakcji. Przekierowywuje do strony glownej? 
+            return TRUE;
     }
 
-    public function anuluj($id){                                                //funkcja nadaje idRepertuaru na -1 co skutkuje 
-        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);     //nie braniem tego rekordu pod uwage w przyszlosci
-        $rezerwacje[$id][0] = -1;
-        $rezerwacje = json_encode($rezerwacje);
-        file_put_contents("miejsca.json", $rezerwacje);
+    function anuluj($id){                                //funkcja nadaje idRepertuaru na -1 co skutkuje 
+        $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);   //nie braniem tego rekordu pod uwage w przyszlosci
+        foreach($rezerwacje as $r => $dane){
+            if($id == $r) $dane[0] = -1;
+        }
+            $rezerwacje = json_encode($rezerwacje);
+            file_put_contents("miejsca.json", $rezerwacje);
 
-        return TRUE;
+            return TRUE;
     }
 }
 ?>
