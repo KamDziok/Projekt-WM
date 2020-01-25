@@ -45,7 +45,7 @@ class Rezerwacje{
         $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);     //zapisuje dane do pliku z stanem 0 czyli wstepnie zajete
         $miejsca[] = 0;
         $k = 1;
-        $id = 0;
+        $r = 0;
         foreach($rezerwacje as $r => $dane){
             if($dane[0] == $idRepertuar){
                 for($i = 0; $i < sizeof($miejsca) - 1; $i++){
@@ -58,14 +58,15 @@ class Rezerwacje{
                     if($k == 0) break;
                 }
             }
-            $id = $r + 1;
+            // $id = $r;
             if($k == 0) break;
         }
         if($k == 1){
             $rezerwacje[] = [$idRepertuar, $miejsca];
             $rezerwacje = json_encode($rezerwacje);
             file_put_contents("miejsca.json", $rezerwacje);
-            return $id;
+            if(defined('r')) return $r;
+            else return 0;
         }else return -1;
     }
 
@@ -82,22 +83,25 @@ class Rezerwacje{
 
     public function potwierdz($id){    //funkcja zmienia stan z 0 na 1 czyli zarezerwowane 
         $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);
-        $dana = $rezerwacje[$id];
-        $rezerwacje[$id][1][sizeof($dana, 1) - 3] = 1;
+        foreach($rezerwacje as $r => $dane){
+            if($id == $r) $dane[1][sizeof($dane, 1) - 3] = 1;
+        }
         $rezerwacje = json_encode($rezerwacje);
         file_put_contents("miejsca.json", $rezerwacje);
 
-        // wysyla potwierdzenie udanej transakcji. Przekierowywuje do strony glownej? 
-        return TRUE;
+            // wysyla potwierdzenie udanej transakcji. Przekierowywuje do strony glownej? 
+            return TRUE;
     }
 
     public function anuluj($id){                                                //funkcja nadaje idRepertuaru na -1 co skutkuje 
         $rezerwacje = json_decode(file_get_contents("miejsca.json"), TRUE);     //nie braniem tego rekordu pod uwage w przyszlosci
-        $rezerwacje[$id][0] = -1;
-        $rezerwacje = json_encode($rezerwacje);
-        file_put_contents("miejsca.json", $rezerwacje);
+        foreach($rezerwacje as $r => $dane){
+            if($id == $r) $dane[0] = -1;
+        }
+            $rezerwacje = json_encode($rezerwacje);
+            file_put_contents("miejsca.json", $rezerwacje);
 
-        return TRUE;
+            return TRUE;
     }
 }
 ?>

@@ -17,15 +17,15 @@ class Repertuar{
         
     }
 
-    public function getName(){
+    function getName(){
         return $this->film;
     }
 
-    public function getDate(){
+    function getDate(){
         return $this->data;
     }
 
-    public function getSala(){
+    function getSala(){
         return $this->Sala;
     }
 
