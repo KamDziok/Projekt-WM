@@ -339,8 +339,8 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td>Adam Adamowicz</td>
-                        <td>1, 2</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
                             <a href="index.php" class="btn btn-success" data-toggle="modal"><span>Potwierdz</span></a>
@@ -353,8 +353,8 @@ $(document).ready(function(){
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-                        <td>test test</td>
-                        <td>45</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
                             <a href="index.php" class="btn btn-success" data-toggle="modal"><span>Potwierdz</span></a>
@@ -367,8 +367,8 @@ $(document).ready(function(){
 								<label for="checkbox3"></label>
 							</span>
 						</td>
-                       <td>Michał Marcik</td>
-                        <td>66, 32</td>
+                       <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
                             <a href="index.php" class="btn btn-success" data-toggle="modal"><span>Potwierdz</span></a>
@@ -381,8 +381,8 @@ $(document).ready(function(){
 								<label for="checkbox4"></label>
 							</span>
 						</td>
-                        <td>Rudolf Jakiś</td>
-                        <td>5, 6, 7</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
                             <a href="index.php" class="btn btn-success" data-toggle="modal"><span>Potwierdz</span></a>
@@ -395,8 +395,8 @@ $(document).ready(function(){
 								<label for="checkbox5"></label>
 							</span>
 						</td>
-                        <td>Jan Mierzwa</td>
-                        <td>30</td>
+                        <td>%DANE%</td>
+                        <td>%Miejsca%</td>
 						
                         <td>
                             <a href="index.php" class="btn btn-success" data-toggle="modal"><span>Potwierdz</span></a>

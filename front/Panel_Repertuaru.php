@@ -356,7 +356,7 @@ $(document).ready(function(){
 							 <th><?php echo($dane['data']); ?></th><td>
 							 
 							
-							 <a href="#deleteFilmModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></a></form>
+							 <input style="color:black" type="submit" name="<?php echo($dane['id_sali']); ?>" value="<?php echo($dane['id_sali']);?>" data-toggle="modal" class="delete"><i  class="material-icons" data-toggle="tooltip" title="Usuń">&#xE872;</i></input></form>
                         </td>
                     </tr>
 							 <?php 

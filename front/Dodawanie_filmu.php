@@ -336,8 +336,8 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td>Toy Story 1</td>
-                        <td>1 godz 47 min</td>
+                        <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
                             
@@ -351,8 +351,8 @@ $(document).ready(function(){
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-                        <td>Toy Story 2</td>
-                        <td>1 godz 5 min</td>
+                        <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
                             
@@ -381,8 +381,8 @@ $(document).ready(function(){
 								<label for="checkbox4"></label>
 							</span>
 						</td>
-                       <td>Tytanic</td>
-                        <td>1 godz 50 min</td>
+                       <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
                            
@@ -396,8 +396,8 @@ $(document).ready(function(){
 								<label for="checkbox5"></label>
 							</span>
 						</td>
-                        <td>Zmierzch</td>
-                        <td>2 godz 20 min</td>
+                        <td>Toy Story 3</td>
+                        <td>1 godz 20 min</td>
 						
                         <td>
                             
